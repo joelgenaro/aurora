@@ -1,3 +1,24 @@
-<app-header></app-header>
-<app-information></app-information>
-<h1>dsf</h1>
+<div class="flex flex-row">
+  <div class="w-4/7 flex flex-col">
+    <div class="flex flex-row">
+      <div class="w-1/2"></div>
+      <div class="w-1/2 flex flex-row justify-center">
+        <p class="text-sm leading-none py-5 h-4">TICKET STATUS:</p>
+        <app-select-list class="h-3"></app-select-list>
+      </div>
+    </div>
+    <div class="mt-5">
+      <app-header></app-header>
+    </div>
+    <div class="mt-4">
+      <app-information></app-information>
+    </div>
+    <div class="mt-4">
+      <app-history-one></app-history-one>
+    </div>
+    <div class="w-full mt-12 mb-3">
+      <app-select-note></app-select-note>
+    </div>
+  </div>
+  <div class="w-3/7"></div>
+</div>

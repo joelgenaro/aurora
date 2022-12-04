@@ -10,6 +10,7 @@ import { BaseListItem } from '@root/shared/models/base-list-item.model';
 })
 export class InputFieldComponent implements OnInit {
   @Input() label: string;
+  @Input() value: string;
   @Input() formControl: FormControl;
   @Input() baseListItemsList: BaseListItem[];
   @Output() onTrigger = new EventEmitter<void>();

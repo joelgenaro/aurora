@@ -7,7 +7,9 @@ import { TopbarComponent } from './components/topbar/topbar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { InformationComponent } from './components/information/information.component';
 import { SharedModule } from '@root/shared/shared.module';
-
+import { HistoryOneComponent } from './components/history-one/history-one.component';
+import { FilterInputComponent } from './components/filter-input/filter-input.component';
+import { SelectNoteComponent } from './components/select-note/select-note.component';
 
 const routes: Route[] = [
   {
@@ -21,7 +23,10 @@ const routes: Route[] = [
     CustomerServiceComponent,
     TopbarComponent,
     HeaderComponent,
-    InformationComponent
+    InformationComponent,
+    HistoryOneComponent,
+    FilterInputComponent,
+    SelectNoteComponent
   ],
   imports: [
     CommonModule,
