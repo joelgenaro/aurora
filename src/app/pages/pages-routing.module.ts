@@ -131,6 +131,13 @@ const routes: Routes = [
       ).then((m) => m.CorrespondenceManagementModule),
   },
   {
+    path: ApplicationRoutes.EntitiesControl,
+    loadChildren: () =>
+      import(
+        './entities-control/entities-control.module'
+      ).then((m) => m.EntitiesControlModule),
+  },
+  {
     path: ApplicationRoutes.PolicyRenewals,
     loadChildren: () =>
       import('./policy-renewals/policy-renewals.module').then(

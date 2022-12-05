@@ -1,0 +1,15 @@
+::ng-deep .colorflag {
+  .mat-form-field-underline {
+    display: none;
+  }
+}
+
+.bgColor {
+  background-color: #fafafa;
+}
+
+::ng-deep .widthFlag {
+  .mat-form-field {
+    width: 100%;
+  }
+}
