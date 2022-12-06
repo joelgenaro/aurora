@@ -1,0 +1,23 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+.search {
+    width: 385px;
+    height: 40px;
+}
+
+.customIconSize {
+    height: 140px;
+    width: 140px;
+}
+
+
+::ng-deep .mat-form-field-infix {
+    border-top: 0px !important;
+}
+
+
+::ng-deep .mat-toolbar-row {
+    background-color: none !important;
+}
