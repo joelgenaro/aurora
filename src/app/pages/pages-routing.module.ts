@@ -28,6 +28,34 @@ const routes: Routes = [
       ).then((m) => m.CustomerServiceModule),
   },
   {
+    path: ApplicationRoutes.CustomerServiceTicketOne,
+    loadChildren: () =>
+      import(
+        './customer-service/customer-service/customer-service.module'
+      ).then((m) => m.CustomerServiceModule),
+  },
+  {
+    path: ApplicationRoutes.CustomerServiceTicketTwo,
+    loadChildren: () =>
+      import(
+        './customer-service/customer-service/customer-service.module'
+      ).then((m) => m.CustomerServiceModule),
+  },
+  {
+    path: ApplicationRoutes.CustomerServiceTicketThree,
+    loadChildren: () =>
+      import(
+        './customer-service/customer-service/customer-service.module'
+      ).then((m) => m.CustomerServiceModule),
+  },
+  {
+    path: ApplicationRoutes.CustomerServiceTicketFour,
+    loadChildren: () =>
+      import(
+        './customer-service/customer-service/customer-service.module'
+      ).then((m) => m.CustomerServiceModule),
+  },
+  {
     path: ApplicationRoutes.InsuranceRenewals,
     loadChildren: () =>
       import(

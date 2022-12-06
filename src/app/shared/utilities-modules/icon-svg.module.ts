@@ -40,7 +40,35 @@ export class IconSvgModule {
             ).addSvgIcon(
                 'search-gray',
                 sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg-icons/search-gray.svg')
-            );
-
+            ).addSvgIcon(
+                'customer-contact-form-paperclip',
+                sanitizer.bypassSecurityTrustResourceUrl('assets/images/customer-service-icons/paperclip.svg')
+            ).addSvgIcon(
+                'customer-contact-form-mail',
+                sanitizer.bypassSecurityTrustResourceUrl('assets/images/customer-service-icons/mail.svg')
+            ).addSvgIcon(
+                'customer-contact-form-call',
+                sanitizer.bypassSecurityTrustResourceUrl('assets/images/customer-service-icons/call.svg')
+            ).addSvgIcon(
+                'customer-contact-form-audio',
+                sanitizer.bypassSecurityTrustResourceUrl('assets/images/customer-service-icons/audio.svg')
+            ).addSvgIcon(
+                'customer-service-happy-icon',
+                sanitizer.bypassSecurityTrustResourceUrl('assets/images/customer-service-icons/happy-svgrepo-c.svg')
+            ).addSvgIcon(
+                'customer-service-sad-nocolor-icon',
+                sanitizer.bypassSecurityTrustResourceUrl('assets/images/customer-service-icons/sad-nocolor.svg')
+            ).addSvgIcon(
+                'customer-service-sad-nocolor-1-icon',
+                sanitizer.bypassSecurityTrustResourceUrl('assets/images/customer-service-icons/sad-nocolor-1.svg')
+            ).addSvgIcon(
+                'customer-service-arrow-down-notes',
+                sanitizer.bypassSecurityTrustResourceUrl('assets/images/customer-service-icons/arrow-down(notes).svg')
+            )
+            .addSvgIcon(
+                'customer-service-select-down',
+                sanitizer.bypassSecurityTrustResourceUrl('assets/images/customer-service-icons/select-down.svg')
+            )
+            
     }
 }
