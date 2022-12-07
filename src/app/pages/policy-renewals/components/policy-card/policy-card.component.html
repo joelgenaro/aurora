@@ -29,7 +29,7 @@
             <mat-icon svgIcon="{{ card.customer.svg }}"></mat-icon>
           </div>
           <img
-            class="rounded-full w-[65px] h-[65px] flex items-center justify-center"
+            class="rounded-full w-[65px] h-[65px] flex items-center justify-center object-contain"
             src="{{ card.customer.photo }}"
           />
         </div>
@@ -51,12 +51,12 @@
             card.assignedClient.borderColor
           }} border-[1px] border-solid rounded-lg w-[60%] h-full"
         >
-          <span class="text-[9px]"> {{ card.assignedClient.name }} </span>
+          <span class="text-[9px] pl-1"> {{ card.assignedClient.name }} </span>
         </div>
       </div>
     </div>
     <img
-      class="rounded-full w-[45px] h-[47px] flex absolute -bottom-4 -right-2"
+      class="rounded-full w-[45px] flex absolute -bottom-4 -right-2 object-contain"
       src="{{ card.assignedClient.photo }}"
     />
   </div>
