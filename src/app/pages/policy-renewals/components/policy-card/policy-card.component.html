@@ -1,54 +1,63 @@
 <div *ngIf="card">
   <div class="flex flex-row w-[100%] h-36 rounded-md shadow-lg relative">
     <div
-      class="flex flex-col items-center relative h-full w-[10%] bg-[#FD3B31] text-[12px] text-[#FFFFFF] rounded-l-md"
+      class="flex flex-col items-center relative h-full w-[10%] {{
+        card.left.backgroundColor
+      }} text-[12px] text-[#FFFFFF] rounded-l-md"
     >
-      <div>{{ card }}</div>
-      <div>6H</div>
-      <div>10M</div>
+      <div>{{ card.left.leftD }}</div>
+      <div>{{ card.left.leftH }}</div>
+      <div>{{ card.left.leftM }}</div>
       <div class="absolute flex bottom-1 shadow-lg">
-        <mat-icon svgIcon="policy-calculator"></mat-icon>
+        <mat-icon svgIcon="{{ card.left.svg }}"></mat-icon>
       </div>
     </div>
     <div class="flex flex-col h-full w-[90%] p-0">
       <div
         class="flex justify-end items-center w-full h-[10%] mt-2 pr-4 text-[10px]"
       >
-        01:55 P.M May 16, 2022
+        {{ card.date }}
       </div>
       <div
         class="flex justify-end items-center w-full text-[#005f83] h-[5%] pr-4 pt-2 text-[7px]"
       >
-        PRF-1212431-2022
+        {{ card.prf }}
       </div>
       <div class="h-[60%] flex flex-row items-center justify-center gap-1">
         <div class="h-full w-[30%] flex relative">
           <div class="absolute flex items-start justify-start shadow-lg">
-            <mat-icon svgIcon="policy-phone"></mat-icon>
+            <mat-icon svgIcon="{{ card.customer.svg }}"></mat-icon>
           </div>
           <img
             class="rounded-full w-[65px] h-[65px] flex items-center justify-center"
-            src="../../../../../assets/images/profile.jpg"
+            src="{{ card.customer.photo }}"
           />
         </div>
         <div class="h-full w-[60%] flex flex-col items-start justify-center">
-          <span class="font-bold text-[11px]">Anonymous</span>
+          <span class="font-bold text-[11px]">{{ card.customer.name }}</span>
           <span class="text-[8px]"
-            >EIN: <span class="text-[#005f83] underline">0000213</span></span
+            >{{ card.customer.ein }}
+            <span class="text-[#005f83] underline">{{
+              card.customer.einNumber
+            }}</span></span
           >
         </div>
       </div>
       <div class="h-[25%] flex justify-start items-center flex-row w-full pb-2">
         <div
-          class="text-[#005f83] items-center justify-center shadow-lg ml-2 flex border-[#005f83] border-[1px] border-solid rounded-lg w-[50%] h-full"
+          class="{{
+            card.assignedClient.textColor
+          }} items-center justify-center shadow-lg ml-2 flex {{
+            card.assignedClient.borderColor
+          }} border-[1px] border-solid rounded-lg w-[60%] h-full"
         >
-          <span class="text-[9px]"> In Process </span>
+          <span class="text-[9px]"> {{ card.assignedClient.name }} </span>
         </div>
       </div>
     </div>
     <img
       class="rounded-full w-[45px] h-[47px] flex absolute -bottom-4 -right-2"
-      src="../../../../../assets/images/profile.jpg"
+      src="{{ card.assignedClient.photo }}"
     />
   </div>
 </div>

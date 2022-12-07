@@ -1,10 +1,24 @@
-import { PolicyCardLeft } from './policy-card-left.model';
-import { PolicyCardCustomer } from './policy-card-customer.model';
-import { PolicyCardAssignedClient } from './policy-card-assignedClient.model';
-
-export class PolicyCard {
-  left: PolicyCardLeft[];
-  customer: PolicyCardCustomer[];
-  assignedClient: PolicyCardAssignedClient[];
+export interface PolicyCard {
+  left: {
+    leftD: string;
+    leftH: string;
+    leftM: string;
+    backgroundColor: string;
+    svg: string;
+  };
+  customer: {
+    svg: string;
+    photo: string;
+    name: string;
+    ein: string;
+    einNumber: string;
+  };
+  assignedClient: {
+    name: string;
+    textColor: string;
+    borderColor: string;
+    photo: string;
+  };
   date: string;
+  prf: string;
 }

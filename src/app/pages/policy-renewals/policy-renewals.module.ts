@@ -8,11 +8,18 @@ import { PolicySortComponent } from './components/policy-sort/policy-sort.compon
 import { PolicyCardComponent } from './components/policy-card/policy-card.component';
 import { PolicyStatusComponent } from './components/policy-status/policy-status.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { ApplicationRoutes } from '@root/shared/settings/common.settings';
+import { PolicyRenewalsTwoComponent } from './policy-renewals-two/policy-renewals-two.component';
+import { PolicyFilterComponent } from './components/policy-filter/policy-filter.component';
 
 const routes: Route[] = [
   {
-    path: '',
+    path: ApplicationRoutes.Empty,
     component: PolicyRenewalsComponent,
+  },
+  {
+    path: ApplicationRoutes.PolicyRenewalsTwo,
+    component: PolicyRenewalsTwoComponent,
   },
 ];
 
@@ -22,6 +29,8 @@ const routes: Route[] = [
     PolicySortComponent,
     PolicyCardComponent,
     PolicyStatusComponent,
+    PolicyRenewalsTwoComponent,
+    PolicyFilterComponent,
   ],
   imports: [
     CommonModule,
