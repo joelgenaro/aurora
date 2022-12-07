@@ -303,12 +303,15 @@
               [ngClass]="column.alignment ?? 'justify-center'"
               *ngSwitchDefault
             >
-              <!--svg icon-->
               <mat-icon
                 *ngIf="column?.svgIcon"
                 [ngClass]="column.iconCssClass"
                 [class]="column.showText ? 'mr-2' : ''"
-                [svgIcon]="column?.svgIcon ?? null"
+                [svgIcon]="
+                  row[column.property]
+                    ? row[column.property]
+                    : column?.svgIcon ?? null
+                "
               >
               </mat-icon>
               <span

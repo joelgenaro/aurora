@@ -39,24 +39,24 @@ export class HistoryOneComponent extends BaseComponent implements OnInit, AfterV
   };
   entitiesList: TicketHistoryListItem[] = [
     {
-      Date: 'opoj',
-      employeeName: '222',
-      Response: "edit"
+      Date: '10/11/2023    10:54 A.M.',
+      employeeName: 'Mohamad El Yousaf',
+      Response: "customer-service-happy-icon"
     },
     {
-      Date: 'opoj',
-      employeeName: '222',
-      Response: "edit"
+      Date: '09/11/2023    11:12 A.M.',
+      employeeName: 'Karim Moussa',
+      Response: "customer-service-sad-nocolor-1-icon"
     },
     {
-      Date: 'opoj',
-      employeeName: '222',
-      Response: "edit"
+      Date: '08/11/2023    05:27 P.M.',
+      employeeName: 'Mohamad El Yousaf',
+      Response: "customer-service-full-sad"
     },
     {
-      Date: 'opoj',
-      employeeName: '222',
-      Response: "edit"
+      Date: '08/11/2023    05:27 P.M.',
+      employeeName: 'Mohamad El Yousaf',
+      Response: "customer-service-happy-icon"
     },
   ]
   tableColumns: TableColumn[] = [
@@ -98,7 +98,7 @@ export class HistoryOneComponent extends BaseComponent implements OnInit, AfterV
       translationKey: 'Response',
       property: 'Response',
       type: 'text',
-      svgIcon: 'edit',
+      svgIcon: 'customer-service-happy-icon',
       cssClasses: () => 'text-primary',
       dataCssClasses: () => '',
       enableSort: true,
@@ -106,7 +106,7 @@ export class HistoryOneComponent extends BaseComponent implements OnInit, AfterV
       visible: true,
       displayInFilterList: true,
       hasToolTip: false,
-      showText: true,
+      showText: false,
       filter: {
         filterType: TableColumnFilterDataType.Text
       },
@@ -137,7 +137,7 @@ export class HistoryOneComponent extends BaseComponent implements OnInit, AfterV
 
   deleteAction: TableRowAction<TicketHistoryListItem> = {
     action: (data) => this.onEntityDeleted(data),
-    cssClasses: 'text-primary',
+    cssClasses: 'text-red-500',
     iconName: 'delete',
     translationKey: '',
     alwaysShow: true,
@@ -147,7 +147,7 @@ export class HistoryOneComponent extends BaseComponent implements OnInit, AfterV
 
   lockAction: TableRowAction<TicketHistoryListItem> = {
     action: (data) => this.onEntityLocked(data),
-    cssClasses: 'text-primary',
+    cssClasses: 'text-black',
     iconName: 'lock',
     translationKey: '',
     alwaysShow: true,
@@ -171,6 +171,7 @@ export class HistoryOneComponent extends BaseComponent implements OnInit, AfterV
   ngOnInit(): void {
     this.tableConfiguration.data = this.entitiesList;
     this.tableConfiguration.dataCount = this.entitiesList.length;
+    
   }
 
   ngAfterViewInit(): void {

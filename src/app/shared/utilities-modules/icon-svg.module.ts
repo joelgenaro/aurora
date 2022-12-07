@@ -67,7 +67,15 @@ export class IconSvgModule {
             ).addSvgIcon(
                 'customer-service-select-down',
                 sanitizer.bypassSecurityTrustResourceUrl('assets/images/customer-service-icons/select-down.svg')
+            ).addSvgIcon(
+                'customer-service-full-sad',
+                sanitizer.bypassSecurityTrustResourceUrl('assets/images/customer-service-icons/sad-svgrepo-com (1).svg')
+            ).addSvgIcon(
+                'customer-service-delete-history',
+                sanitizer.bypassSecurityTrustResourceUrl('assets/images/customer-service-icons/delete.svg')
+            ).addSvgIcon(
+                'customer-service-lock-history',
+                sanitizer.bypassSecurityTrustResourceUrl('assets/images/customer-service-icons/lock-svgrepo-co.svg')
             )
-            
     }
 }
