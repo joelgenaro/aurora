@@ -11,11 +11,11 @@ import { PolicyCard } from '../components/policy-card/models/policy-card.model';
 })
 export class PolicyRenewalsTwoComponent implements OnInit {
   steps: PolicyStatus[] = [
-    { title: 'Policy Renewal Followup', color: '#d8d8d8' },
-    { title: 'In Process', color: '#3890cf' },
-    { title: 'Processed (Renewal Issued)', color: '#939393' },
-    { title: 'Renewal Approved', color: '#199e52' },
-    { title: 'Closed (No Renewal)', color: '#e7e7e7' },
+    { title: 'Policy Renewal Followup', color: 'bg-[#d8d8d8]' },
+    { title: 'In Process', color: 'bg-[#3890cf]' },
+    { title: 'Processed (Renewal Issued)', color: 'bg-[#939393]' },
+    { title: 'Renewal Approved', color: 'bg-[#199e52]' },
+    { title: 'Closed (No Renewal)', color: 'bg-[#e7e7e7]' },
   ];
 
   cards: PolicyCard[] = [];
