@@ -31,10 +31,10 @@ const routes: Route[] = [
     path: ApplicationRoutes.CustomerService,
     component: CustomerServiceComponent,
   },
-  {
-    path: ApplicationRoutes.CustomerServiceTicketOne,
-    component: CustomerServiceTicketOneComponent,
-  },
+  // {
+  //   path: ApplicationRoutes.CustomerServiceTicketOne,
+  //   component: CustomerServiceTicketOneComponent,
+  // },
   {
     path: ApplicationRoutes.CustomerServiceTicketTwo,
     component: CustomerServiceTicketTwoComponent,
