@@ -24,6 +24,7 @@ import { CustomerServiceTicketOneComponent } from './customer-service-ticket-one
 import { CustomerServiceTicketTwoComponent } from './customer-service-ticket-two/customer-service-ticket-two.component';
 import { CustomerServiceTicketThreeComponent } from './customer-service-ticket-three/customer-service-ticket-three.component';
 import { CustomerServiceTicketFourComponent } from './customer-service-ticket-four/customer-service-ticket-four.component';
+import { RightSideBarComponent } from './components/right-side-bar/right-side-bar.component';
 
 const routes: Route[] = [
   {
@@ -68,6 +69,7 @@ const routes: Route[] = [
     CustomerServiceTicketTwoComponent,
     CustomerServiceTicketThreeComponent,
     CustomerServiceTicketFourComponent,
+    RightSideBarComponent,
   ],
   imports: [
     CommonModule,

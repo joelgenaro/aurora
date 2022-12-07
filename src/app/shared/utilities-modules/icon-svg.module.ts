@@ -64,8 +64,7 @@ export class IconSvgModule {
             ).addSvgIcon(
                 'customer-service-arrow-down-notes',
                 sanitizer.bypassSecurityTrustResourceUrl('assets/images/customer-service-icons/arrow-down(notes).svg')
-            )
-            .addSvgIcon(
+            ).addSvgIcon(
                 'customer-service-select-down',
                 sanitizer.bypassSecurityTrustResourceUrl('assets/images/customer-service-icons/select-down.svg')
             )
