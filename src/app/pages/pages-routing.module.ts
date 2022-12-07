@@ -144,6 +144,13 @@ const routes: Routes = [
         (m) => m.PolicyRenewalsModule
       ),
   },
+  {
+    path: ApplicationRoutes.PolicyRenewalsTwo,
+    loadChildren: () =>
+      import('./policy-renewals/policy-renewals.module').then(
+        (m) => m.PolicyRenewalsModule
+      ),
+  },
 ];
 
 @NgModule({

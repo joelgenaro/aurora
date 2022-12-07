@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss'],
+  selector: 'app-policy-filter',
+  templateUrl: './policy-filter.component.html',
+  styleUrls: ['./policy-filter.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CardComponent implements OnInit {
+export class PolicyFilterComponent implements OnInit {
 
   constructor() { }
 

@@ -1,15 +1,15 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { PolicyStatus } from '../policy-status/models/policy-status.model';
-import { PolicyCardService } from '../../services/policy-card.service';
-import { PolicyCard } from '../policy-card/models/policy-card.model';
+import { PolicyStatus } from '../components/policy-status/models/policy-status.model';
+import { PolicyCardService } from '../services/policy-card.service';
+import { PolicyCard } from '../components/policy-card/models/policy-card.model';
 
 @Component({
-  selector: 'app-policy-renewals',
-  templateUrl: './policy-renewals.component.html',
-  styleUrls: ['./policy-renewals.component.scss'],
+  selector: 'app-policy-renewals-two',
+  templateUrl: './policy-renewals-two.component.html',
+  styleUrls: ['./policy-renewals-two.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PolicyRenewalsComponent implements OnInit {
+export class PolicyRenewalsTwoComponent implements OnInit {
   steps: PolicyStatus[] = [
     { title: 'Policy Renewal Followup', color: 'bg-[#d8d8d8]' },
     { title: 'In Process', color: 'bg-[#3890cf]' },

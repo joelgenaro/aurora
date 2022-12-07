@@ -24,5 +24,6 @@ export const enum ApplicationRoutes {
   ActivityLog = 'activity-log',
   CorrespondenceManagement = 'correspondence-management',
   PolicyRenewals = 'policy-renewals',
-  EntitiesControl = 'entities-control'
+  EntitiesControl = 'entities-control',
+  PolicyRenewalsTwo = 'policy-renewals-two',
 }

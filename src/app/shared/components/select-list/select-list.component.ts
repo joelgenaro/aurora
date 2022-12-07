@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { BaseListItem } from '@root/shared/models/base-list-item.model';
 
@@ -14,15 +19,14 @@ export class SelectListComponent implements OnInit {
   @Input() formControl: FormControl;
   @Input() isMultiple = false;
 
-  @Input() optionsList: BaseListItem[] = [{
-    id: '1',
-    name: '1111111'
-  }];
+  @Input() optionsList: BaseListItem[] = [
+    {
+      id: '1',
+      name: '1111111',
+    },
+  ];
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

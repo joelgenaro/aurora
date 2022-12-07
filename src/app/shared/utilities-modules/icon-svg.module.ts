@@ -3,8 +3,8 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @NgModule({
-    declarations: [],
-    exports: [],
+  declarations: [],
+  exports: [],
 })
 export class IconSvgModule {
     constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
@@ -76,6 +76,31 @@ export class IconSvgModule {
             ).addSvgIcon(
                 'customer-service-lock-history',
                 sanitizer.bypassSecurityTrustResourceUrl('assets/images/customer-service-icons/lock-svgrepo-co.svg')
-            )
+            ).addSvgIcon(
+              'policy-filter',
+              sanitizer.bypassSecurityTrustResourceUrl(
+                'assets/images/policy-svg-icons/filter.svg'
+              )
+            ).addSvgIcon(
+              'policy-box',
+              sanitizer.bypassSecurityTrustResourceUrl(
+                'assets/images/policy-svg-icons/box.svg'
+              )
+            ).addSvgIcon(
+              'policy-phone',
+              sanitizer.bypassSecurityTrustResourceUrl(
+                'assets/images/policy-svg-icons/phone.svg'
+              )
+            ).addSvgIcon(
+              'policy-alert',
+              sanitizer.bypassSecurityTrustResourceUrl(
+                'assets/images/policy-svg-icons/alert.svg'
+              )
+            ).addSvgIcon(
+              'policy-calculator',
+              sanitizer.bypassSecurityTrustResourceUrl(
+                'assets/images/policy-svg-icons/calculator.svg'
+              )
+            );
     }
 }
