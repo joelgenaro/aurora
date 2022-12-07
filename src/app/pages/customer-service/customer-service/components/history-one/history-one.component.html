@@ -1,0 +1,16 @@
+<div class="flex flex-col justify-center rounded-md shadow-md bg-white px-9">
+  <div class="flex justify-center w-full relative h-20">
+    <p class="pt-5 text-primary text-lg">Follow-Up History</p>
+    <button
+      class="rounded-md text-xs p-3 text-white bg-primary absolute right-6 top-3"
+    >
+      Add Communication
+    </button>
+  </div>
+  <div class="mt-10 pb-8">
+    <app-widget-table
+      [tableConfiguration]="tableConfiguration"
+    ></app-widget-table>
+  </div>
+  <app-date-picker-input value="2011/04/02"></app-date-picker-input>
+</div>

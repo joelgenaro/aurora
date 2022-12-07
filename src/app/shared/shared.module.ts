@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import { CardComponent } from './components/card/card.component';
 import { CardItemComponent } from './components/card-item/card-item.component';
 import { ButtonComponent } from './components/button/button.component';
@@ -29,7 +30,8 @@ import { DialogHeaderComponent } from './components/dialog-header/dialog-header.
 import { TranslateModule } from '@ngx-translate/core';
 import { SelectListWithChipsComponent } from './components/select-list-with-chips/select-list-with-chips.component';
 import { MatChipsModule } from '@angular/material/chips';
-
+import { DatePickerInputComponent } from './components/date-picker-input/date-picker-input.component';
+import { MatNativeDateModule } from '@angular/material/core';
 @NgModule({
     declarations: [
         CardItemComponent,
@@ -40,7 +42,8 @@ import { MatChipsModule } from '@angular/material/chips';
         WidgetTableComponent,
         BaseComponent,
         DialogHeaderComponent,
-        SelectListWithChipsComponent
+        SelectListWithChipsComponent,
+        DatePickerInputComponent
     ],
     imports: [
         MatAutocompleteModule,
@@ -51,6 +54,7 @@ import { MatChipsModule } from '@angular/material/chips';
         MatMenuModule,
         MatIconModule,
         MatTooltipModule,
+        MatDatepickerModule,
         IconSvgModule,
         CommonModule,
         TableModule,
@@ -59,6 +63,7 @@ import { MatChipsModule } from '@angular/material/chips';
         SliderModule,
         PaginatorModule,
         InputTextModule,
+        MatNativeDateModule,
         ButtonModule,
         FormsModule,
         TranslateModule,
@@ -72,6 +77,7 @@ import { MatChipsModule } from '@angular/material/chips';
         InputFieldComponent,
         SelectListComponent,
         WidgetTableComponent,
+        DatePickerInputComponent,
         BaseComponent,
         TranslateModule,
         AutomaticFormValidationModule,
