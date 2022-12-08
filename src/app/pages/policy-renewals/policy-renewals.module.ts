@@ -11,7 +11,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { ApplicationRoutes } from '@root/shared/settings/common.settings';
 import { PolicyFilterComponent } from './components/policy-filter/policy-filter.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-
+import {MatSidenavModule} from '@angular/material/sidenav';
 const routes: Route[] = [
   {
     path: ApplicationRoutes.Empty,
@@ -34,6 +34,7 @@ const routes: Route[] = [
     MatToolbarModule,
     DragDropModule,
     RouterModule.forChild(routes),
+    MatSidenavModule
   ],
 })
 export class PolicyRenewalsModule {}
