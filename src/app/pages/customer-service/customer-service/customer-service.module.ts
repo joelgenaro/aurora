@@ -29,12 +29,8 @@ import { RightSideBarComponent } from './components/right-side-bar/right-side-ba
 const routes: Route[] = [
   {
     path: ApplicationRoutes.CustomerService,
-    component: CustomerServiceComponent,
+    component: CustomerServiceTicketOneComponent,
   },
-  // {
-  //   path: ApplicationRoutes.CustomerServiceTicketOne,
-  //   component: CustomerServiceTicketOneComponent,
-  // },
   {
     path: ApplicationRoutes.CustomerServiceTicketTwo,
     component: CustomerServiceTicketTwoComponent,
@@ -77,7 +73,7 @@ const routes: Route[] = [
     MatIconModule,
     MatSidenavModule,
     EntitiesControlModule,
-    RouterModule.forChild(routes)
-  ]
+    RouterModule.forChild(routes),
+  ],
 })
-export class CustomerServiceModule { }
+export class CustomerServiceModule {}
