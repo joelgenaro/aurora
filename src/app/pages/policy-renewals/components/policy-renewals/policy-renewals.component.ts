@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { PolicyStatus } from '../policy-status/models/policy-status.model';
 import { PolicyCardService } from '../../services/policy-card.service';
 import { PolicyCard } from '../policy-card/models/policy-card.model';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-policy-renewals',
@@ -18,7 +19,11 @@ export class PolicyRenewalsComponent implements OnInit {
     { title: 'Closed (No Renewal)', color: 'bg-[#e7e7e7]' },
   ];
 
-  cards: PolicyCard[] = [];
+  followUpCards: PolicyCard[] = [];
+  inProcessCards: PolicyCard[] = [];
+  processedCards: PolicyCard[] = [];
+  approvedCards: PolicyCard[] = [];
+  closedCards: PolicyCard[] = [];
 
   constructor(private policyCardService: PolicyCardService) {}
 
@@ -28,7 +33,33 @@ export class PolicyRenewalsComponent implements OnInit {
 
   getCards(): void {
     this.policyCardService
-      .getCards()
-      .subscribe((cards) => (this.cards = cards));
+      .getFolllowUpCards()
+      .subscribe(cards => this.followUpCards = cards);
+    this.policyCardService
+      .getInProcessCards()
+      .subscribe(cards => this.inProcessCards = cards);
+    this.policyCardService
+      .getProcessedCards()
+      .subscribe(cards => this.processedCards = cards);
+    this.policyCardService
+      .getApprovedCards()
+      .subscribe(cards => this.approvedCards = cards);
+    this.policyCardService
+      .getClosedCards()
+      .subscribe(cards => this.closedCards = cards);
+  }
+
+  drop(event: CdkDragDrop<PolicyCard[]>) {
+    console.log(event);
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex,
+      );
+    }
   }
 }
