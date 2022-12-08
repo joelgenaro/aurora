@@ -9,17 +9,13 @@ import { PolicyCardComponent } from './components/policy-card/policy-card.compon
 import { PolicyStatusComponent } from './components/policy-status/policy-status.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ApplicationRoutes } from '@root/shared/settings/common.settings';
-import { PolicyRenewalsTwoComponent } from './policy-renewals-two/policy-renewals-two.component';
 import { PolicyFilterComponent } from './components/policy-filter/policy-filter.component';
-
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import {MatSidenavModule} from '@angular/material/sidenav';
 const routes: Route[] = [
   {
     path: ApplicationRoutes.Empty,
     component: PolicyRenewalsComponent,
-  },
-  {
-    path: ApplicationRoutes.PolicyRenewalsTwo,
-    component: PolicyRenewalsTwoComponent,
   },
 ];
 
@@ -29,7 +25,6 @@ const routes: Route[] = [
     PolicySortComponent,
     PolicyCardComponent,
     PolicyStatusComponent,
-    PolicyRenewalsTwoComponent,
     PolicyFilterComponent,
   ],
   imports: [
@@ -37,7 +32,9 @@ const routes: Route[] = [
     SharedModule,
     MatIconModule,
     MatToolbarModule,
+    DragDropModule,
     RouterModule.forChild(routes),
+    MatSidenavModule
   ],
 })
 export class PolicyRenewalsModule {}
