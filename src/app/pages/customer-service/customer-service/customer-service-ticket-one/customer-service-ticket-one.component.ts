@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {MatDialogRef} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-customer-service-ticket-one',
@@ -8,9 +9,13 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 })
 export class CustomerServiceTicketOneComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<CustomerServiceTicketOneComponent>,) { }
 
   ngOnInit(): void {
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
 }

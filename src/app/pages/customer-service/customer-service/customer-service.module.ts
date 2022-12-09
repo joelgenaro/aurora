@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { ApplicationRoutes } from '@root/shared/settings/common.settings';
 import { CustomerServiceComponent } from './components/customer-service/customer-service.component';
 import { TopbarComponent } from './components/topbar/topbar.component';
@@ -73,6 +74,7 @@ const routes: Route[] = [
     MatIconModule,
     MatSidenavModule,
     EntitiesControlModule,
+    CdkAccordionModule,
     RouterModule.forChild(routes),
   ],
 })

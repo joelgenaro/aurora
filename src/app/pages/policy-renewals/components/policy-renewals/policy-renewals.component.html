@@ -2,7 +2,7 @@
   <div class="h-[10%] flex justify-end">
     <div class="flex items-center gap-12">
       <div
-        class="search flex items-cente r bloc border-[1px] text-[#676767] border-[#00000029] border-solid rounded-2xl gap-4 text-sm pr-4 pl-4 text-primary"
+        class="search flex items-center bloc border-[1px] text-[#676767] border-[#00000029] border-solid rounded-2xl gap-4 text-sm pr-4 pl-4 text-primary"
       >
         <mat-icon>search</mat-icon>
         <input
@@ -42,6 +42,7 @@
     class="flex flex-row w-[100%] h-[90%] overflow-y-auto overflow-x-hidden"
     cdkDropListGroup
   >
+    <!-- <mat-sidenav-content> -->
     <div
       class="w-1/5 flex flex-col justify-start gap-y-5 p-5"
       cdkDropList
@@ -51,7 +52,11 @@
       <app-policy-status [step]="steps[3]"></app-policy-status>
       <app-policy-sort></app-policy-sort>
       <div class="flex justify-center" *ngFor="let card of followUpCards">
-        <app-policy-card [card]="card" cdkDrag></app-policy-card>
+        <app-policy-card
+          [card]="card"
+          (click)="openDialog()"
+          cdkDrag
+        ></app-policy-card>
       </div>
     </div>
 
@@ -64,7 +69,11 @@
       <app-policy-status [step]="steps[3]"></app-policy-status>
       <app-policy-sort></app-policy-sort>
       <div class="flex justify-center" *ngFor="let card of inProcessCards">
-        <app-policy-card [card]="card" cdkDrag></app-policy-card>
+        <app-policy-card
+          [card]="card"
+          (click)="openDialog()"
+          cdkDrag
+        ></app-policy-card>
       </div>
     </div>
 
@@ -81,7 +90,7 @@
         *ngFor="let card of processedCards"
         cdkDrag
       >
-        <app-policy-card [card]="card"></app-policy-card>
+        <app-policy-card [card]="card" (click)="openDialog()"></app-policy-card>
       </div>
     </div>
 
@@ -94,7 +103,11 @@
       <app-policy-status [step]="steps[3]"></app-policy-status>
       <app-policy-sort></app-policy-sort>
       <div class="flex justify-center" *ngFor="let card of approvedCards">
-        <app-policy-card [card]="card" cdkDrag></app-policy-card>
+        <app-policy-card
+          [card]="card"
+          (click)="openDialog()"
+          cdkDrag
+        ></app-policy-card>
       </div>
     </div>
 
@@ -107,17 +120,11 @@
       <app-policy-status [step]="steps[4]" cdkDrag></app-policy-status>
       <app-policy-sort></app-policy-sort>
       <div class="flex justify-center" *ngFor="let card of closedCards">
-        <app-policy-card [card]="card"></app-policy-card>
+        <app-policy-card (click)="openDialog()" [card]="card"></app-policy-card>
       </div>
     </div>
-  </div>
-  <app-policy-filter></app-policy-filter>
-</div>
-
-<mat-drawer-container>
-  <mat-drawer>
-    <div class="absolute right-0 top-0">
+    <div class="absolute h-[100%] right-0 top-0">
       <app-policy-filter></app-policy-filter>
     </div>
-  </mat-drawer>
-</mat-drawer-container>
+  </div>
+</div>
