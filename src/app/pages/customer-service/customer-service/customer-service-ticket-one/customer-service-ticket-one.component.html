@@ -63,18 +63,19 @@
                 [attr.aria-labelledby]="'accordion-header-0'"
               ></div>
             </cdk-accordion-item>
-            <cdk-accordion-item
-              #accordionItem1="cdkAccordionItem"
-              role="button"
-              tabindex="1"
-              [attr.id]="'accordion-header-1'"
-              [attr.aria-expanded]="accordionItem1.expanded"
-              [attr.aria-controls]="'accordion-body-1'"
-            >
-              <div class="mt-5 shadow-md bg-white">
+
+            <div class="mt-5 shadow-md bg-white">
+              <cdk-accordion-item
+                #accordionItem1="cdkAccordionItem"
+                role="button"
+                tabindex="1"
+                [attr.id]="'accordion-header-1'"
+                [attr.aria-expanded]="accordionItem1.expanded"
+                [attr.aria-controls]="'accordion-body-1'"
+              >
                 <p
                   (click)="accordionItem1.toggle()"
-                  class="flex justify-center items-center text-lg pt-5 pb-5 text-primary"
+                  class="flex justify-center items-center text-lg pt-5 pb-5 text-primary w-full"
                 >
                   Policy Information
                 </p>
@@ -87,22 +88,27 @@
                 >
                   <app-information></app-information>
                 </div>
-              </div>
-            </cdk-accordion-item>
-            <cdk-accordion-item
-              #accordionItem2="cdkAccordionItem"
-              role="button"
-              tabindex="2"
-              [attr.id]="'accordion-header-2'"
-              [attr.aria-expanded]="accordionItem2.expanded"
-              [attr.aria-controls]="'accordion-body-2'"
+              </cdk-accordion-item>
+            </div>
+
+            <div
+              class="flex flex-col justify-center rounded-md shadow-md bg-white px-9 mt-5"
             >
-              <div
-                class="flex flex-col justify-center rounded-md shadow-md bg-white px-9 mt-5"
-                (click)="accordionItem2.toggle()"
+              <cdk-accordion-item
+                #accordionItem2="cdkAccordionItem"
+                role="button"
+                tabindex="2"
+                [attr.id]="'accordion-header-2'"
+                [attr.aria-expanded]="accordionItem2.expanded"
+                [attr.aria-controls]="'accordion-body-2'"
               >
                 <div class="flex justify-center w-full relative h-20">
-                  <p class="pt-5 text-primary text-lg">Follow-Up History</p>
+                  <p
+                    class="pt-5 text-primary text-lg"
+                    (click)="accordionItem2.toggle()"
+                  >
+                    Follow-Up History
+                  </p>
                   <div
                     role="region"
                     [style.display]="accordionItem2.expanded ? '' : 'none'"
@@ -124,8 +130,8 @@
                 >
                   <app-history-one></app-history-one>
                 </div>
-              </div>
-            </cdk-accordion-item>
+              </cdk-accordion-item>
+            </div>
           </cdk-accordion>
           <div class="w-full mt-5 mb-3">
             <app-select-note></app-select-note>
@@ -145,5 +151,3 @@
     </div>
   </div>
 </div>
-
-<!-- <app-entities-control></app-entities-control> -->

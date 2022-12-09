@@ -48,3 +48,7 @@
                 0 3px 14px 2px rgba(0, 0, 0, 0.12);
   }
   
+
+::ng-deep .mat-form-field-wrapper {
+    width: 100% !important;
+}
