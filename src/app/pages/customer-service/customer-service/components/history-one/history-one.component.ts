@@ -171,7 +171,6 @@ export class HistoryOneComponent extends BaseComponent implements OnInit, AfterV
   ngOnInit(): void {
     this.tableConfiguration.data = this.entitiesList;
     this.tableConfiguration.dataCount = this.entitiesList.length;
-    
   }
 
   ngAfterViewInit(): void {
