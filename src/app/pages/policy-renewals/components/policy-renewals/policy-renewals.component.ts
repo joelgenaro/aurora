@@ -39,7 +39,6 @@ export class PolicyRenewalsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCards();
-    // this.openDialog();
   }
 
   getCards(): void {
