@@ -29,7 +29,7 @@ export class HistoryOneComponent extends BaseComponent implements OnInit, AfterV
     { id: '1', name: 'type2' }
   ];
   happyIcon: TableRowAction<TicketHistoryListItem> = {
-    action: (data) => this.onEntityEdited(data),
+    action: (data) => this.onTicketEdited(data),
     cssClasses: 'text-primary',
     iconName: 'edit',
     translationKey: '',
@@ -116,7 +116,7 @@ export class HistoryOneComponent extends BaseComponent implements OnInit, AfterV
 
  
   editAction: TableRowAction<TicketHistoryListItem> = {
-    action: (data) => this.onEntityEdited(data),
+    action: (data) => this.onTicketEdited(data),
     cssClasses: 'text-primary',
     iconName: 'edit',
     translationKey: '',
@@ -126,7 +126,7 @@ export class HistoryOneComponent extends BaseComponent implements OnInit, AfterV
   };
 
   viewAction: TableRowAction<TicketHistoryListItem> = {
-    action: (data) => this.onEntityViewed(data),
+    action: (data) => this.onTicketViewed(data),
     cssClasses: 'text-primary',
     iconName: 'visibility',
     translationKey: '',
@@ -136,7 +136,7 @@ export class HistoryOneComponent extends BaseComponent implements OnInit, AfterV
   };
 
   deleteAction: TableRowAction<TicketHistoryListItem> = {
-    action: (data) => this.onEntityDeleted(data),
+    action: (data) => this.onTicketDeleted(data),
     cssClasses: 'text-red-500',
     iconName: 'delete',
     translationKey: '',
@@ -146,7 +146,7 @@ export class HistoryOneComponent extends BaseComponent implements OnInit, AfterV
   };
 
   lockAction: TableRowAction<TicketHistoryListItem> = {
-    action: (data) => this.onEntityLocked(data),
+    action: (data) => this.onTicketLocked(data),
     cssClasses: 'text-black',
     iconName: 'lock',
     translationKey: '',
@@ -178,19 +178,19 @@ export class HistoryOneComponent extends BaseComponent implements OnInit, AfterV
     this.table.refresh();
   }
 
-  onEntityEdited(_category: TicketHistoryListItem) {
+  onTicketEdited(_category: TicketHistoryListItem) {
     
   }
 
-  onEntityViewed(_category: TicketHistoryListItem) {
+  onTicketViewed(_category: TicketHistoryListItem) {
 
   }
 
-  onEntityDeleted(_category: TicketHistoryListItem) {
+  onTicketDeleted(_category: TicketHistoryListItem) {
 
   }
 
-  onEntityLocked(_category: TicketHistoryListItem) {
+  onTicketLocked(_category: TicketHistoryListItem) {
   
   }
 }

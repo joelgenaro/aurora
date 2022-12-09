@@ -3,6 +3,8 @@ import { PolicyStatus } from '../policy-status/models/policy-status.model';
 import { PolicyCardService } from '../../services/policy-card.service';
 import { PolicyCard } from '../policy-card/models/policy-card.model';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import {MatDialog} from '@angular/material/dialog';
+import { CustomerServiceTicketOneComponent } from '../../../customer-service/customer-service/customer-service-ticket-one/customer-service-ticket-one.component'
 
 @Component({
   selector: 'app-policy-renewals',
@@ -25,10 +27,19 @@ export class PolicyRenewalsComponent implements OnInit {
   approvedCards: PolicyCard[] = [];
   closedCards: PolicyCard[] = [];
 
-  constructor(private policyCardService: PolicyCardService) {}
+  constructor(private policyCardService: PolicyCardService, public dialog: MatDialog) {}
+
+  openDialog(): void {
+    this.dialog.open(CustomerServiceTicketOneComponent, {
+      height: '90%',
+      width: '90%',
+    }
+    );
+  }
 
   ngOnInit(): void {
     this.getCards();
+    // this.openDialog();
   }
 
   getCards(): void {
@@ -63,3 +74,4 @@ export class PolicyRenewalsComponent implements OnInit {
     }
   }
 }
+
