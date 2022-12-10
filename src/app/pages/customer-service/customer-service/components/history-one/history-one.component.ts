@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, ViewChild, AfterViewInit } from '@angular/core';
-// import { MatDialog } from '@angular/material/dialog';
+// import { Output, EventEmitter } from '@angular/core';
 import { BaseComponent } from '@root/shared/components/base-component/base-component';
 import { WidgetTableComponent } from '@root/shared/components/widget-table/widget-table.component';
 import { BaseListItem } from '@root/shared/models/base-list-item.model';
@@ -18,7 +18,7 @@ import { TicketHistoryListItem } from '../../models/ticket-history-list-item.mod
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HistoryOneComponent extends BaseComponent implements OnInit, AfterViewInit {
-
+  // @Output() NextPageEvent = new EventEmitter<boolean>();
   @ViewChild(WidgetTableComponent)
   table: WidgetTableComponent<TicketHistoryListItem>;
   pageSize = 3;
@@ -178,7 +178,7 @@ export class HistoryOneComponent extends BaseComponent implements OnInit, AfterV
   }
 
   onTicketEdited(_category: TicketHistoryListItem) {
-    console.log('aaa');
+    // this.NextPageEvent.emit(true);
   }
 
   onTicketViewed(_category: TicketHistoryListItem) {
