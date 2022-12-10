@@ -128,13 +128,14 @@
         [cdkDropListData]="closedCards"
         (cdkDropListDropped)="drop($event)"
       >
-        <app-policy-status [step]="steps[4]" cdkDrag></app-policy-status>
+        <app-policy-status [step]="steps[4]"></app-policy-status>
         <app-policy-sort></app-policy-sort>
         <div class="flex justify-center" *ngFor="let card of closedCards">
           <app-policy-card
             class="w-[100%]"
             (click)="openDialog()"
             [card]="card"
+            cdkDrag
           ></app-policy-card>
         </div>
       </div>
