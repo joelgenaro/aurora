@@ -75,7 +75,7 @@
               >
                 <p
                   (click)="accordionItem1.toggle()"
-                  class="flex justify-center items-center text-lg pt-5 pb-5 text-primary w-full"
+                  class="flex justify-center items-center text-lg h-20 text-primary w-full"
                 >
                   Policy Information
                 </p>
@@ -132,10 +132,28 @@
                 </div>
               </cdk-accordion-item>
             </div>
+            <div class="mt-5 mb-3">
+              <cdk-accordion-item
+                #accordionItem3="cdkAccordionItem"
+                role="button"
+                tabindex="0"
+                [attr.id]="'accordion-header-0'"
+                [attr.aria-expanded]="accordionItem3.expanded"
+                [attr.aria-controls]="'accordion-body-0'"
+              >
+                <app-select-note
+                  (click)="accordionItem3.toggle()"
+                ></app-select-note>
+                <div
+                  class="mt-5 shadow-md bg-white"
+                  role="region"
+                  [style.display]="accordionItem3.expanded ? '' : 'none'"
+                  [attr.id]="'accordion-body-0'"
+                  [attr.aria-labelledby]="'accordion-header-0'"
+                ></div>
+              </cdk-accordion-item>
+            </div>
           </cdk-accordion>
-          <div class="w-full mt-5 mb-3">
-            <app-select-note></app-select-note>
-          </div>
         </div>
         <div class="w-[43%] pl-4">
           <div class="flex flex-col h-[80vh] w-[100%]">
