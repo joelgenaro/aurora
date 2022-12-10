@@ -8,7 +8,7 @@ import {
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
 import { MatDialog } from '@angular/material/dialog';
-import { CustomerServiceTicketOneComponent } from '../../../customer-service/customer-service/customer-service-ticket-one/customer-service-ticket-one.component';
+import { CustomerServiceTicketOneComponent } from '../../../customer-service/customer-service-ticket-one/customer-service-ticket-one.component';
 
 @Component({
   selector: 'app-policy-renewals',
