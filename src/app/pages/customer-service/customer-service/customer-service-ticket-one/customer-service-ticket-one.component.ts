@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import {MatDialogRef} from '@angular/material/dialog';
+import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
+import { HistoryOneComponent } from '../components/history-one/history-one.component';
 
 @Component({
   selector: 'app-customer-service-ticket-one',
@@ -8,14 +9,18 @@ import {MatDialogRef} from '@angular/material/dialog';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CustomerServiceTicketOneComponent implements OnInit {
+  @ViewChild(HistoryOneComponent)
+  page_event: string = 'first';
 
   constructor(public dialogRef: MatDialogRef<CustomerServiceTicketOneComponent>,) { }
 
   ngOnInit(): void {
   }
 
-  // onNoClick(): void {
-  //   this.dialogRef.close();
-  // }
+  pageEvent(event: string) {
+    console.log(event);
+    this.page_event = event;
+    console.log(this.page_event );
+  }
 
 }

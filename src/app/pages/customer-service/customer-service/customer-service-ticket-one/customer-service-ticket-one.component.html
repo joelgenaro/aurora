@@ -116,14 +116,17 @@
                     [attr.aria-labelledby]="'accordion-header-2'"
                   >
                     <button
-                      class="rounded-md text-xs p-3 text-white bg-primary absolute right-6 top-3"
+                      class="rounded-md text-xs p-3 text-white bg-primary absolute right-6 mt-3"
                     >
                       Add Communication
                     </button>
                   </div>
                 </div>
                 <div class="hidden">
-                  <app-history-one></app-history-one>
+                  <app-history-one
+                    [pageFlag]="page_event"
+                    (NextPageEvent)="pageEvent($event)"
+                  ></app-history-one>
                 </div>
                 <div
                   role="region"
