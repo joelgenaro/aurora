@@ -9,7 +9,6 @@ export const enum ApplicationRoutes {
   CustomerServiceTicketTwo = 'customer-service-ticket-two',
   CustomerServiceTicketThree = 'customer-service-ticket-three',
   CustomerServiceTicketFour = 'customer-service-ticket-four',
-  InsuranceRenewals = 'insurance-renewals',
   ProductManagement = 'product-management',
   TreatyManagement = 'treaty-management',
   GeneralInsuranceUnderwriting = 'general-insurance-underwriting',
@@ -25,5 +24,4 @@ export const enum ApplicationRoutes {
   CorrespondenceManagement = 'correspondence-management',
   PolicyRenewals = 'policy-renewals',
   EntitiesControl = 'entities-control',
-  PolicyRenewalsTwo = 'policy-renewals-two',
 }

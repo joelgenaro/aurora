@@ -28,13 +28,6 @@ const routes: Routes = [
       ).then((m) => m.CustomerServiceModule),
   },
   {
-    path: ApplicationRoutes.InsuranceRenewals,
-    loadChildren: () =>
-      import(
-        './customer-service/insurance-renewals/insurance-renewals.module'
-      ).then((m) => m.InsuranceRenewalsModule),
-  },
-  {
     path: ApplicationRoutes.ProductManagement,
     loadChildren: () =>
       import('./management/product-management/product-management.module').then(
@@ -133,21 +126,14 @@ const routes: Routes = [
   {
     path: ApplicationRoutes.EntitiesControl,
     loadChildren: () =>
-      import(
-        './entities-control/entities-control.module'
-      ).then((m) => m.EntitiesControlModule),
+      import('./entities-control/entities-control.module').then(
+        (m) => m.EntitiesControlModule
+      ),
   },
   {
     path: ApplicationRoutes.PolicyRenewals,
     loadChildren: () =>
-      import('./policy-renewals/policy-renewals.module').then(
-        (m) => m.PolicyRenewalsModule
-      ),
-  },
-  {
-    path: ApplicationRoutes.PolicyRenewalsTwo,
-    loadChildren: () =>
-      import('./policy-renewals/policy-renewals.module').then(
+      import('./customer-service/policy-renewals/policy-renewals.module').then(
         (m) => m.PolicyRenewalsModule
       ),
   },
