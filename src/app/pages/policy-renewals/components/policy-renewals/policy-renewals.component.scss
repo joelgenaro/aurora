@@ -52,3 +52,15 @@
 ::ng-deep .mat-form-field-wrapper {
     width: 100% !important;
 }
+
+mat-drawer-content {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  ::ng-deep  .mat-drawer-content {
+overflow-x: hidden;
+overflow-y: auto;   
+}

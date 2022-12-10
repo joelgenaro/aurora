@@ -1,4 +1,10 @@
-<div class="h-full bg-[#ffffff] p-4 pb-0">
+<div class="h-full bg-[#ffffff]">
+  <mat-drawer #policyFilterDrawer position="end"
+    ><app-policy-filter
+      [policyFilterDrawer]="policyFilterDrawer"
+    ></app-policy-filter
+  ></mat-drawer>
+
   <mat-drawer-container>
     <div class="h-[10%] flex justify-end">
       <div class="flex items-center gap-12">
@@ -12,7 +18,7 @@
             placeholder="Search CST Number or Client Info"
           />
           <mat-icon
-            (toggle)="drawer.toggle()"
+            (click)="policyFilterDrawer.toggle()"
             svgIcon="policy-filter"
           ></mat-icon>
           <mat-icon>cancel</mat-icon>
