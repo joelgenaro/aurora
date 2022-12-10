@@ -178,7 +178,7 @@ export class HistoryOneComponent extends BaseComponent implements OnInit, AfterV
   }
 
   onTicketEdited(_category: TicketHistoryListItem) {
-    console.log('aaa')
+    console.log('aaa');
   }
 
   onTicketViewed(_category: TicketHistoryListItem) {
