@@ -179,6 +179,7 @@ export class HistoryOneComponent extends BaseComponent implements OnInit, AfterV
 
   onTicketEdited(_category: TicketHistoryListItem) {
     this.NextPageEvent.emit(true);
+    console.log(true);
   }
 
   onTicketViewed(_category: TicketHistoryListItem) {
