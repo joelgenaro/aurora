@@ -8,10 +8,20 @@ import {MatDialogRef} from '@angular/material/dialog';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PolicyRenewalsCustomerServiceTicketComponent implements OnInit {
-
+  pageFlag: string = 'first';
   constructor(public dialogRef: MatDialogRef<PolicyRenewalsCustomerServiceTicketComponent>,) { }
 
   ngOnInit(): void {
+
+
+  }
+
+  nextPage() {
+    this.pageFlag = 'next';
+  }
+
+  backToFirstPage() {
+    this.pageFlag = 'first';
   }
 
 }
