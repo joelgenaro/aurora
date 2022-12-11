@@ -116,6 +116,7 @@
                     [attr.aria-labelledby]="'accordion-header-2'"
                   >
                     <button
+                    (click)="nextPage()"
                       class="rounded-md text-xs p-3 text-white bg-primary absolute right-6 top-3"
                     >
                       Add Communication
@@ -130,8 +131,14 @@
                   [style.display]="accordionItem2.expanded ? '' : 'none'"
                   [attr.id]="'accordion-body-2'"
                   [attr.aria-labelledby]="'accordion-header-2'"
+                  class="border-none"
                 >
+                <div *ngIf="pageFlag == 'first'">
                   <app-history-one></app-history-one>
+                </div>
+                <div *ngIf="pageFlag == 'next'">
+                  <app-history-two></app-history-two>
+                </div>
                 </div>
               </cdk-accordion-item>
             </div>
