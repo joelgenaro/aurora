@@ -59,7 +59,7 @@
         [cdkDropListData]="followUpCards"
         (cdkDropListDropped)="drop($event)"
       >
-        <app-policy-status [step]="steps[3]"></app-policy-status>
+        <app-policy-status [step]="steps[0]"></app-policy-status>
         <app-policy-sort></app-policy-sort>
         <div class="flex justify-center" *ngFor="let card of followUpCards">
           <app-policy-card
@@ -77,7 +77,7 @@
         [cdkDropListData]="inProcessCards"
         (cdkDropListDropped)="drop($event)"
       >
-        <app-policy-status [step]="steps[3]"></app-policy-status>
+        <app-policy-status [step]="steps[1]"></app-policy-status>
         <app-policy-sort></app-policy-sort>
         <div class="flex justify-center" *ngFor="let card of inProcessCards">
           <app-policy-card
