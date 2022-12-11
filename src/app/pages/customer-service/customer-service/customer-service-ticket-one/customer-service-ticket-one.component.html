@@ -54,7 +54,7 @@
               [attr.aria-expanded]="accordionItem0.expanded"
               [attr.aria-controls]="'accordion-body-0'"
             >
-              <app-header (click)="accordionItem0.toggle()"></app-header>
+              <app-contact-details (click)="accordionItem0.toggle()"></app-contact-details>
               <div
                 class="mt-5 shadow-md bg-white"
                 role="region"
@@ -86,7 +86,7 @@
                   [attr.id]="'accordion-body-1'"
                   [attr.aria-labelledby]="'accordion-header-1'"
                 >
-                  <app-information></app-information>
+                  <app-policy-information></app-policy-information>
                 </div>
               </cdk-accordion-item>
             </div>

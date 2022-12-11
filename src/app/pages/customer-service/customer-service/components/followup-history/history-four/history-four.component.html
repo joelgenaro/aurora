@@ -1,0 +1,64 @@
+<div
+  class="h-[430px] flex flex-col rounded-md shadow-md bg-white pt-2.5 pb-5 pl-18 pr-5"
+>
+  <div class="flex justify-center w-full relative h-20">
+    <p class="text-primary text-lg">Follow-Up History</p>
+    <button
+      class="rounded-md text-xs p-3 text-white bg-primary absolute right-6 top-3"
+    >
+      Add Communication
+    </button>
+  </div>
+  <div class="flex flex-row">
+    <div class="w-[30%] pl-[54px]">
+      <p class="text-[11px] font-bold">Response:</p>
+      <div class="flex flex-row pl-1.5">
+        <div class="mx-1">
+          <mat-icon svgIcon="customer-service-happy-icon"></mat-icon>
+        </div>
+        <div class="mx-1">
+          <mat-icon svgIcon="customer-service-sad-nocolor-1-icon"></mat-icon>
+        </div>
+        <div class="mx-1">
+          <mat-icon svgIcon="customer-service-sad-nocolor-icon"></mat-icon>
+        </div>
+      </div>
+    </div>
+    <div class="w-[70%] border border-t-0 border-x-0 border-b">
+      <p class="text-[11px] font-bold">Details:</p>
+      <div class="h-[33px] colorflag">
+        <app-input-field
+          class="flex p-0 text-primary"
+          value="Great Talk"
+        ></app-input-field>
+      </div>
+    </div>
+  </div>
+  <div class="mt-8">
+    <div class="pl-[77px] flex flex-row justify-between">
+      <app-button
+        classes="bg-main-gray px-12 py-3 text-[12px] leading-none text-center flex justify-center items-center"
+        text="Request Renewal Policy - Underwriting"
+      ></app-button>
+      <app-button
+        classes=" bg-primary text-white px-12 py-3 text-[12px] leading-none text-center flex justify-center items-center"
+        text="Send Renewed Policy - Same Terms"
+      ></app-button>
+    </div>
+  </div>
+  <div class="mt-8 w-[32%]">
+    <div class="pl-[77px] colorflag">
+      <p class="text-[11px] font-bold">Policy Agreed Premium Price:</p>
+      <div class="border border-t-0 border-x-0 border-b h-[33px]">
+        <app-input-field class="flex widthFlag" value="1,600"></app-input-field>
+      </div>
+    </div>
+  </div>
+  <div class="flex-1 flex items-end justify-end">
+    <input
+      class="ml-auto px-8 py-3 text-[15px] bg-primary text-white rounded-md"
+      type="button"
+      value="save"
+    />
+  </div>
+</div>
