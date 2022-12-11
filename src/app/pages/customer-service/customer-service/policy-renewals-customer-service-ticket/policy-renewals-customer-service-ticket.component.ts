@@ -20,4 +20,8 @@ export class PolicyRenewalsCustomerServiceTicketComponent implements OnInit {
     this.pageFlag = 'next';
   }
 
+  backToFirstPage() {
+    this.pageFlag = 'first';
+  }
+
 }

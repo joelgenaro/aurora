@@ -133,12 +133,23 @@
                   [attr.aria-labelledby]="'accordion-header-2'"
                   class="border-none"
                 >
-                <div *ngIf="pageFlag == 'first'">
-                  <app-history-one></app-history-one>
-                </div>
-                <div *ngIf="pageFlag == 'next'">
-                  <app-history-two></app-history-two>
-                </div>
+                  <div *ngIf="pageFlag == 'first'">
+                    <app-history-one></app-history-one>
+                    <div class="none">
+                    </div>
+                  </div>
+                  <div *ngIf="pageFlag == 'next'">
+                    <app-history-two></app-history-two>
+                    <div class="flex-1 flex items-end justify-end">
+                      <input
+                      (click)="backToFirstPage()"
+                        class="ml-auto px-8 py-3 text-[15px] bg-primary text-white rounded-md"
+                        type="button"
+                        value="save"
+                      />
+                    </div>
+                  </div>
+                  
                 </div>
               </cdk-accordion-item>
             </div>
