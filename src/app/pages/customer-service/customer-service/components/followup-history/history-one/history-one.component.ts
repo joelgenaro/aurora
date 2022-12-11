@@ -9,7 +9,7 @@ import { TableColumn } from '@root/shared/models/table/table-column.model';
 import { TableConfiguration } from '@root/shared/models/table/table-configuration.model';
 import { TableRowAction } from '@root/shared/models/table/table-row-action.model';
 import { TableSettings } from '@root/shared/models/table/table-settings.model';
-import { TicketHistoryListItem } from '../../models/ticket-history-list-item.model';;
+import { TicketHistoryListItem } from '../../../models/ticket-history-list-item.model';;
 
 @Component({
   selector: 'app-history-one',

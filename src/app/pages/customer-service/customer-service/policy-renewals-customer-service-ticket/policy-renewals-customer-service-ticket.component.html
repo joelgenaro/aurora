@@ -1,7 +1,7 @@
-<app-topbar></app-topbar>
+<app-dialog-header label="Process Customer Service Ticket"></app-dialog-header>
 <div class="flex flex-row">
   <div class="w-[23%]">
-    <app-left-bar></app-left-bar>
+    <app-customer-service-left-side-bar></app-customer-service-left-side-bar>
   </div>
   <div class="w-[77%]">
     <div class="w-full">
@@ -54,7 +54,7 @@
               [attr.aria-expanded]="accordionItem0.expanded"
               [attr.aria-controls]="'accordion-body-0'"
             >
-              <app-header (click)="accordionItem0.toggle()"></app-header>
+              <app-contact-details (click)="accordionItem0.toggle()"></app-contact-details>
               <div
                 class="mt-5 shadow-md bg-white"
                 role="region"
@@ -86,7 +86,7 @@
                   [attr.id]="'accordion-body-1'"
                   [attr.aria-labelledby]="'accordion-header-1'"
                 >
-                  <app-information></app-information>
+                  <app-policy-information></app-policy-information>
                 </div>
               </cdk-accordion-item>
             </div>
@@ -144,9 +144,9 @@
                 [attr.aria-expanded]="accordionItem3.expanded"
                 [attr.aria-controls]="'accordion-body-0'"
               >
-                <app-select-note
+                <app-notes
                   (click)="accordionItem3.toggle()"
-                ></app-select-note>
+                ></app-notes>
                 <div
                   class="mt-5 shadow-md bg-white"
                   role="region"
