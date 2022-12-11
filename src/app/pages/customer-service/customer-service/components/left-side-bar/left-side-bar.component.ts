@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-left-side-bar',
+  selector: 'app-customer-service-left-side-bar',
   templateUrl: './left-side-bar.component.html',
   styleUrls: ['./left-side-bar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

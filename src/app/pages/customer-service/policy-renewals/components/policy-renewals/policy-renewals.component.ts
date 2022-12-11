@@ -8,7 +8,7 @@ import {
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
 import { MatDialog } from '@angular/material/dialog';
-import { CustomerServiceTicketOneComponent } from '../../../customer-service/customer-service-ticket-one/customer-service-ticket-one.component';
+import { PolicyRenewalsCustomerServiceTicketComponent } from '@root/pages/customer-service/customer-service/policy-renewals-customer-service-ticket/policy-renewals-customer-service-ticket.component';
 
 @Component({
   selector: 'app-policy-renewals',
@@ -37,7 +37,7 @@ export class PolicyRenewalsComponent implements OnInit {
   ) {}
 
   openDialog(): void {
-    this.dialog.open(CustomerServiceTicketOneComponent, {
+    this.dialog.open(PolicyRenewalsCustomerServiceTicketComponent, {
       height: '90%',
       width: '90%',
     });
