@@ -159,9 +159,10 @@
                 [attr.aria-expanded]="accordionItem3.expanded"
                 [attr.aria-controls]="'accordion-body-0'"
               >
-                <app-notes
-                  (click)="accordionItem3.toggle()"
-                ></app-notes>
+                <div (click)="accordionItem3.toggle()" class="flex flex-row p-4 rounded-md shadow-md bg-white h-20 items-center">
+                  <div class="flex-1 text-primary text-center text-[18px]">Notes</div>
+                  <mat-icon svgIcon="customer-service-arrow-down-notes"></mat-icon>
+                </div>  
                 <div
                   class="mt-5 shadow-md bg-white"
                   role="region"
