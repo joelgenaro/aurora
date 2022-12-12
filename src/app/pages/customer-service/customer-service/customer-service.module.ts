@@ -22,7 +22,7 @@ import { HistoryListComponent } from './components/followup-history/history-list
 import { EditHistoryComponent } from './components/followup-history/edit-history/edit-history.component';
 const routes: Route[] = [
   {
-    path: ApplicationRoutes.Empty,
+    path: ApplicationRoutes.CustomerService,
     component: SalesFlowComponent,
   },
 ];
