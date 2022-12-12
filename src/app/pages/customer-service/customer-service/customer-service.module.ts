@@ -19,12 +19,13 @@ import { ContactDetailsComponent } from './components/contact-details/contact-de
 import { PolicyInformationComponent } from './components/policy-information/policy-information.component';
 import { LeftSideBarComponent } from './components/left-side-bar/left-side-bar.component';
 import { NotesComponent } from './components/notes/notes.component';
-import { PolicyRenewalsCustomerServiceTicketComponent } from '../policy-renewals/policy-renewals-customer-service-ticket/policy-renewals-customer-service-ticket.component';
 
+import { PolicyRenewalsCustomerServiceTicketComponent } from '../policy-renewals/policy-renewals-customer-service-ticket/policy-renewals-customer-service-ticket.component';
+import { SalesFlowComponent } from './sales-flow/sales-flow.component';
 const routes: Route[] = [
   {
-    path: ApplicationRoutes.CustomerService,
-    component: PolicyRenewalsCustomerServiceTicketComponent,
+    path: ApplicationRoutes.Empty,
+    component: SalesFlowComponent,
   },
 ];
 
@@ -43,6 +44,7 @@ const routes: Route[] = [
     LeftSideBarComponent,
     NotesComponent,
     PolicyRenewalsCustomerServiceTicketComponent,
+    SalesFlowComponent,
   ],
   imports: [
     CommonModule,
