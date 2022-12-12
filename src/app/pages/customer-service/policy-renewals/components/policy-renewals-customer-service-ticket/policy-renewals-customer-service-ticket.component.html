@@ -123,9 +123,6 @@
                     </button>
                   </div>
                 </div>
-                <div class="hidden">
-                  <app-history-one></app-history-one>
-                </div>
                 <div
                   role="region"
                   [style.display]="accordionItem2.expanded ? '' : 'none'"
@@ -134,12 +131,12 @@
                   class="border-none"
                 >
                   <div *ngIf="pageFlag == 'first'">
-                    <app-history-one></app-history-one>
+                    <app-history-list></app-history-list>
                     <div class="none">
                     </div>
                   </div>
                   <div *ngIf="pageFlag == 'next'">
-                    <app-history-two></app-history-two>
+                    <app-edit-history></app-edit-history>
                     <div class="flex-1 flex items-end justify-end">
                       <input
                       (click)="backToFirstPage()"

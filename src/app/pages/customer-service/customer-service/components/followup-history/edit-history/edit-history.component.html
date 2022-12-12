@@ -68,10 +68,29 @@
       
     </div>
     <div *ngIf="pageFlag == 'request'">
-      <app-history-three></app-history-three>
+      <div class="mt-8 w-[68%]">
+        <div class="colorflag">
+          <p class="text-[11px] font-bold">
+            Additional Details for Underwriting Support:
+          </p>
+          <div class="border border-t-0 border-x-0 border-b h-[33px]">
+            <app-input-field
+              class="flex widthFlag"
+              value="Approved at 1,600 USD - lower coverage sum insured as well as on deductibles"
+            ></app-input-field>
+          </div>
+        </div>
+      </div>
     </div>
     <div *ngIf="pageFlag == 'send'">
-      <app-history-four></app-history-four>
+      <div class="mt-8 w-[32%]">
+        <div class="colorflag">
+          <p class="text-[11px] font-bold">Policy Agreed Premium Price:</p>
+          <div class="border border-t-0 border-x-0 border-b h-[33px]">
+            <app-input-field class="flex widthFlag" value="1,600"></app-input-field>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
  

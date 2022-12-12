@@ -1,19 +1,21 @@
 import { ChangeDetectionStrategy, Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-history-two',
-  templateUrl: './history-two.component.html',
-  styleUrls: ['./history-two.component.scss'],
+  selector: 'app-edit-history',
+  templateUrl: './edit-history.component.html',
+  styleUrls: ['./edit-history.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HistoryTwoComponent implements OnInit {
+export class EditHistoryComponent implements OnInit {
+
+  constructor() { }
+
   @Input() pageFlage = '';
   bgColorRequest: string = 'bg-main-gray';
   bgColorSend: string = 'bg-main-gray';
   colorRequest: string = '';
   colorSend: string = '';
   pageFlag: string = 'main';
-  constructor() { }
 
   ngOnInit(): void {
   }

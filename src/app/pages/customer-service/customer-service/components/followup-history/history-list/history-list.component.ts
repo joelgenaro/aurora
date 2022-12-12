@@ -9,15 +9,18 @@ import { TableColumn } from '@root/shared/models/table/table-column.model';
 import { TableConfiguration } from '@root/shared/models/table/table-configuration.model';
 import { TableRowAction } from '@root/shared/models/table/table-row-action.model';
 import { TableSettings } from '@root/shared/models/table/table-settings.model';
-import { TicketHistoryListItem } from '../../../models/ticket-history-list-item.model';;
+import { TicketHistoryListItem } from '../../../models/ticket-history-list-item.model';
 
 @Component({
-  selector: 'app-history-one',
-  templateUrl: './history-one.component.html',
-  styleUrls: ['./history-one.component.scss'],
+  selector: 'app-history-list',
+  templateUrl: './history-list.component.html',
+  styleUrls: ['./history-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HistoryOneComponent extends BaseComponent implements OnInit, AfterViewInit {
+export class HistoryListComponent extends BaseComponent implements OnInit, AfterViewInit {
+
+  constructor() { super(); }
+
   @Output() NextPageEvent = new EventEmitter<boolean>();
   @ViewChild(WidgetTableComponent)
   table: WidgetTableComponent<TicketHistoryListItem>;
@@ -165,7 +168,6 @@ export class HistoryOneComponent extends BaseComponent implements OnInit, AfterV
     settings: this.tableSettings,
   };
 
-  constructor() { super(); }
 
 
   ngOnInit(): void {
@@ -193,4 +195,5 @@ export class HistoryOneComponent extends BaseComponent implements OnInit, AfterV
   onTicketLocked(_category: TicketHistoryListItem) {
   
   }
+
 }
