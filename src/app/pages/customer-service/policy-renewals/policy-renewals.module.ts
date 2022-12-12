@@ -36,5 +36,11 @@ const routes: Route[] = [
     RouterModule.forChild(routes),
     MatSidenavModule
   ],
+  exports: [
+    PolicySortComponent,
+    PolicyCardComponent,
+    PolicyStatusComponent,
+    PolicyFilterComponent,
+  ]
 })
 export class PolicyRenewalsModule {}
