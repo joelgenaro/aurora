@@ -20,8 +20,8 @@ import { PolicyInformationComponent } from './components/policy-information/poli
 import { LeftSideBarComponent } from './components/left-side-bar/left-side-bar.component';
 import { NotesComponent } from './components/notes/notes.component';
 
-import { PolicyRenewalsCustomerServiceTicketComponent } from '../policy-renewals/policy-renewals-customer-service-ticket/policy-renewals-customer-service-ticket.component';
-import { SalesFlowComponent } from './sales-flow/sales-flow.component';
+import { PolicyRenewalsCustomerServiceTicketComponent } from '../policy-renewals/components/policy-renewals-customer-service-ticket/policy-renewals-customer-service-ticket.component';
+import { SalesFlowComponent } from './components/sales-flow/sales-flow.component';
 const routes: Route[] = [
   {
     path: ApplicationRoutes.Empty,
