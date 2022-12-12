@@ -19,7 +19,7 @@ import { ContactDetailsComponent } from './components/contact-details/contact-de
 import { PolicyInformationComponent } from './components/policy-information/policy-information.component';
 import { LeftSideBarComponent } from './components/left-side-bar/left-side-bar.component';
 import { NotesComponent } from './components/notes/notes.component';
-import { PolicyRenewalsCustomerServiceTicketComponent } from './policy-renewals-customer-service-ticket/policy-renewals-customer-service-ticket.component';
+import { PolicyRenewalsCustomerServiceTicketComponent } from '../policy-renewals/policy-renewals-customer-service-ticket/policy-renewals-customer-service-ticket.component';
 
 const routes: Route[] = [
   {
