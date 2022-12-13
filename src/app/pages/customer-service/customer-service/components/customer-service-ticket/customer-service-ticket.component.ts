@@ -54,6 +54,7 @@ export class CustomerServiceTicketComponent implements OnInit {
   }
 
   RequestDraftPolicy() {
+    console.log('');
     if(this.priceValue == ' ') {
       this.disableButton = true;
       this.disableButtonClass = 'set-opacity'
