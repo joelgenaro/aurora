@@ -22,6 +22,7 @@ import { PolicyRenewalsModule } from '../policy-renewals/policy-renewals.module'
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CustomerServiceTicketComponent } from './components/customer-service-ticket/customer-service-ticket.component';
 import { PolicyRenewalsCustomerServiceTicketComponent } from '../policy-renewals/components/policy-renewals-customer-service-ticket/policy-renewals-customer-service-ticket.component';
+import { PendingInformationCardComponent } from './components/pending-information-card/pending-information-card.component';
 
 const routes: Route[] = [
   {
@@ -45,6 +46,7 @@ const routes: Route[] = [
     HistoryListComponent,
     EditHistoryComponent,
     CustomerServiceTicketComponent,
+    PendingInformationCardComponent,
   ],
   imports: [
     CommonModule,
