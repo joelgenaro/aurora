@@ -237,7 +237,11 @@
                   <div class="flex flex-row px-6">
                     <div class="w-1/2">
                       <app-button
-                        (click)="diplayInitialSection(); accordionItem3.toggle(); accordionItem4.toggle();"
+                        (click)="
+                          diplayInitialSection();
+                          accordionItem3.toggle();
+                          accordionItem4.toggle()
+                        "
                         classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
                         text="MVA - Full Risk Cover"
                       ></app-button>
@@ -270,55 +274,54 @@
             >
               <div
                 *ngIf="productSectionFlag"
-                class="mt-4 w-full bg-white flex flex-col rounded-md shadow-md"
               >
-                <div *ngIf="initialSectionFlag">
-                  <p
-                    (click)="accordionItem3.toggle()"
-                    class="w-full text-[18px] py-3 flex justify-center items-center text-primary"
-                  >
-                    Initiate
-                  </p>
-                  <div
-                    class="mt-2 mb-5 bg-white"
-                    role="region"
-                    [style.display]="accordionItem4.expanded ? '' : 'none'"
-                    [attr.id]="'accordion-body-4'"
-                    [attr.aria-labelledby]="'accordion-header-4'"
-                  >
-                    <div class="flex flex-row">
-                      <div class="w-[70%]">
-                        <div class="flex flex-row">
-                          <div class="w-[40%] ml-[10%]">
-                            <app-input-field
-                              label="Pricing Range Agreed On:"
-                              value="  "
-                            ></app-input-field>
-                          </div>
-                          <div class="w-[40%] mr-[5%]">
-                            <app-input-field
-                              label="Customer Ticket*:"
-                              value="CST-00211-2022"
-                            ></app-input-field>
-                          </div>
+              <div class="mt-4 w-full bg-white flex flex-col rounded-md shadow-md">
+                <p
+                  (click)="accordionItem3.toggle()"
+                  class="w-full text-[18px] py-3 flex justify-center items-center text-primary"
+                >
+                  Initiate
+                </p>
+                <div
+                  class="mt-2 mb-5 bg-white"
+                  role="region"
+                  [style.display]="accordionItem4.expanded ? '' : 'none'"
+                  [attr.id]="'accordion-body-4'"
+                  [attr.aria-labelledby]="'accordion-header-4'"
+                >
+                  <div class="flex flex-row">
+                    <div class="w-[70%]">
+                      <div class="flex flex-row">
+                        <div class="w-[40%] ml-[10%]">
+                          <app-input-field
+                            label="Pricing Range Agreed On:"
+                            value="  "
+                          ></app-input-field>
                         </div>
-                        <p class="pl-9 text-xs text-primary w-[100%]">
-                          All required information retrieved from client
-                          0079827.
-                        </p>
+                        <div class="w-[40%] mr-[5%]">
+                          <app-input-field
+                            label="Customer Ticket*:"
+                            value="CST-00211-2022"
+                          ></app-input-field>
+                        </div>
                       </div>
-                      <div class="w-[30%] flex flex-row">
-                        <div class="self-end w-[65%]">
-                          <input
-                            class="rounded-md ml-auto px-5 py-1 text-[15px] bg-primary text-white rounded-md"
-                            type="button"
-                            value="{{ 'Request Draft' + '\n' + 'Policy' }}"
-                          />
-                        </div>
+                      <p class="pl-9 text-xs text-primary w-[100%]">
+                        All required information retrieved from client 0079827.
+                      </p>
+                    </div>
+                    <div class="w-[30%] flex flex-row">
+                      <div class="self-end w-[65%]">
+                        <input
+                          class="rounded-md ml-auto px-5 py-1 text-[15px] bg-primary text-white rounded-md"
+                          type="button"
+                          value="{{ 'Request Draft' + '\n' + 'Policy' }}"
+                        />
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
+                
               </div>
             </cdk-accordion-item>
           </cdk-accordion>
