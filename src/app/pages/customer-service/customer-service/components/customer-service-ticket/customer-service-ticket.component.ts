@@ -13,9 +13,12 @@ export class CustomerServiceTicketComponent implements OnInit {
   productSectionFlag: (boolean) = false;
   initialSectionFlag: (boolean) = false;
   typeSectionFlag: (boolean) = false;
+  locationSectionFlag: (boolean) = false;
   priceValue: (string) = ' ';
   disableButton: (boolean) = false;
   disableButtonClass: (string) = '';
+  emergencyInitialSectionFlag: (boolean) = false;
+
 
   constructor(public dialogRef: MatDialogRef<CustomerServiceTicketComponent>,) { }
 
@@ -40,6 +43,14 @@ export class CustomerServiceTicketComponent implements OnInit {
 
   displayTypeSection() {
     this.typeSectionFlag = true;
+  }
+
+  displayLocationSection() {
+    this.locationSectionFlag = true;
+  }
+
+  displayEmergencyInitateSection(){
+    this.emergencyInitialSectionFlag = true;
   }
 
   RequestDraftPolicy() {

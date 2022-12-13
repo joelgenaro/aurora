@@ -378,8 +378,13 @@
                   [attr.aria-labelledby]="'accordion-header-6'"
                 >
                   <div class="flex flex-row px-6">
-                    <div class="w-1/2">
+                    <div *ngIf="typeSectionFlag" class="w-1/2">
                       <app-button
+                        (click)="
+                          displayLocationSection();
+                          accordionItem6.toggle();
+                          accordionItem7.toggle()
+                        "
                         classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
                         text="Vehicle Accident"
                       ></app-button>
@@ -416,6 +421,96 @@
                       <app-button
                         classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
                         text="Other"
+                      ></app-button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </cdk-accordion-item>
+            <cdk-accordion-item
+              #accordionItem7="cdkAccordionItem"
+              role="button"
+              tabindex="7"
+              [attr.id]="'accordion-header-7'"
+              [attr.aria-expanded]="accordionItem7.expanded"
+              [attr.aria-controls]="'accordion-body-7'"
+            >
+              <div *ngIf="locationSectionFlag">
+                <div
+                  class="mt-4 w-full bg-white flex flex-col rounded-md shadow-md"
+                >
+                  <p
+                    (click)="accordionItem7.toggle()"
+                    class="w-full text-[18px] py-3 flex justify-center items-center text-primary"
+                  >
+                    Location
+                  </p>
+                  <div
+                    class="mt-2 mb-5 bg-white"
+                    role="region"
+                    [style.display]="accordionItem7.expanded ? '' : 'none'"
+                    [attr.id]="'accordion-body-7'"
+                    [attr.aria-labelledby]="'accordion-header-7'"
+                  >
+                    <div class="px-10 w-full">
+                      <app-input-field
+                        (dblclick)="
+                          displayEmergencyInitateSection();
+                          accordionItem7.toggle();
+                          accordionItem8.toggle()
+                        "
+                        class="labelSize"
+                        label="AAccident Location (Press on shared location to fill automatically or type in location):"
+                      ></app-input-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </cdk-accordion-item>
+            <cdk-accordion-item
+              #accordionItem8="cdkAccordionItem"
+              role="button"
+              tabindex="8"
+              [attr.id]="'accordion-header-8'"
+              [attr.aria-expanded]="accordionItem8.expanded"
+              [attr.aria-controls]="'accordion-body-6'"
+            >
+              <div
+                *ngIf="locationSectionFlag"
+                class="mt-4 w-full bg-white flex flex-col rounded-md shadow-md"
+              >
+                <p
+                  (click)="accordionItem8.toggle()"
+                  class="w-full text-[18px] py-3 flex justify-center items-center text-primary"
+                >
+                  Initiate
+                </p>
+                <div
+                  class="mt-2 mb-5 bg-white"
+                  role="region"
+                  [style.display]="accordionItem8.expanded ? '' : 'none'"
+                  [attr.id]="'accordion-body-8'"
+                  [attr.aria-labelledby]="'accordion-header-8'"
+                >
+                  <div class="flex flex-row px-6">
+                    <div class="w-1/2">
+                      <app-button
+                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-primary text-white"
+                        text="Send Towing"
+                      ></app-button>
+                    </div>
+                    <div class="w-1/2">
+                      <app-button
+                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-primary text-white"
+                        text="Send Expert"
+                      ></app-button>
+                    </div>
+                  </div>
+                  <div class="flex flex-row px-6 mt-4 mb-3">
+                    <div class="w-1/2">
+                      <app-button
+                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                        text="Send Ambulance"
                       ></app-button>
                     </div>
                   </div>

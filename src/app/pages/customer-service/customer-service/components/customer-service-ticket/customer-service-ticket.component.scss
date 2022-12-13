@@ -18,3 +18,9 @@
 .set-opacity {
   opacity: 0.5;
 }
+
+::ng-deep .labelSize {
+  .mat-form-field-label.ng-tns-c97-50.mat-empty.mat-form-field-empty.ng-star-inserted {
+    font-size: 9px;
+  }
+}
