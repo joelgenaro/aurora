@@ -106,6 +106,11 @@ export class IconSvgModule {
                 sanitizer.bypassSecurityTrustResourceUrl(
                   'assets/images/customer-service-icons/customer-service-arrow-up-note.svg'
               )
+            ).addSvgIcon(
+                'customer-service-color-bucket',
+                sanitizer.bypassSecurityTrustResourceUrl(
+                  'assets/images/customer-service-icons/color-bucket.svg'
+              )
             )
     }
 }
