@@ -8,13 +8,15 @@ import { PolicySortComponent } from './components/policy-sort/policy-sort.compon
 import { PolicyCardComponent } from './components/policy-card/policy-card.component';
 import { PolicyStatusComponent } from './components/policy-status/policy-status.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { ApplicationRoutes } from '@root/shared/settings/common.settings';
+// import { ApplicationRoutes } from '@root/shared/settings/common.settings';
 import { PolicyFilterComponent } from './components/policy-filter/policy-filter.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
+
 const routes: Route[] = [
   {
-    path: ApplicationRoutes.Empty,
+    path: '',
     component: PolicyRenewalsComponent,
   },
 ];
@@ -32,6 +34,7 @@ const routes: Route[] = [
     SharedModule,
     MatIconModule,
     MatToolbarModule,
+    CdkAccordionModule,
     DragDropModule,
     RouterModule.forChild(routes),
     MatSidenavModule

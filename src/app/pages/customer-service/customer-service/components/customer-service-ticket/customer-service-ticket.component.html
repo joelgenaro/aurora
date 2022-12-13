@@ -6,7 +6,9 @@
   <div class="w-[77%]">
     <div class="w-full">
       <div class="flex flex-row bg-white">
-        <div class="w-[57%] flex flex-col pr-10 pl-7 twocolorbackground">
+        <div
+          class="w-[57%] flex flex-col pr-10 pl-7 twocolorbackground h-[80vh]"
+        >
           <div class="flex flex-row pb-4">
             <div class="w-1/2 flex flex-row">
               <p
@@ -39,7 +41,7 @@
                 <div class="flex-end">
                   <mat-icon
                     class="flex justify-center items-center"
-                    svgIcon="customer-service-select-down"
+                    svgIcon="customer-service-arrow-down-notes"
                   ></mat-icon>
                 </div>
               </div>
@@ -54,7 +56,9 @@
               [attr.aria-expanded]="accordionItem0.expanded"
               [attr.aria-controls]="'accordion-body-0'"
             >
-              <app-contact-details (click)="accordionItem0.toggle()"></app-contact-details>
+              <app-contact-details
+                (click)="accordionItem0.toggle()"
+              ></app-contact-details>
               <div
                 class="mt-5 shadow-md bg-white"
                 role="region"
@@ -63,12 +67,295 @@
                 [attr.aria-labelledby]="'accordion-header-0'"
               ></div>
             </cdk-accordion-item>
+
+            <cdk-accordion-item
+              class="mt-4 w-full bg-white flex flex-col rounded-md shadow-md"
+              #accordionItem1="cdkAccordionItem"
+              role="button"
+              tabindex="1"
+              [attr.id]="'accordion-header-1'"
+              [attr.aria-expanded]="accordionItem1.expanded"
+              [attr.aria-controls]="'accordion-body-1'"
+            >
+              <p
+                (click)="accordionItem1.toggle()"
+                class="w-full text-[18px] py-3 flex justify-center items-center text-primary"
+              >
+                Category
+              </p>
+              <div
+                class="mt-5 shadow-md bg-white"
+                role="region"
+                [style.display]="accordionItem1.expanded ? '' : 'none'"
+                [attr.id]="'accordion-body-1'"
+                [attr.aria-labelledby]="'accordion-header-1'"
+              >
+                <div class="flex flex-row px-6">
+                  <div class="w-1/2">
+                    <app-button
+                      classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                      text="Emergency"
+                    ></app-button>
+                  </div>
+                  <div class="w-1/2">
+                    <app-button
+                      (click)="
+                        displayBusinessSection();
+                        accordionItem1.toggle();
+                        accordionItem2.toggle()
+                      "
+                      classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                      text="Sales Inquiry"
+                    ></app-button>
+                  </div>
+                </div>
+                <div class="flex flex-row px-6 mt-4 mb-8">
+                  <div class="w-1/2">
+                    <app-button
+                      classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                      text="Complaints"
+                    ></app-button>
+                  </div>
+                  <div class="w-1/2">
+                    <app-button
+                      classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                      text="Other"
+                    ></app-button>
+                  </div>
+                </div>
+              </div>
+            </cdk-accordion-item>
+            <cdk-accordion-item
+              #accordionItem2="cdkAccordionItem"
+              role="button"
+              tabindex="2"
+              [attr.id]="'accordion-header-2'"
+              [attr.aria-expanded]="accordionItem2.expanded"
+              [attr.aria-controls]="'accordion-body-3'"
+            >
+              <div
+                *ngIf="businessSectionFlag"
+                class="mt-4 w-full bg-white flex flex-col rounded-md shadow-md"
+              >
+                <p
+                  (click)="accordionItem2.toggle()"
+                  class="w-full text-[18px] py-3 flex justify-center items-center text-primary"
+                >
+                  Line of Business
+                </p>
+                <div
+                  class="mt-5 shadow-md bg-white"
+                  role="region"
+                  [style.display]="accordionItem2.expanded ? '' : 'none'"
+                  [attr.id]="'accordion-body-2'"
+                  [attr.aria-labelledby]="'accordion-header-2'"
+                >
+                  <div class="flex flex-row px-6">
+                    <div class="w-1/2">
+                      <app-button
+                        (click)="
+                          displayProductSection();
+                          accordionItem2.toggle();
+                          accordionItem3.toggle()
+                        "
+                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                        text="Life Insurance"
+                      ></app-button>
+                    </div>
+                    <div class="w-1/2">
+                      <app-button
+                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                        text="Health Insurance"
+                      ></app-button>
+                    </div>
+                  </div>
+                  <div class="flex flex-row px-6 mt-4">
+                    <div class="w-1/2">
+                      <app-button
+                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                        text="Vehicle Insurance"
+                      ></app-button>
+                    </div>
+                    <div class="w-1/2">
+                      <app-button
+                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                        text="Liability Insurance"
+                      ></app-button>
+                    </div>
+                  </div>
+                  <div class="flex flex-row px-6 mt-4">
+                    <div class="w-1/2">
+                      <app-button
+                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                        text="Income Protection Insurance"
+                      ></app-button>
+                    </div>
+                    <div class="w-1/2">
+                      <app-button
+                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                        text="Property Insurance"
+                      ></app-button>
+                    </div>
+                  </div>
+                  <div class="flex flex-row px-6 mt-4 mb-8">
+                    <div class="w-1/2">
+                      <app-button
+                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                        text="Complaints"
+                      ></app-button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </cdk-accordion-item>
+
+            <cdk-accordion-item
+              #accordionItem3="cdkAccordionItem"
+              role="button"
+              tabindex="3"
+              [attr.id]="'accordion-header-3'"
+              [attr.aria-expanded]="accordionItem3.expanded"
+              [attr.aria-controls]="'accordion-body-3'"
+            >
+              <div
+                *ngIf="productSectionFlag"
+                class="mt-4 w-full bg-white flex flex-col rounded-md shadow-md"
+              >
+                <p
+                  (click)="accordionItem3.toggle()"
+                  class="w-full text-[18px] py-3 flex justify-center items-center text-primary"
+                >
+                  Product
+                </p>
+                <div
+                  class="mt-2 mb-5 bg-white"
+                  role="region"
+                  [style.display]="accordionItem3.expanded ? '' : 'none'"
+                  [attr.id]="'accordion-body-3'"
+                  [attr.aria-labelledby]="'accordion-header-3'"
+                >
+                  <div class="flex flex-row px-6">
+                    <div class="w-1/2">
+                      <app-button
+                        (click)="diplayInitialSection(); accordionItem3.toggle(); accordionItem4.toggle();"
+                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                        text="MVA - Full Risk Cover"
+                      ></app-button>
+                    </div>
+                    <div class="w-1/2">
+                      <app-button
+                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                        text="TTM - Third-party Cover"
+                      ></app-button>
+                    </div>
+                  </div>
+                  <div class="flex flex-row px-6 mt-4">
+                    <div class="w-1/2">
+                      <app-button
+                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                        text="IMV - No Medical Cover"
+                      ></app-button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </cdk-accordion-item>
+            <cdk-accordion-item
+              #accordionItem4="cdkAccordionItem"
+              role="button"
+              tabindex="4"
+              [attr.id]="'accordion-header-4'"
+              [attr.aria-expanded]="accordionItem4.expanded"
+              [attr.aria-controls]="'accordion-body-3'"
+            >
+              <div
+                *ngIf="productSectionFlag"
+                class="mt-4 w-full bg-white flex flex-col rounded-md shadow-md"
+              >
+                <div *ngIf="initialSectionFlag">
+                  <p
+                    (click)="accordionItem3.toggle()"
+                    class="w-full text-[18px] py-3 flex justify-center items-center text-primary"
+                  >
+                    Initiate
+                  </p>
+                  <div
+                    class="mt-2 mb-5 bg-white"
+                    role="region"
+                    [style.display]="accordionItem4.expanded ? '' : 'none'"
+                    [attr.id]="'accordion-body-4'"
+                    [attr.aria-labelledby]="'accordion-header-4'"
+                  >
+                    <div class="flex flex-row">
+                      <div class="w-[70%]">
+                        <div class="flex flex-row">
+                          <div class="w-[40%] ml-[10%]">
+                            <app-input-field
+                              label="Pricing Range Agreed On:"
+                              value="  "
+                            ></app-input-field>
+                          </div>
+                          <div class="w-[40%] mr-[5%]">
+                            <app-input-field
+                              label="Customer Ticket*:"
+                              value="CST-00211-2022"
+                            ></app-input-field>
+                          </div>
+                        </div>
+                        <p class="pl-9 text-xs text-primary w-[100%]">
+                          All required information retrieved from client
+                          0079827.
+                        </p>
+                      </div>
+                      <div class="w-[30%] flex flex-row">
+                        <div class="self-end w-[65%]">
+                          <input
+                            class="rounded-md ml-auto px-5 py-1 text-[15px] bg-primary text-white rounded-md"
+                            type="button"
+                            value="{{ 'Request Draft' + '\n' + 'Policy' }}"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </cdk-accordion-item>
           </cdk-accordion>
+          <div
+            class="mt-auto w-[100%] rounded-md shadow-md bg-white items-center"
+          >
+            <div class="flex flex-row p-4 items-center">
+              <div
+                (click)="openNote()"
+                class="flex-1 text-primary text-center text-[18px]"
+              >
+                Notes
+              </div>
+              <div *ngIf="noteSectionFlag">
+                <mat-icon svgIcon="customer-service-arrow-up-notes"></mat-icon>
+              </div>
+              <div *ngIf="!noteSectionFlag">
+                <mat-icon
+                  svgIcon="customer-service-arrow-down-notes"
+                ></mat-icon>
+              </div>
+            </div>
+            <div *ngIf="noteSectionFlag">
+              <app-notes></app-notes>
+            </div>
+          </div>
         </div>
         <div class="w-[43%] pl-4">
           <div class="flex flex-col h-[80vh] w-[100%]">
-            <div class="h-[75%] w-full bgColor rounded-md shadow-md">
+            <div class="h-[75%] w-full bgColor rounded-md shadow-md relative">
               <app-contact-view></app-contact-view>
+              <div
+                *ngIf="productSectionFlag"
+                class="absolute bg-primary text-white font-bold text-[20px] py-2 px-4 BadgeAddtionClass"
+              >
+                A
+              </div>
             </div>
             <div class="h-[25%] rounded-md shadow-md">
               <app-contact-form></app-contact-form>

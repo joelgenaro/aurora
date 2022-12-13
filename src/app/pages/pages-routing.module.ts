@@ -21,13 +21,6 @@ const routes: Routes = [
       ),
   },
   {
-    path: ApplicationRoutes.CustomerService,
-    loadChildren: () =>
-      import(
-        './customer-service/customer-service/customer-service.module'
-      ).then((m) => m.CustomerServiceModule),
-  },
-  {
     path: ApplicationRoutes.ProductManagement,
     loadChildren: () =>
       import('./management/product-management/product-management.module').then(
@@ -136,6 +129,13 @@ const routes: Routes = [
       import('./customer-service/policy-renewals/policy-renewals.module').then(
         (m) => m.PolicyRenewalsModule
       ),
+  },
+  {
+    path: ApplicationRoutes.CustomerService,
+    loadChildren: () =>
+      import(
+        './customer-service/customer-service/customer-service.module'
+      ).then((m) => m.CustomerServiceModule),
   },
 ];
 

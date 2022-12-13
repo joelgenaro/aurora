@@ -101,6 +101,11 @@ export class IconSvgModule {
               sanitizer.bypassSecurityTrustResourceUrl(
                 'assets/images/policy-svg-icons/calculator.svg'
               )
-            );
+            ).addSvgIcon(
+                'customer-service-arrow-up-notes',
+                sanitizer.bypassSecurityTrustResourceUrl(
+                  'assets/images/customer-service-icons/customer-service-arrow-up-note.svg'
+              )
+            )
     }
 }

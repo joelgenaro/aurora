@@ -19,7 +19,7 @@ import { CustomerServiceTicketComponent } from '../customer-service-ticket/custo
 export class CustomerServiceComponent implements OnInit {
 
   steps: PolicyStatus[] = [
-    { title: 'Policy Renewal Followup', color: 'bg-[#d8d8d8]' },
+    { title: 'Policdsfsy Renewal Followup', color: 'bg-[#fafafa]' },
     { title: 'In Process', color: 'bg-[#3890cf]' },
     { title: 'Processed (Renewal Issued)', color: 'bg-[#939393]' },
     { title: 'Renewal Approved', color: 'bg-[#199e52]' },
