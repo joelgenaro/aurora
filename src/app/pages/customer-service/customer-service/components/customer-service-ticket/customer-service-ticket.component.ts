@@ -41,6 +41,7 @@ export class CustomerServiceTicketComponent implements OnInit {
     this.initialSectionFlag = true;
   }
 
+
   displayTypeSection() {
     this.typeSectionFlag = true;
   }
