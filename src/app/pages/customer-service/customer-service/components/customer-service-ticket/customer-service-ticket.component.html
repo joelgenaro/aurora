@@ -93,6 +93,11 @@
                 <div class="flex flex-row px-6">
                   <div class="w-1/2">
                     <app-button
+                      (click)="
+                        displayTypeSection();
+                        accordionItem1.toggle();
+                        accordionItem6.toggle()
+                      "
                       classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
                       text="Emergency"
                     ></app-button>
@@ -104,6 +109,10 @@
                         accordionItem1.toggle();
                         accordionItem2.toggle()
                       "
+                      [ngClass]="{
+                        'bg-primary': businessSectionFlag,
+                        'bg-main-gray': !businessSectionFlag
+                      }"
                       classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
                       text="Sales Inquiry"
                     ></app-button>
@@ -125,6 +134,7 @@
                 </div>
               </div>
             </cdk-accordion-item>
+
             <cdk-accordion-item
               #accordionItem2="cdkAccordionItem"
               role="button"
@@ -264,6 +274,7 @@
                 </div>
               </div>
             </cdk-accordion-item>
+
             <cdk-accordion-item
               #accordionItem4="cdkAccordionItem"
               role="button"
@@ -272,56 +283,143 @@
               [attr.aria-expanded]="accordionItem4.expanded"
               [attr.aria-controls]="'accordion-body-3'"
             >
-              <div
-                *ngIf="productSectionFlag"
-              >
-              <div class="mt-4 w-full bg-white flex flex-col rounded-md shadow-md">
-                <p
-                  (click)="accordionItem3.toggle()"
-                  class="w-full text-[18px] py-3 flex justify-center items-center text-primary"
-                >
-                  Initiate
-                </p>
+              <div *ngIf="productSectionFlag">
                 <div
-                  class="mt-2 mb-5 bg-white"
-                  role="region"
-                  [style.display]="accordionItem4.expanded ? '' : 'none'"
-                  [attr.id]="'accordion-body-4'"
-                  [attr.aria-labelledby]="'accordion-header-4'"
+                  class="mt-4 w-full bg-white flex flex-col rounded-md shadow-md"
                 >
-                  <div class="flex flex-row">
-                    <div class="w-[70%]">
-                      <div class="flex flex-row">
-                        <div class="w-[40%] ml-[10%]">
-                          <app-input-field
-                            label="Pricing Range Agreed On:"
-                            value="  "
-                          ></app-input-field>
+                  <p
+                    (click)="accordionItem3.toggle()"
+                    class="w-full text-[18px] py-3 flex justify-center items-center text-primary"
+                  >
+                    Initiate
+                  </p>
+                  <div
+                    class="mt-4 mb-5 bg-white"
+                    role="region"
+                    [style.display]="accordionItem4.expanded ? '' : 'none'"
+                    [attr.id]="'accordion-body-4'"
+                    [attr.aria-labelledby]="'accordion-header-4'"
+                  >
+                    <div class="flex flex-row">
+                      <div class="w-[70%]">
+                        <div class="flex flex-row px-10">
+                          <div class="w-1/2 flex flex-col pr-3">
+                            <app-input-field
+                              label="Pricing Range Agreed On:"
+                              value="{{ priceValue }}"
+                            ></app-input-field>
+                          </div>
+                          <div class="w-1/2 flex flex-col pl-3 set-opacity">
+                            <app-input-field
+                              label="Customer Ticket*:"
+                              value="CST-00211-2022"
+                            ></app-input-field>
+                          </div>
                         </div>
-                        <div class="w-[40%] mr-[5%]">
-                          <app-input-field
-                            label="Customer Ticket*:"
-                            value="CST-00211-2022"
-                          ></app-input-field>
+                        <div *ngIf="disableButton" class="pl-9">
+                          <p class="text-xs text-red-600 w-[100%]">
+                            Pending required information from client 0079827 to
+                            proceed with underwriting.
+                          </p>
+                          <span
+                            class="text-xs text-primary border border-x-0 border-t-0 border-b-1"
+                          >
+                            Check Pending Information list here
+                          </span>
+                        </div>
+                        <div *ngIf="!disableButton">
+                          <p class="pl-9 text-xs text-primary w-[100%]">
+                            All required information retrieved from client
+                            0079827.
+                          </p>
                         </div>
                       </div>
-                      <p class="pl-9 text-xs text-primary w-[100%]">
-                        All required information retrieved from client 0079827.
-                      </p>
-                    </div>
-                    <div class="w-[30%] flex flex-row">
-                      <div class="self-end w-[65%]">
-                        <input
-                          class="rounded-md ml-auto px-5 py-1 text-[15px] bg-primary text-white rounded-md"
-                          type="button"
-                          value="{{ 'Request Draft' + '\n' + 'Policy' }}"
-                        />
+                      <div class="w-[30%] flex flex-row">
+                        <div class="self-end w-[75%]">
+                          <button
+                            (click)="RequestDraftPolicy()"
+                            class="rounded-md ml-auto px-5 py-1 text-[15px] bg-primary text-white {{
+                              disableButtonClass
+                            }}"
+                          >
+                            Request Draft Policy
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-                
+            </cdk-accordion-item>
+
+            <cdk-accordion-item
+              #accordionItem6="cdkAccordionItem"
+              role="button"
+              tabindex="6"
+              [attr.id]="'accordion-header-6'"
+              [attr.aria-expanded]="accordionItem6.expanded"
+              [attr.aria-controls]="'accordion-body-6'"
+            >
+              <div
+                *ngIf="typeSectionFlag"
+                class="mt-4 w-full bg-white flex flex-col rounded-md shadow-md"
+              >
+                <p
+                  (click)="accordionItem6.toggle()"
+                  class="w-full text-[18px] py-3 flex justify-center items-center text-primary"
+                >
+                  Type
+                </p>
+                <div
+                  class="mt-2 mb-5 bg-white"
+                  role="region"
+                  [style.display]="accordionItem6.expanded ? '' : 'none'"
+                  [attr.id]="'accordion-body-6'"
+                  [attr.aria-labelledby]="'accordion-header-6'"
+                >
+                  <div class="flex flex-row px-6">
+                    <div class="w-1/2">
+                      <app-button
+                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                        text="Vehicle Accident"
+                      ></app-button>
+                    </div>
+                    <div class="w-1/2">
+                      <app-button
+                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                        text="Medical Emergency"
+                      ></app-button>
+                    </div>
+                  </div>
+                  <div class="flex flex-row px-6 mt-4">
+                    <div class="w-1/2">
+                      <app-button
+                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                        text="Water Flooding Accident"
+                      ></app-button>
+                    </div>
+                    <div class="w-1/2">
+                      <app-button
+                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                        text="Fire"
+                      ></app-button>
+                    </div>
+                  </div>
+                  <div class="flex flex-row px-6 mt-4">
+                    <div class="w-1/2">
+                      <app-button
+                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                        text="Water Flooding Accident"
+                      ></app-button>
+                    </div>
+                    <div class="w-1/2">
+                      <app-button
+                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                        text="Other"
+                      ></app-button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </cdk-accordion-item>
           </cdk-accordion>

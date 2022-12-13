@@ -2,18 +2,19 @@
   width: 100% !important;
 }
 
-:ng-deep button:hover {
-  background-color: #005F83;
-  color: white;
-}
-
-:ng-deep .rounded-xl.flex {
-  background-color: #005F83;
-  color: white;
-}
 
 .BadgeAddtionClass {
   right: 28px;
   bottom: -22px;
   border-radius: 20px;
+}
+
+::ng-deep {
+  .mat-form-field {
+    display: flex;
+  }
+}
+
+.set-opacity {
+  opacity: 0.5;
 }
