@@ -12,14 +12,6 @@ export class CustomerServiceTicketComponent implements OnInit {
   businessSectionFlag: (boolean) = false;
   productSectionFlag: (boolean) = false;
   initialSectionFlag: (boolean) = false;
-  typeSectionFlag: (boolean) = false;
-  locationSectionFlag: (boolean) = false;
-  priceValue: (string) = ' ';
-  disableButton: (boolean) = false;
-  disableButtonClass: (string) = '';
-  emergencyInitialSectionFlag: (boolean) = false;
-
-
   constructor(public dialogRef: MatDialogRef<CustomerServiceTicketComponent>,) { }
 
   ngOnInit(): void {
@@ -40,6 +32,7 @@ export class CustomerServiceTicketComponent implements OnInit {
   diplayInitialSection() {
     this.initialSectionFlag = true;
   }
+
 
   displayTypeSection() {
     this.typeSectionFlag = true;
