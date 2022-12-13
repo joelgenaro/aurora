@@ -33,25 +33,4 @@ export class CustomerServiceTicketComponent implements OnInit {
     this.initialSectionFlag = true;
   }
 
-
-  displayTypeSection() {
-    this.typeSectionFlag = true;
-  }
-
-  displayLocationSection() {
-    this.locationSectionFlag = true;
-  }
-
-  displayEmergencyInitateSection(){
-    this.emergencyInitialSectionFlag = true;
-  }
-
-  RequestDraftPolicy() {
-    console.log('');
-    if(this.priceValue == ' ') {
-      this.disableButton = true;
-      this.disableButtonClass = 'set-opacity'
-    }
-  }
-
 }
