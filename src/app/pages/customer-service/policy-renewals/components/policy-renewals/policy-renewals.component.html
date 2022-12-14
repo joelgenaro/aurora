@@ -64,7 +64,7 @@
         <div class="flex justify-center" *ngFor="let card of followUpCards">
           <app-policy-card
             [card]="card"
-            (click)="openDialog()"
+            (dblclick)="openDialog()"
             cdkDrag
             class="w-[100%]"
           ></app-policy-card>
@@ -82,7 +82,7 @@
         <div class="flex justify-center" *ngFor="let card of inProcessCards">
           <app-policy-card
             [card]="card"
-            (click)="openDialog()"
+            (dblclick)="openDialog()"
             cdkDrag
             class="w-[100%]"
           ></app-policy-card>
@@ -105,7 +105,7 @@
           <app-policy-card
             class="w-[100%]"
             [card]="card"
-            (click)="openDialog()"
+            (dblclick)="openDialog()"
           ></app-policy-card>
         </div>
       </div>
@@ -122,7 +122,7 @@
           <app-policy-card
             class="w-[100%]"
             [card]="card"
-            (click)="openDialog()"
+            (dblclick)="openDialog()"
             cdkDrag
           ></app-policy-card>
         </div>
@@ -139,7 +139,7 @@
         <div class="flex justify-center" *ngFor="let card of closedCards">
           <app-policy-card
             class="w-[100%]"
-            (click)="openDialog()"
+            (dblclick)="openDialog()"
             [card]="card"
             cdkDrag
           ></app-policy-card>

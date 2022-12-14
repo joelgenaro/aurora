@@ -18,11 +18,11 @@ import { CustomerServiceTicketComponent } from '../customer-service-ticket/custo
 })
 export class CustomerServiceComponent implements OnInit {
   steps: PolicyStatus[] = [
-    { title: 'Policy Renewal Followup', color: 'bg-[#d8d8d8]' },
+    { title: 'Created/Received Queue', color: 'bg-[#d8d8d8]' },
     { title: 'In Process', color: 'bg-[#3890cf]' },
     { title: 'Processed (Renewal Issued)', color: 'bg-[#939393]' },
-    { title: 'Renewal Approved', color: 'bg-[#199e52]' },
-    { title: 'Closed (No Renewal)', color: 'bg-[#e7e7e7]' },
+    { title: 'Resolved', color: 'bg-[#199e52]' },
+    { title: 'Closed', color: 'bg-[#e7e7e7]' },
   ];
 
   followUpCards: PolicyCard[] = [];
@@ -34,7 +34,9 @@ export class CustomerServiceComponent implements OnInit {
   constructor(
     private policyCardService: PolicyCardService,
     public dialog: MatDialog
-  ) {}
+  ) {
+    console.log('this is customer service component');
+  }
 
   openDialog(): void {
     this.dialog.open(CustomerServiceTicketComponent, {
@@ -66,7 +68,6 @@ export class CustomerServiceComponent implements OnInit {
   }
 
   drop(event: CdkDragDrop<PolicyCard[]>) {
-    console.log(event);
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
