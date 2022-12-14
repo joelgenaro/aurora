@@ -4,7 +4,7 @@ import { Route, RouterModule } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
-// import { ApplicationRoutes } from '@root/shared/settings/common.settings';
+import { ApplicationRoutes } from '@root/shared/settings/common.settings';
 import { CustomerServiceComponent } from './components/customer-service/customer-service.component';
 import { SharedModule } from '@root/shared/shared.module';
 import { ContactViewComponent } from './components/contact-view/contact-view.component';
@@ -26,7 +26,7 @@ import { PendingInformaitonCardComponent } from './components/pending-informaito
 
 const routes: Route[] = [
   {
-    path: 'index',
+    path: ApplicationRoutes.CustomerService,
     component: CustomerServiceComponent,
   },
 ];

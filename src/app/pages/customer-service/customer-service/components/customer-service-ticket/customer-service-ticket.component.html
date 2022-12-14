@@ -1,13 +1,13 @@
 <app-dialog-header label="Process Customer Service Ticket"></app-dialog-header>
-<div class="flex flex-row">
+<div class="flex flex-row ">
   <div class="w-[23%]">
     <app-customer-service-left-side-bar></app-customer-service-left-side-bar>
   </div>
-  <div class="w-[77%]">
+  <div class="w-[77%] ">
     <div class="w-full">
       <div class="flex flex-row bg-white">
         <div
-          class="w-[57%] flex flex-col pr-10 pl-7 twocolorbackground h-[80vh]"
+          class="w-[57%] backgroundSepreated flex flex-col pr-10 pl-7 twocolorbackground h-[80vh] border-t-0"
         >
           <div class="flex flex-row pb-4 items-center">
             <div class="w-1/2 flex flex-row">
@@ -37,7 +37,7 @@
               </div>
             </div>
           </div>
-          <cdk-accordion class="overflow-auto">
+          <cdk-accordion>
             <cdk-accordion-item
               #accordionItem0="cdkAccordionItem"
               role="button"
@@ -338,12 +338,14 @@
                           </button>
                         </div>
                       </div>
+
                     </div>
                     <div
                       *ngIf="pendingCardFlag"
                       class="w-full mt-10 pl-9 pr-10"
                     >
                       <app-pending-informaiton-card></app-pending-informaiton-card>
+
                     </div>
                   </div>
                 </div>
@@ -474,46 +476,47 @@
               [attr.aria-controls]="'accordion-body-8'"
             >
               <div
-                class="mt-4 mb-4 w-full bg-white flex flex-col rounded-md shadow-md"
+              class="mt-4 mb-4 w-full bg-white flex flex-col rounded-md shadow-md"
               >
-                <div *ngIf="locationSectionFlag && emergencyFlowFlag">
-                  <p
-                    (click)="accordionItem8.toggle()"
-                    class="w-full text-[18px] py-3 flex justify-center items-center text-primary"
-                  >
-                    Initiate
-                  </p>
-                  <div
-                    class="mt-2 mb-5 bg-white"
-                    role="region"
-                    [style.display]="accordionItem8.expanded ? '' : 'none'"
-                    [attr.id]="'accordion-body-8'"
-                    [attr.aria-labelledby]="'accordion-header-8'"
-                  >
-                    <div class="flex flex-row px-6">
-                      <div class="w-1/2 pr-3.5">
-                        <app-button
-                          classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray "
-                          text="Send Towing"
-                        ></app-button>
-                      </div>
-                      <div class="w-1/2">
-                        <app-button
-                          classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center  bg-main-gray "
-                          text="Send Expert"
-                        ></app-button>
-                      </div>
+              <div *ngIf="locationSectionFlag && emergencyFlowFlag">
+                <p
+                  (click)="accordionItem8.toggle()"
+                  class="w-full text-[18px] py-3 flex justify-center items-center text-primary"
+                >
+                  Initiate
+                </p>
+                <div
+                  class="mt-2 mb-5 bg-white"
+                  role="region"
+                  [style.display]="accordionItem8.expanded ? '' : 'none'"
+                  [attr.id]="'accordion-body-8'"
+                  [attr.aria-labelledby]="'accordion-header-8'"
+                >
+                  <div class="flex flex-row px-6">
+                    <div class="w-1/2 pr-3.5">
+                      <app-button
+                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray "
+                        text="Send Towing"
+                      ></app-button>
                     </div>
-                    <div class="flex flex-row px-6 mt-4 mb-3">
-                      <div class="w-1/2 pr-3.5">
-                        <app-button
-                          classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray "
-                          text="Send Ambulance"
-                        ></app-button>
-                      </div>
+                    <div class="w-1/2">
+                      <app-button
+                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center  bg-main-gray "
+                        text="Send Expert"
+                      ></app-button>
+                    </div>
+                  </div>
+                  <div class="flex flex-row px-6 mt-4 mb-3">
+                    <div class="w-1/2 pr-3.5">
+                      <app-button
+                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray "
+                        text="Send Ambulance"
+                      ></app-button>
                     </div>
                   </div>
                 </div>
+              </div>
+                
               </div>
             </cdk-accordion-item>
           </cdk-accordion>
@@ -541,9 +544,9 @@
             </div>
           </div>
         </div>
-        <div class="w-[43%] pl-4">
+        <div class="w-[43%]  pl-4">
           <div class="flex flex-col h-[80vh] w-[100%]">
-            <div class="h-[75%] w-full bgColor rounded-md shadow-md relative">
+            <div class="h-[75%] w-full bgColor rounded-md shadow-md relative bg-[#FAFAFA]">
               <app-contact-view></app-contact-view>
               <div
                 *ngIf="productSectionFlag"

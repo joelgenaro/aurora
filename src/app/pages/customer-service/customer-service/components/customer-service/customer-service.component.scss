@@ -59,7 +59,3 @@ mat-drawer-content {
   overflow-x: hidden;
   overflow-y: auto;
 }
-
-::ng-deep .mat-dialog-container {
-  overflow-y: hidden !important;
-}
