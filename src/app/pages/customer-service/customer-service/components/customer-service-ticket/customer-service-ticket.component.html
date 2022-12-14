@@ -338,14 +338,6 @@
                           </button>
                         </div>
                       </div>
-
-                    </div>
-                    <div
-                      *ngIf="pendingCardFlag"
-                      class="w-full mt-10 pl-9 pr-10"
-                    >
-                      <app-pending-informaiton-card></app-pending-informaiton-card>
-
                     </div>
                     <div
                       *ngIf="pendingCardFlag"
@@ -478,48 +470,47 @@
               [attr.aria-expanded]="accordionItem8.expanded"
               [attr.aria-controls]="'accordion-body-8'"
             >
-              <div
-                *ngIf="locationSectionFlag && emergencyFlowFlag"
-              >
-              <div class="mt-4 w-full bg-white flex flex-col rounded-md shadow-md">
-                <p
-                  (click)="accordionItem8.toggle()"
-                  class="w-full text-[18px] py-3 flex justify-center items-center text-primary"
-                >
-                  Initiate
-                </p>
+              <div *ngIf="locationSectionFlag && emergencyFlowFlag">
                 <div
-                  class="mt-2 mb-5 bg-white"
-                  role="region"
-                  [style.display]="accordionItem8.expanded ? '' : 'none'"
-                  [attr.id]="'accordion-body-8'"
-                  [attr.aria-labelledby]="'accordion-header-8'"
+                  class="mt-4 w-full bg-white flex flex-col rounded-md shadow-md"
                 >
-                  <div class="flex flex-row px-6">
-                    <div class="w-1/2 pr-3.5">
-                      <app-button
-                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray "
-                        text="Send Towing"
-                      ></app-button>
+                  <p
+                    (click)="accordionItem8.toggle()"
+                    class="w-full text-[18px] py-3 flex justify-center items-center text-primary"
+                  >
+                    Initiate
+                  </p>
+                  <div
+                    class="mt-2 mb-5 bg-white"
+                    role="region"
+                    [style.display]="accordionItem8.expanded ? '' : 'none'"
+                    [attr.id]="'accordion-body-8'"
+                    [attr.aria-labelledby]="'accordion-header-8'"
+                  >
+                    <div class="flex flex-row px-6">
+                      <div class="w-1/2 pr-3.5">
+                        <app-button
+                          classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray "
+                          text="Send Towing"
+                        ></app-button>
+                      </div>
+                      <div class="w-1/2">
+                        <app-button
+                          classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center  bg-main-gray "
+                          text="Send Expert"
+                        ></app-button>
+                      </div>
                     </div>
-                    <div class="w-1/2">
-                      <app-button
-                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center  bg-main-gray "
-                        text="Send Expert"
-                      ></app-button>
-                    </div>
-                  </div>
-                  <div class="flex flex-row px-6 mt-4 mb-3">
-                    <div class="w-1/2 pr-3.5">
-                      <app-button
-                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray "
-                        text="Send Ambulance"
-                      ></app-button>
+                    <div class="flex flex-row px-6 mt-4 mb-3">
+                      <div class="w-1/2 pr-3.5">
+                        <app-button
+                          classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray "
+                          text="Send Ambulance"
+                        ></app-button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-                
               </div>
             </cdk-accordion-item>
           </cdk-accordion>
