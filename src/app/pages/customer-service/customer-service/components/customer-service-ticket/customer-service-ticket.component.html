@@ -10,7 +10,7 @@
           class="w-[57%] flex flex-col pr-10 pl-7 twocolorbackground h-[80vh]"
         >
           <div class="flex flex-row pb-4">
-            <div class="w-1/2 flex flex-row">
+            <div class="w-1/2 flex flex-row items-baseline">
               <p
                 class="font-base leading-none flex items-center pt-5 font-bold"
               >
@@ -26,24 +26,14 @@
                 </div>
               </div>
             </div>
-            <div class="w-1/2 flex flex-row justify-center">
+            <div class="w-1/2 flex flex-row items-baseline">
               <p
                 class="text-sm px-4 leading-none pt-5 text-center font-bold flex items-center"
               >
                 TICKET STATUS:
               </p>
-              <div class="flex-1 flex flex-row pt-5 border-b-half">
-                <div
-                  class="flex-1 flex flex-start text-center font-bold text-primary"
-                >
-                  In Process
-                </div>
-                <div class="flex-end">
-                  <mat-icon
-                    class="flex justify-center items-center"
-                    svgIcon="customer-service-arrow-down-notes"
-                  ></mat-icon>
-                </div>
+              <div class="inProcessSelect">
+                <app-select-list label="In Process"></app-select-list>
               </div>
             </div>
           </div>
@@ -91,7 +81,7 @@
                 [attr.aria-labelledby]="'accordion-header-1'"
               >
                 <div class="flex flex-row px-6">
-                  <div class="w-1/2">
+                  <div class="w-1/2 pr-3.5">
                     <app-button
                       (click)="
                         displayTypeSection();
@@ -119,7 +109,7 @@
                   </div>
                 </div>
                 <div class="flex flex-row px-6 mt-4 mb-8">
-                  <div class="w-1/2">
+                  <div class="w-1/2 pr-3.5">
                     <app-button
                       classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
                       text="Complaints"
@@ -161,7 +151,7 @@
                   [attr.aria-labelledby]="'accordion-header-2'"
                 >
                   <div class="flex flex-row px-6">
-                    <div class="w-1/2">
+                    <div class="w-1/2 pr-3.5">
                       <app-button
                         (click)="
                           displayProductSection();
@@ -180,7 +170,7 @@
                     </div>
                   </div>
                   <div class="flex flex-row px-6 mt-4">
-                    <div class="w-1/2">
+                    <div class="w-1/2 pr-3.5">
                       <app-button
                         classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
                         text="Vehicle Insurance"
@@ -194,7 +184,7 @@
                     </div>
                   </div>
                   <div class="flex flex-row px-6 mt-4">
-                    <div class="w-1/2">
+                    <div class="w-1/2 pr-3.5">
                       <app-button
                         classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
                         text="Income Protection Insurance"
@@ -208,7 +198,7 @@
                     </div>
                   </div>
                   <div class="flex flex-row px-6 mt-4 mb-8">
-                    <div class="w-1/2">
+                    <div class="w-1/2 pr-3.5">
                       <app-button
                         classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
                         text="Complaints"
@@ -245,7 +235,7 @@
                   [attr.aria-labelledby]="'accordion-header-3'"
                 >
                   <div class="flex flex-row px-6">
-                    <div class="w-1/2">
+                    <div class="w-1/2 pr-3.5">
                       <app-button
                         (click)="
                           diplayInitialSection();
@@ -264,7 +254,7 @@
                     </div>
                   </div>
                   <div class="flex flex-row px-6 mt-4">
-                    <div class="w-1/2">
+                    <div class="w-1/2 pr-3.5">
                       <app-button
                         classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
                         text="IMV - No Medical Cover"
@@ -321,7 +311,11 @@
                             Pending required information from client 0079827 to
                             proceed with underwriting.
                           </p>
-                          <span (click)="diplayPendingCard()"
+
+
+                          <span
+                            (click)="diplayPendingCard()"
+
                             class="text-xs text-primary border border-x-0 border-t-0 border-b-1"
                           >
                             Check Pending Information list here
@@ -349,6 +343,9 @@
                       
                     </div>
                     <div *ngIf="pendingCardFlag" class="w-full mt-10 pl-9 pr-10">
+                      <app-pending-informaiton-card></app-pending-informaiton-card>
+                    </div>
+                    <div *ngIf="pendingCardFlag" class="w-full">
                       <app-pending-informaiton-card></app-pending-informaiton-card>
                     </div>
                   </div>
@@ -382,7 +379,7 @@
                   [attr.aria-labelledby]="'accordion-header-6'"
                 >
                   <div class="flex flex-row px-6">
-                    <div *ngIf="typeSectionFlag" class="w-1/2">
+                    <div *ngIf="typeSectionFlag" class="w-1/2 pr-3.5">
                       <app-button
                         (click)="
                           displayLocationSection();
@@ -401,7 +398,7 @@
                     </div>
                   </div>
                   <div class="flex flex-row px-6 mt-4">
-                    <div class="w-1/2">
+                    <div class="w-1/2 pr-3.5">
                       <app-button
                         classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
                         text="Water Flooding Accident"
@@ -415,7 +412,7 @@
                     </div>
                   </div>
                   <div class="flex flex-row px-6 mt-4">
-                    <div class="w-1/2">
+                    <div class="w-1/2 pr-3.5">
                       <app-button
                         classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
                         text="Water Flooding Accident"
@@ -497,23 +494,23 @@
                   [attr.aria-labelledby]="'accordion-header-8'"
                 >
                   <div class="flex flex-row px-6">
-                    <div class="w-1/2">
+                    <div class="w-1/2 pr-3.5">
                       <app-button
-                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-primary text-white"
+                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray "
                         text="Send Towing"
                       ></app-button>
                     </div>
                     <div class="w-1/2">
                       <app-button
-                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-primary text-white"
+                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center  bg-main-gray "
                         text="Send Expert"
                       ></app-button>
                     </div>
                   </div>
                   <div class="flex flex-row px-6 mt-4 mb-3">
-                    <div class="w-1/2">
+                    <div class="w-1/2 pr-3.5">
                       <app-button
-                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray "
                         text="Send Ambulance"
                       ></app-button>
                     </div>
@@ -525,7 +522,7 @@
           <div
             class="mt-auto w-[100%] rounded-md shadow-md bg-white items-center"
           >
-            <div class="flex flex-row p-4 items-center">
+            <div class="flex flex-row p-4 items-center noteIcon">
               <div
                 (click)="openNote()"
                 class="flex-1 text-primary text-center text-[18px]"

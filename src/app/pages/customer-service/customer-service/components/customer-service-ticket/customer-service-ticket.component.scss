@@ -1,7 +1,6 @@
-::ng-deep .leading-none.flex.justify-center.items-center{
+::ng-deep .leading-none.flex.justify-center.items-center {
   width: 100% !important;
 }
-
 
 .BadgeAddtionClass {
   right: 28px;
@@ -17,11 +16,23 @@
 
 .set-opacity {
   opacity: 0.5;
-  
 }
 
 ::ng-deep .labelSize {
   .mat-form-field-label.ng-tns-c97-50.mat-empty.mat-form-field-empty.ng-star-inserted {
     font-size: 9px;
+  }
+}
+
+::ng-deep .inProcessSelect {
+  .mat-form-field {
+    width: 150px;
+  }
+}
+
+::ng-deep .noteIcon {
+  .mat-icon {
+    width: 16px !important;
+    height: 12px !important;
   }
 }
