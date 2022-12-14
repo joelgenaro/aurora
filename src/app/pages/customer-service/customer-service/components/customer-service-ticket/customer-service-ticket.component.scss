@@ -28,9 +28,6 @@
   .mat-form-field {
     width: 150px;
   }
-  .mat-form-field-label-wrapper {
-    top: 0px;
-  }
 }
 
 ::ng-deep .noteIcon {
@@ -39,3 +36,8 @@
     height: 12px !important;
   }
 }
+
+.backgroundSepreated {
+  background: linear-gradient(90deg, #FAFAFA 50%, white 50%);
+}
+
