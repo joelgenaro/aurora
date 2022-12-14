@@ -8,3 +8,10 @@
 .backgroundSepreated {
   background: linear-gradient(90deg, #fafafa 50%, white 50%);
 }
+
+::ng-deep .noteIcon {
+  .mat-icon {
+    width: 16px !important;
+    height: 12px !important;
+  }
+}
