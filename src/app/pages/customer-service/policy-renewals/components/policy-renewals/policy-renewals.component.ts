@@ -66,8 +66,6 @@ export class PolicyRenewalsComponent implements OnInit {
   }
 
   drop(event: CdkDragDrop<PolicyCard[]>) {
-    this.openDialog();
-
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
@@ -75,6 +73,8 @@ export class PolicyRenewalsComponent implements OnInit {
         event.currentIndex
       );
     } else {
+      this.openDialog();
+
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,

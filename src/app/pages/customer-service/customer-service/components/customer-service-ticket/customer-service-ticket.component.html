@@ -9,8 +9,8 @@
         <div
           class="w-[57%] flex flex-col pr-10 pl-7 twocolorbackground h-[80vh]"
         >
-          <div class="flex flex-row pb-4">
-            <div class="w-1/2 flex flex-row items-baseline">
+          <div class="flex flex-row pb-4 items-center">
+            <div class="w-1/2 flex flex-row">
               <p
                 class="font-base leading-none flex items-center pt-5 font-bold"
               >
@@ -26,14 +26,14 @@
                 </div>
               </div>
             </div>
-            <div class="w-1/2 flex flex-row items-baseline">
+            <div class="w-1/2 flex flex-row">
               <p
                 class="text-sm px-4 leading-none pt-5 text-center font-bold flex items-center"
               >
                 TICKET STATUS:
               </p>
               <div class="inProcessSelect">
-                <app-select-list label="In Process"></app-select-list>
+                <app-select-list></app-select-list>
               </div>
             </div>
           </div>
@@ -376,12 +376,15 @@
                   [attr.aria-labelledby]="'accordion-header-6'"
                 >
                   <div class="flex flex-row px-6">
-                    <div *ngIf="typeSectionFlag && emergencyFlowFlag" class="w-1/2 pr-3.5">
+                    <div
+                      *ngIf="typeSectionFlag && emergencyFlowFlag"
+                      class="w-1/2 pr-3.5"
+                    >
                       <app-button
                         (click)="
                           accordionItem6.toggle();
                           displayLocationSection();
-                          accordionItem7.toggle();                  
+                          accordionItem7.toggle()
                         "
                         classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
                         text="Vehicle Accident"
@@ -470,11 +473,10 @@
               [attr.aria-expanded]="accordionItem8.expanded"
               [attr.aria-controls]="'accordion-body-8'"
             >
-
-              <div *ngIf="locationSectionFlag && emergencyFlowFlag">
-                <div
-                  class="mt-4 w-full bg-white flex flex-col rounded-md shadow-md"
-                >
+              <div
+                class="mt-4 mb-4 w-full bg-white flex flex-col rounded-md shadow-md"
+              >
+                <div *ngIf="locationSectionFlag && emergencyFlowFlag">
                   <p
                     (click)="accordionItem8.toggle()"
                     class="w-full text-[18px] py-3 flex justify-center items-center text-primary"

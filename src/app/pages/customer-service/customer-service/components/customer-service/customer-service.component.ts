@@ -75,6 +75,8 @@ export class CustomerServiceComponent implements OnInit {
         event.currentIndex
       );
     } else {
+      this.openDialog();
+
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
