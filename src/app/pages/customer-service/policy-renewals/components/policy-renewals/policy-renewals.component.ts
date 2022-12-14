@@ -66,7 +66,8 @@ export class PolicyRenewalsComponent implements OnInit {
   }
 
   drop(event: CdkDragDrop<PolicyCard[]>) {
-    console.log(event);
+    this.openDialog();
+
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,

@@ -28,6 +28,9 @@
   .mat-form-field {
     width: 150px;
   }
+  .mat-form-field-label-wrapper {
+    top: 0px;
+  }
 }
 
 ::ng-deep .noteIcon {
