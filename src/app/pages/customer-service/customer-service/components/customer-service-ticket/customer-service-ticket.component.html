@@ -312,10 +312,8 @@
                             proceed with underwriting.
                           </p>
 
-
                           <span
                             (click)="diplayPendingCard()"
-
                             class="text-xs text-primary border border-x-0 border-t-0 border-b-1"
                           >
                             Check Pending Information list here
@@ -340,9 +338,11 @@
                           </button>
                         </div>
                       </div>
-                      
                     </div>
-                    <div *ngIf="pendingCardFlag" class="w-full mt-10 pl-9 pr-10">
+                    <div
+                      *ngIf="pendingCardFlag"
+                      class="w-full mt-10 pl-9 pr-10"
+                    >
                       <app-pending-informaiton-card></app-pending-informaiton-card>
                     </div>
                     <div *ngIf="pendingCardFlag" class="w-full">
