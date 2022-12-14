@@ -376,12 +376,12 @@
                   [attr.aria-labelledby]="'accordion-header-6'"
                 >
                   <div class="flex flex-row px-6">
-                    <div *ngIf="typeSectionFlag" class="w-1/2 pr-3.5">
+                    <div *ngIf="typeSectionFlag && emergencyFlowFlag" class="w-1/2 pr-3.5">
                       <app-button
                         (click)="
-                          displayLocationSection();
                           accordionItem6.toggle();
-                          accordionItem7.toggle()
+                          displayLocationSection();
+                          accordionItem7.toggle();                  
                         "
                         classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
                         text="Vehicle Accident"
@@ -453,8 +453,8 @@
                   >
                     <div class="px-10 w-full">
                       <app-input-field
-                        class="labelSize"
                         label="AAccident Location (Press on shared location to fill automatically or type in location):"
+                        value=" "
                       ></app-input-field>
                     </div>
                   </div>
@@ -470,6 +470,7 @@
               [attr.aria-expanded]="accordionItem8.expanded"
               [attr.aria-controls]="'accordion-body-8'"
             >
+
               <div *ngIf="locationSectionFlag && emergencyFlowFlag">
                 <div
                   class="mt-4 w-full bg-white flex flex-col rounded-md shadow-md"
