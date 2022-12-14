@@ -18,7 +18,7 @@ export class CustomerServiceTicketComponent implements OnInit {
   disableButton: (boolean) = false;
   disableButtonClass: (string) = '';
   emergencyInitialSectionFlag: (boolean) = false;
-
+  pendingCardFlag: (boolean) = false;
 
   constructor(public dialogRef: MatDialogRef<CustomerServiceTicketComponent>,) { }
 
@@ -41,9 +41,12 @@ export class CustomerServiceTicketComponent implements OnInit {
     this.initialSectionFlag = true;
   }
 
-
   displayTypeSection() {
     this.typeSectionFlag = true;
+  }
+
+  diplayPendingCard() {
+    this.pendingCardFlag = true;
   }
 
   displayLocationSection() {
