@@ -47,30 +47,9 @@
         </div>
       </div>
     </div>
-    <div class="flex flex-row w-[100%] h-[15%]">
-      <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5">
-        <app-policy-status [step]="steps[0]"></app-policy-status>
-        <app-policy-sort></app-policy-sort>
-      </div>
-      <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5">
-        <app-policy-status [step]="steps[1]"></app-policy-status>
-        <app-policy-sort></app-policy-sort>
-      </div>
-      <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5">
-        <app-policy-status [step]="steps[2]"></app-policy-status>
-        <app-policy-sort></app-policy-sort>
-      </div>
-      <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5">
-        <app-policy-status [step]="steps[3]"></app-policy-status>
-        <app-policy-sort></app-policy-sort>
-      </div>
-      <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5">
-        <app-policy-status [step]="steps[4]"></app-policy-status>
-        <app-policy-sort></app-policy-sort>
-      </div>
-    </div>
+
     <div
-      class="flex flex-row w-[100%] h-[75%] overflow-y-auto overflow-x-hidden"
+      class="flex flex-row w-[100%] h-[90%] overflow-y-auto overflow-x-hidden"
       cdkDropListGroup
     >
       <!-- <mat-drawer-content> -->
@@ -80,6 +59,8 @@
         [cdkDropListData]="followUpCards"
         (cdkDropListDropped)="drop($event)"
       >
+        <app-policy-status [step]="steps[0]"></app-policy-status>
+        <app-policy-sort></app-policy-sort>
         <div class="flex justify-center" *ngFor="let card of followUpCards">
           <app-policy-card
             [card]="card"
@@ -96,6 +77,8 @@
         [cdkDropListData]="inProcessCards"
         (cdkDropListDropped)="drop($event)"
       >
+        <app-policy-status [step]="steps[1]"></app-policy-status>
+        <app-policy-sort></app-policy-sort>
         <div class="flex justify-center" *ngFor="let card of inProcessCards">
           <app-policy-card
             [card]="card"
@@ -112,6 +95,8 @@
         [cdkDropListData]="processedCards"
         (cdkDropListDropped)="drop($event)"
       >
+        <app-policy-status [step]="steps[2]"></app-policy-status>
+        <app-policy-sort></app-policy-sort>
         <div
           class="flex justify-center"
           *ngFor="let card of processedCards"
@@ -131,6 +116,8 @@
         [cdkDropListData]="approvedCards"
         (cdkDropListDropped)="drop($event)"
       >
+        <app-policy-status [step]="steps[3]"></app-policy-status>
+        <app-policy-sort></app-policy-sort>
         <div class="flex justify-center" *ngFor="let card of approvedCards">
           <app-policy-card
             class="w-[100%]"
@@ -147,6 +134,8 @@
         [cdkDropListData]="closedCards"
         (cdkDropListDropped)="drop($event)"
       >
+        <app-policy-status [step]="steps[4]"></app-policy-status>
+        <app-policy-sort></app-policy-sort>
         <div class="flex justify-center" *ngFor="let card of closedCards">
           <app-policy-card
             class="w-[100%]"

@@ -37,7 +37,7 @@
               </div>
             </div>
           </div>
-          <cdk-accordion class="overflow-auto">
+          <cdk-accordion>
             <cdk-accordion-item
               #accordionItem0="cdkAccordionItem"
               role="button"
@@ -543,7 +543,9 @@
         </div>
         <div class="w-[43%] pl-4">
           <div class="flex flex-col h-[80vh] w-[100%]">
-            <div class="h-[75%] w-full bgColor rounded-md shadow-md relative">
+            <div
+              class="h-[75%] w-full bgColor rounded-md shadow-md relative bg-[#FAFAFA]"
+            >
               <app-contact-view></app-contact-view>
               <div
                 *ngIf="productSectionFlag"
