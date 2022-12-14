@@ -18,6 +18,8 @@ export class CustomerServiceTicketComponent implements OnInit {
   disableButton: (boolean) = false;
   disableButtonClass: (string) = '';
   emergencyInitialSectionFlag: (boolean) = false;
+  salesFlowFlag: (boolean) = false;
+  emergencyFlowFlag: (boolean) = false;
   pendingCardFlag: (boolean) = false;
 
   constructor(public dialogRef: MatDialogRef<CustomerServiceTicketComponent>,) { }
@@ -31,6 +33,9 @@ export class CustomerServiceTicketComponent implements OnInit {
 
   displayBusinessSection() {
     this.businessSectionFlag = true;
+    this.salesFlowFlag = true;
+    this.emergencyFlowFlag = false;
+    console.log(this.emergencyFlowFlag, this.locationSectionFlag);
   }
 
   displayProductSection() {
@@ -43,6 +48,8 @@ export class CustomerServiceTicketComponent implements OnInit {
 
   displayTypeSection() {
     this.typeSectionFlag = true;
+    this.salesFlowFlag = false;
+    this.emergencyFlowFlag = true;
   }
 
   diplayPendingCard() {
