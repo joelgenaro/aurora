@@ -74,17 +74,16 @@
       cdkDropListGroup
     >
       <!-- <mat-drawer-content> -->
-      <div
+        <div
         class="w-1/5 flex flex-col justify-start gap-y-5 p-5"
         cdkDropList
         [cdkDropListData]="followUpCards"
         (cdkDropListDropped)="drop($event)"
       >
-        <div class="flex justify-center" *ngFor="let card of followUpCards">
+        <div class="flex justify-center" cdkDrag *ngFor="let card of followUpCards">
           <app-policy-card
             [card]="card"
-            (dblclick)="openDialog()"
-            cdkDrag
+            (dblclick)="openDialog()"         
             class="w-[100%]"
           ></app-policy-card>
         </div>
@@ -96,11 +95,10 @@
         [cdkDropListData]="inProcessCards"
         (cdkDropListDropped)="drop($event)"
       >
-        <div class="flex justify-center" *ngFor="let card of inProcessCards">
+        <div class="flex justify-center" *ngFor="let card of inProcessCards" cdkDrag>
           <app-policy-card
             [card]="card"
             (dblclick)="openDialog()"
-            cdkDrag
             class="w-[100%]"
           ></app-policy-card>
         </div>
@@ -131,12 +129,11 @@
         [cdkDropListData]="approvedCards"
         (cdkDropListDropped)="drop($event)"
       >
-        <div class="flex justify-center" *ngFor="let card of approvedCards">
+        <div class="flex justify-center" cdkDrag *ngFor="let card of approvedCards">
           <app-policy-card
             class="w-[100%]"
             [card]="card"
-            (dblclick)="openDialog()"
-            cdkDrag
+            (dblclick)="openDialog()"       
           ></app-policy-card>
         </div>
       </div>
@@ -147,12 +144,11 @@
         [cdkDropListData]="closedCards"
         (cdkDropListDropped)="drop($event)"
       >
-        <div class="flex justify-center" *ngFor="let card of closedCards">
+        <div class="flex justify-center" cdkDrag *ngFor="let card of closedCards">
           <app-policy-card
             class="w-[100%]"
             (dblclick)="openDialog()"
-            [card]="card"
-            cdkDrag
+            [card]="card"           
           ></app-policy-card>
         </div>
       </div>
