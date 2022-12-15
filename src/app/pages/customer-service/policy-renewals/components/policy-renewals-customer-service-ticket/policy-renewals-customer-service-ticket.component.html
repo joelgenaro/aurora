@@ -128,13 +128,12 @@
                   </div>
                   <div *ngIf="pageFlag == 'next'">
                     <app-edit-history></app-edit-history>
-                    <div class="flex-1 flex items-end justify-end">
-                      <input
+                    <div class="flex-1 flex items-end justify-end pb-4">
+                      <app-button
                         (click)="backToFirstPage()"
-                        class="ml-auto px-8 py-3 text-[15px] bg-primary text-white rounded-md"
-                        type="button"
-                        value="save"
-                      />
+                        classes="ml-auto px-8 py-3 text-[15px] bg-primary text-white rounded-md"
+                        text="save"
+                      ></app-button>
                     </div>
                   </div>
                 </div>
