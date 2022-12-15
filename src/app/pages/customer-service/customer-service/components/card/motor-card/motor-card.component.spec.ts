@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SalesFlowComponent } from './sales-flow.component';
+import { MotorCardComponent } from './motor-card.component';
 
-describe('SalesFlowComponent', () => {
-  let component: SalesFlowComponent;
-  let fixture: ComponentFixture<SalesFlowComponent>;
+describe('MotorCardComponent', () => {
+  let component: MotorCardComponent;
+  let fixture: ComponentFixture<MotorCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SalesFlowComponent ]
+      declarations: [ MotorCardComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SalesFlowComponent);
+    fixture = TestBed.createComponent(MotorCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
