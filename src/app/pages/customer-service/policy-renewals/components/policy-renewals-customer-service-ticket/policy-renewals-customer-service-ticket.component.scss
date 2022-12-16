@@ -5,10 +5,6 @@
   }
 }
 
-.backgroundSepreated {
-  background: linear-gradient(90deg, #fafafa 50%, white 50%);
-}
-
 ::ng-deep .noteIcon {
   .mat-icon {
     width: 16px !important;
@@ -16,13 +12,15 @@
   }
 }
 
+::ng-deep .mat-dialog-container {
+  padding: 0px;
+}
+
 
 @media screen and (max-width: 1750px) {
   .button-responsive {
     flex-direction: column;
     justify-content: center;
-    margin-top: 35px;
-    margin-bottom: 30px;
   }
   .communication-button {
     position: inherit;

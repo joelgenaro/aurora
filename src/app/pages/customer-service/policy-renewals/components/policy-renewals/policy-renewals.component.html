@@ -1,11 +1,11 @@
-<div class="h-full bg-[#ffffff] max-w-screen-2xl fixed">
+<div class="h-full bg-[#ffffff] max-w-max fixed">
   <mat-drawer #policyFilterDrawer position="end"
     ><app-policy-filter
       [policyFilterDrawer]="policyFilterDrawer"
     ></app-policy-filter
   ></mat-drawer>
 
-  <mat-drawer-container class="h-full">
+  <mat-drawer-container class="h-full static">
     <div class="h-[10%] flex justify-end">
       <div class="flex items-center gap-12">
         <div
@@ -78,8 +78,9 @@
       </div>
     </div>
     <div
-      class="flex flex-row w-[100%] h-[75%] overflow-y-auto overflow-x-hidden drag-boundary"
+      class="flex flex-row h-[75%] overflow-y-auto overflow-x-hidden drag-boundary"
       cdkDropListGroup
+      cdkDragBoundary=".drag-boundary"
     >
       <!-- <mat-drawer-content> -->
       <div
@@ -89,7 +90,7 @@
         (cdkDropListDropped)="drop($event)"
       >
         <div
-          class="flex justify-center"
+          class="flex justify-center relative"
           cdkDragBoundary=".drag-boundary"
           cdkDrag
           *ngFor="let card of followUpCards"
