@@ -19,7 +19,7 @@ export class PolicySortComponent implements OnInit {
 
   ascending() {
     this.sortingArray.sort((a, b) => a.customer.name.toLowerCase() > b.customer.name.toLowerCase() ? 1 : -1);
-    console.log(this.sortingArray);
+    console.log('1', this.sortingArray);
     this.sortingArrayChange.emit(this.sortingArray);
   }
 
