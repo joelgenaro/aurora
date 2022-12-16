@@ -12,7 +12,7 @@ export const PolicyCardsApproved: PolicyCard[] = [
     customer: {
       svg: 'policy-phone',
       photo: '../../../../../assets/images/personOne.png',
-      name: 'Anonymous',
+      name: 'MOhamed',
       ein: 'EIN:',
       einNumber: '0000213',
     },

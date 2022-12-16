@@ -9,6 +9,7 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 })
 export class DatePickerInputComponent implements OnInit {
   @Input() value: string;
+  @Input() label: string;
   constructor() { }
 
   ngOnInit(): void {

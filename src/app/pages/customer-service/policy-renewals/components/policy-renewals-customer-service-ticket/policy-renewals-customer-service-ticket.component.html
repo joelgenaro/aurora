@@ -94,14 +94,15 @@
                 [attr.aria-expanded]="accordionItem2.expanded"
                 [attr.aria-controls]="'accordion-body-2'"
               >
-                <div class="flex justify-center w-full relative h-20">
+                <div class="flex justify-center w-full relative h-20 button-responsive">
                   <p
-                    class="pt-5 text-primary text-lg"
+                    class="pt-5 text-primary text-lg text-center text-class"
                     (click)="accordionItem2.toggle()"
                   >
                     Follow-Up History
                   </p>
                   <div
+                  class="button-class"
                     role="region"
                     [style.display]="accordionItem2.expanded ? '' : 'none'"
                     [attr.id]="'accordion-body-2'"
@@ -109,7 +110,7 @@
                   >
                     <button
                       (click)="nextPage()"
-                      class="rounded-md text-xs p-3 text-white bg-primary absolute right-6 top-3"
+                      class="rounded-md text-xs p-3 text-white bg-primary absolute right-6 top-3 communication-button"
                     >
                       Add Communication
                     </button>
