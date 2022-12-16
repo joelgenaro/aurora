@@ -12,7 +12,7 @@ export const PolicyCardsInprocess: PolicyCard[] = [
     customer: {
       svg: 'policy-phone',
       photo: '../../../../../assets/images/personOne.png',
-      name: 'Anonymous',
+      name: 'Mohamed',
       ein: 'EIN:',
       einNumber: '0000213',
     },

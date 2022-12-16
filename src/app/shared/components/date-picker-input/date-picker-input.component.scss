@@ -1,11 +1,23 @@
-::ng-deep .mat-form-field-infix{
-  display: flex !important;
-}
 
-::ng-deep .mat-form-field-flex {
-  background-color: white !important;
-}
+::ng-deep .date-picker {
+  .mat-form-field-infix{
+    display: flex !important;
+  }
+  
+  .mat-form-field-flex {
+    background-color: #fafafa !important;
+  }
+  
+  .ng-tns-c97-9 {
+    height: 30px !important;
+  }
 
-::ng-deep .ng-tns-c97-9 {
-  height: 30px !important;
+  .mat-form-field-wrapper {
+    padding-bottom: 5px;
+  }
+
+  .mat-icon-button {
+    width: 24px;
+  }
+  
 }

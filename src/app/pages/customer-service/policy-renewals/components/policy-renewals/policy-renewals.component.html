@@ -48,25 +48,25 @@
       </div>
     </div>
     <div class="flex flex-row w-[100%] h-[15%]">
-      <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5">
+      <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5 control-width">
         <app-policy-status [step]="steps[0]"></app-policy-status>
-        <app-policy-sort></app-policy-sort>
+        <app-policy-sort [(sortingArray)]="this.followUpCards"></app-policy-sort>
       </div>
-      <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5">
+      <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5 control-width">
         <app-policy-status [step]="steps[1]"></app-policy-status>
-        <app-policy-sort></app-policy-sort>
+        <app-policy-sort [(sortingArray)]="this.inProcessCards"></app-policy-sort>
       </div>
-      <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5">
+      <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5 control-width">
         <app-policy-status [step]="steps[2]"></app-policy-status>
-        <app-policy-sort></app-policy-sort>
+        <app-policy-sort [(sortingArray)]="this.processedCards"></app-policy-sort>
       </div>
-      <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5">
+      <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5 control-width">
         <app-policy-status [step]="steps[3]"></app-policy-status>
-        <app-policy-sort></app-policy-sort>
+        <app-policy-sort [(sortingArray)]="this.approvedCards"></app-policy-sort>
       </div>
-      <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5">
+      <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5 control-width">
         <app-policy-status [step]="steps[4]"></app-policy-status>
-        <app-policy-sort></app-policy-sort>
+        <app-policy-sort [(sortingArray)]="this.closedCards"></app-policy-sort>
       </div>
     </div>
     <div

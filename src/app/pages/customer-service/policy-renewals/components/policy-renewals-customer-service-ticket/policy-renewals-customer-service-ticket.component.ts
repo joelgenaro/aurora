@@ -8,6 +8,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PolicyRenewalsCustomerServiceTicketComponent implements OnInit {
+
   pageFlag: string = 'first';
   noteSectionFlag: boolean = false;
   constructor(

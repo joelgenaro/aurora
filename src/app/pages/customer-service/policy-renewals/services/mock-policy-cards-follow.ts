@@ -36,7 +36,7 @@ export const PolicyCards: PolicyCard[] = [
     customer: {
       svg: 'policy-box',
       photo: '../../../../../assets/images/personOne.png',
-      name: 'Anonymous',
+      name: 'pnonymous',
       ein: 'EIN:',
       einNumber: '0000213',
     },
@@ -60,7 +60,7 @@ export const PolicyCards: PolicyCard[] = [
     customer: {
       svg: 'policy-alert',
       photo: '../../../../../assets/images/personThree.png',
-      name: 'Anonymous',
+      name: 'enonymous',
       ein: 'EIN:',
       einNumber: '0000213',
     },

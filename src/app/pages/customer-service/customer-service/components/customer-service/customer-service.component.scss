@@ -48,6 +48,12 @@
   width: 100% !important;
 }
 
+::ng-deep .control-width {
+  .mat-form-field-wrapper {
+    width: 60% !important;
+  }
+}
+
 mat-drawer-content {
   padding: 12px;
   display: flex;
@@ -61,4 +67,9 @@ mat-drawer-content {
 }
 ::ng-deep .mat-dialog-container {
   overflow-y: hidden !important;
+}
+
+.drag-boundary {
+  width: 100%;
+  max-width: 100%;
 }
