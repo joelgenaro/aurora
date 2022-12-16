@@ -34,7 +34,9 @@ export class PolicyRenewalsComponent implements OnInit {
   constructor(
     private policyCardService: PolicyCardService,
     public dialog: MatDialog
-  ) {}
+  ) {
+    this.getCards();
+  }
 
   openDialog(): void {
     this.dialog.open(PolicyRenewalsCustomerServiceTicketComponent, {
