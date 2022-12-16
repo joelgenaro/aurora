@@ -69,3 +69,8 @@ mat-drawer-content {
 ::ng-deep .mat-dialog-container {
   overflow-y: hidden !important;
 }
+
+.drag-boundary {
+  width: 1800px;
+  max-width: 100%;
+}
