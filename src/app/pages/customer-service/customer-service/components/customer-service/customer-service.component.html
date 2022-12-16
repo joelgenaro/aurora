@@ -1,4 +1,4 @@
-<div class="h-full bg-[#ffffff]">
+<div class="h-full bg-[#ffffff] max-w-max fixed">
   <mat-drawer #policyFilterDrawer position="end"
     ><app-policy-filter
       [policyFilterDrawer]="policyFilterDrawer"
@@ -50,19 +50,27 @@
     <div class="flex flex-row w-[100%] h-[15%]">
       <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5 control-width">
         <app-policy-status [step]="steps[0]"></app-policy-status>
-        <app-policy-sort [(sortingArray)]="this.followUpCards"></app-policy-sort>
+        <app-policy-sort
+          [(sortingArray)]="this.followUpCards"
+        ></app-policy-sort>
       </div>
       <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5 control-width">
         <app-policy-status [step]="steps[1]"></app-policy-status>
-        <app-policy-sort [(sortingArray)]="this.inProcessCards"></app-policy-sort>
+        <app-policy-sort
+          [(sortingArray)]="this.inProcessCards"
+        ></app-policy-sort>
       </div>
       <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5 control-width">
         <app-policy-status [step]="steps[2]"></app-policy-status>
-        <app-policy-sort [(sortingArray)]="this.processedCards"></app-policy-sort>
+        <app-policy-sort
+          [(sortingArray)]="this.processedCards"
+        ></app-policy-sort>
       </div>
       <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5 control-width">
         <app-policy-status [step]="steps[3]"></app-policy-status>
-        <app-policy-sort [(sortingArray)]="this.approvedCards"></app-policy-sort>
+        <app-policy-sort
+          [(sortingArray)]="this.approvedCards"
+        ></app-policy-sort>
       </div>
       <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5 control-width">
         <app-policy-status [step]="steps[4]"></app-policy-status>
@@ -80,10 +88,13 @@
         cdkDropList
         [cdkDropListData]="followUpCards"
         (cdkDropListDropped)="drop($event)"
-        
-        
       >
-        <div class="flex justify-center relative" cdkDragBoundary=".drag-boundary" cdkDrag *ngFor="let card of followUpCards">
+        <div
+          class="flex justify-center relative"
+          cdkDragBoundary=".drag-boundary"
+          cdkDrag
+          *ngFor="let card of followUpCards"
+        >
           <app-policy-card
             [card]="card"
             (dblclick)="openDialog()"
@@ -100,6 +111,7 @@
       >
         <div
           class="flex justify-center"
+          cdkDragBoundary=".drag-boundary"
           *ngFor="let card of inProcessCards"
           cdkDrag
         >
@@ -119,6 +131,7 @@
       >
         <div
           class="flex justify-center"
+          cdkDragBoundary=".drag-boundary"
           *ngFor="let card of processedCards"
           cdkDrag
         >
@@ -138,6 +151,7 @@
       >
         <div
           class="flex justify-center"
+          cdkDragBoundary=".drag-boundary"
           cdkDrag
           *ngFor="let card of approvedCards"
         >
@@ -157,6 +171,7 @@
       >
         <div
           class="flex justify-center"
+          cdkDragBoundary=".drag-boundary"
           cdkDrag
           *ngFor="let card of closedCards"
         >
