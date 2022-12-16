@@ -75,8 +75,6 @@ export class PolicyRenewalsComponent implements OnInit {
         event.currentIndex
       );
     } else {
-      console.log(this.followUpCards, this.inProcessCards)
-
       this.openDialog();
 
       transferArrayItem(

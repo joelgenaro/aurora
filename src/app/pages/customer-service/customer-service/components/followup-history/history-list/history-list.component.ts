@@ -181,7 +181,6 @@ export class HistoryListComponent extends BaseComponent implements OnInit, After
 
   onTicketEdited(_category: TicketHistoryListItem) {
     this.NextPageEvent.emit(true);
-    console.log(true);
   }
 
   onTicketViewed(_category: TicketHistoryListItem) {
