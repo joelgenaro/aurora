@@ -10,22 +10,23 @@ import { PolicyCard } from '../policy-card/models/policy-card.model';
 })
 export class PolicySortComponent implements OnInit {
   
-  @Input() sortingArray: PolicyCard[]; 
+  @Input() sortingArray!: PolicyCard[]; 
+  arrow = false;
   @Output() sortingArrayChange = new EventEmitter<PolicyCard[]>();
   
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {  }
 
-  ascending() {
+  ascending():any {
     this.sortingArray.sort((a, b) => a.customer.name.toLowerCase() > b.customer.name.toLowerCase() ? 1 : -1);
-    console.log('1', this.sortingArray);
     this.sortingArrayChange.emit(this.sortingArray);
+    this.arrow = true;
   }
 
-  descending() {
+  descending():any {
     this.sortingArray.sort((a, b) => a.customer.name.toLowerCase() > b.customer.name.toLowerCase() ? -1 : 1);
-    console.log(this.sortingArray);
+    this.arrow = false;
     this.sortingArrayChange.emit(this.sortingArray);
   }
 

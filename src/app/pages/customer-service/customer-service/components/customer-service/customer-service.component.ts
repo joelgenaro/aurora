@@ -36,7 +36,6 @@ export class CustomerServiceComponent implements OnInit {
     private policyCardService: PolicyCardService,
     public dialog: MatDialog
   ) {
-    console.log('this is customer service component');
   }
 
   openDialog(): void {
