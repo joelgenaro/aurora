@@ -1,11 +1,11 @@
-import { ChangeDetectionStrategy, Component, OnInit, } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { PolicyStatus } from '@root/pages/customer-service/policy-renewals/components/policy-status/models/policy-status.model';
 import { PolicyCard } from '@root/pages/customer-service/policy-renewals/components/policy-card/models/policy-card.model';
-import { PolicyCardService } from '@root/pages/customer-service/policy-renewals/services/policy-card.service';
+// import { PolicyCardService } from '@root/pages/customer-service/policy-renewals/services/policy-card.service';
 import {
   CdkDragDrop,
   moveItemInArray,
-  transferArrayItem, 
+  transferArrayItem,
   CdkDropList,
 } from '@angular/cdk/drag-drop';
 import { MatDialog } from '@angular/material/dialog';
@@ -33,10 +33,9 @@ export class CustomerServiceComponent implements OnInit {
   closedCards: PolicyCard[] = [];
 
   constructor(
-    private policyCardService: PolicyCardService,
+    // private policyCardService: PolicyCardService,
     public dialog: MatDialog
-  ) {
-  }
+  ) {}
 
   openDialog(): void {
     this.dialog.open(CustomerServiceTicketComponent, {
@@ -50,21 +49,21 @@ export class CustomerServiceComponent implements OnInit {
   }
 
   getCards(): void {
-    this.policyCardService
-      .getFolllowUpCards()
-      .subscribe((cards) => (this.followUpCards = cards));
-    this.policyCardService
-      .getInProcessCards()
-      .subscribe((cards) => (this.inProcessCards = cards));
-    this.policyCardService
-      .getProcessedCards()
-      .subscribe((cards) => (this.processedCards = cards));
-    this.policyCardService
-      .getApprovedCards()
-      .subscribe((cards) => (this.approvedCards = cards));
-    this.policyCardService
-      .getClosedCards()
-      .subscribe((cards) => (this.closedCards = cards));
+    // this.policyCardService
+    //   .getFolllowUpCards()
+    //   .subscribe((cards) => (this.followUpCards = cards));
+    // this.policyCardService
+    //   .getInProcessCards()
+    //   .subscribe((cards) => (this.inProcessCards = cards));
+    // this.policyCardService
+    //   .getProcessedCards()
+    //   .subscribe((cards) => (this.processedCards = cards));
+    // this.policyCardService
+    //   .getApprovedCards()
+    //   .subscribe((cards) => (this.approvedCards = cards));
+    // this.policyCardService
+    //   .getClosedCards()
+    //   .subscribe((cards) => (this.closedCards = cards));
   }
 
   drop(event: CdkDragDrop<PolicyCard[]>) {
@@ -86,12 +85,11 @@ export class CustomerServiceComponent implements OnInit {
     }
   }
 
-  
-limiterPredicate(container: CdkDropList) {
-  if (container.data.length === 0) {
-    return true;
-  } else {
-    return false;
+  limiterPredicate(container: CdkDropList) {
+    if (container.data.length === 0) {
+      return true;
+    } else {
+      return false;
+    }
   }
-}
 }

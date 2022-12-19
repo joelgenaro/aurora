@@ -50,21 +50,17 @@ export class PolicyRenewalsComponent implements OnInit {
   }
 
   getCards(): void {
-    this.policyCardService
-      .getFolllowUpCards()
-      .subscribe((cards) => (this.followUpCards = cards));
-    this.policyCardService
-      .getInProcessCards()
-      .subscribe((cards) => (this.inProcessCards = cards));
-    this.policyCardService
-      .getProcessedCards()
-      .subscribe((cards) => (this.processedCards = cards));
-    this.policyCardService
-      .getApprovedCards()
-      .subscribe((cards) => (this.approvedCards = cards));
-    this.policyCardService
-      .getClosedCards()
-      .subscribe((cards) => (this.closedCards = cards));
+    this.policyCardService.getPolicyRenewalTickets().subscribe((data: any) => {
+      const temp = data;
+
+      this.followUpCards = temp.inQueueTickets;
+      this.inProcessCards = temp.inProgressTickets;
+      this.processedCards = temp.processedTickets;
+      this.approvedCards = temp.resolvedTickets;
+      this.closedCards = temp.closedTickets;
+
+      console.log(this.followUpCards);
+    });
   }
 
   drop(event: CdkDragDrop<PolicyCard[]>) {
