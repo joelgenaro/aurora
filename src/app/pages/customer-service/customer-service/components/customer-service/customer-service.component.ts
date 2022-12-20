@@ -6,10 +6,10 @@ import {
   CdkDragDrop,
   moveItemInArray,
   transferArrayItem,
-  CdkDropList,
 } from '@angular/cdk/drag-drop';
 import { MatDialog } from '@angular/material/dialog';
 import { CustomerServiceTicketComponent } from '../customer-service-ticket/customer-service-ticket.component';
+import { CustomerCardService } from '../../services/customer-card.service';
 
 @Component({
   selector: 'app-customer-service',
@@ -19,11 +19,11 @@ import { CustomerServiceTicketComponent } from '../customer-service-ticket/custo
 })
 export class CustomerServiceComponent implements OnInit {
   steps: PolicyStatus[] = [
-    { title: 'Created/Received Queue', color: 'bg-[#d8d8d8]' },
+    { title: 'Policy Renewal Followup', color: 'bg-[#d8d8d8]' },
     { title: 'In Process', color: 'bg-[#3890cf]' },
     { title: 'Processed (Renewal Issued)', color: 'bg-[#939393]' },
-    { title: 'Resolved', color: 'bg-[#199e52]' },
-    { title: 'Closed', color: 'bg-[#e7e7e7]' },
+    { title: 'Renewal Approved', color: 'bg-[#199e52]' },
+    { title: 'Closed (No Renewal)', color: 'bg-[#e7e7e7]' },
   ];
 
   followUpCards: PolicyCard[] = [];
@@ -33,14 +33,17 @@ export class CustomerServiceComponent implements OnInit {
   closedCards: PolicyCard[] = [];
 
   constructor(
-    // private policyCardService: PolicyCardService,
+    private CustomerCardService: CustomerCardService,
     public dialog: MatDialog
-  ) {}
+  ) {
+    this.getCards();
+  }
 
-  openDialog(): void {
+  openDialog(card: {}): void {
     this.dialog.open(CustomerServiceTicketComponent, {
       height: '90%',
       width: '90%',
+      data: card,
     });
   }
 
@@ -49,21 +52,17 @@ export class CustomerServiceComponent implements OnInit {
   }
 
   getCards(): void {
-    // this.policyCardService
-    //   .getFolllowUpCards()
-    //   .subscribe((cards) => (this.followUpCards = cards));
-    // this.policyCardService
-    //   .getInProcessCards()
-    //   .subscribe((cards) => (this.inProcessCards = cards));
-    // this.policyCardService
-    //   .getProcessedCards()
-    //   .subscribe((cards) => (this.processedCards = cards));
-    // this.policyCardService
-    //   .getApprovedCards()
-    //   .subscribe((cards) => (this.approvedCards = cards));
-    // this.policyCardService
-    //   .getClosedCards()
-    //   .subscribe((cards) => (this.closedCards = cards));
+    this.CustomerCardService.getCutomerServiceTickets().subscribe((data: any) => {
+      const temp = data;
+
+      this.followUpCards = temp.inQueueTickets;
+      this.inProcessCards = temp.inProgressTickets;
+      this.processedCards = temp.processedTickets;
+      this.approvedCards = temp.resolvedTickets;
+      this.closedCards = temp.closedTickets;
+
+      console.log(this.followUpCards);
+    });
   }
 
   drop(event: CdkDragDrop<PolicyCard[]>) {
@@ -74,7 +73,7 @@ export class CustomerServiceComponent implements OnInit {
         event.currentIndex
       );
     } else {
-      this.openDialog();
+      this.openDialog(event.container.data);
 
       transferArrayItem(
         event.previousContainer.data,
@@ -82,14 +81,6 @@ export class CustomerServiceComponent implements OnInit {
         event.previousIndex,
         event.currentIndex
       );
-    }
-  }
-
-  limiterPredicate(container: CdkDropList) {
-    if (container.data.length === 0) {
-      return true;
-    } else {
-      return false;
     }
   }
 }

@@ -1,6 +1,12 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  Input,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { PolicyCard } from '../policy-card/models/policy-card.model';
-
 
 @Component({
   selector: 'app-policy-sort',
@@ -9,25 +15,23 @@ import { PolicyCard } from '../policy-card/models/policy-card.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PolicySortComponent implements OnInit {
-  
-  @Input() sortingArray!: PolicyCard[]; 
+  @Input() sortingArray!: PolicyCard[];
   arrow = false;
   @Output() sortingArrayChange = new EventEmitter<PolicyCard[]>();
-  
+
   constructor() {}
 
-  ngOnInit(): void {  }
+  ngOnInit(): void {}
 
-  ascending():any {
-    this.sortingArray.sort((a, b) => a.customer.name.toLowerCase() > b.customer.name.toLowerCase() ? 1 : -1);
-    this.sortingArrayChange.emit(this.sortingArray);
-    this.arrow = true;
+  ascending(): any {
+    // this.sortingArray.sort((a, b) => a.customer.name.toLowerCase() > b.customer.name.toLowerCase() ? 1 : -1);
+    // this.sortingArrayChange.emit(this.sortingArray);
+    // this.arrow = true;
   }
 
-  descending():any {
-    this.sortingArray.sort((a, b) => a.customer.name.toLowerCase() > b.customer.name.toLowerCase() ? -1 : 1);
-    this.arrow = false;
-    this.sortingArrayChange.emit(this.sortingArray);
+  descending(): any {
+    // this.sortingArray.sort((a, b) => a.customer.name.toLowerCase() > b.customer.name.toLowerCase() ? -1 : 1);
+    // this.arrow = false;
+    // this.sortingArrayChange.emit(this.sortingArray);
   }
-
 }

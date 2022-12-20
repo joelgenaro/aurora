@@ -2,10 +2,23 @@
   <mat-drawer #policyFilterDrawer position="end"
     ><app-policy-filter
       [policyFilterDrawer]="policyFilterDrawer"
+      [(filteringArray)]="tickets"
     ></app-policy-filter
   ></mat-drawer>
 
   <mat-drawer-container class="h-full static">
+    <mat-drawer
+      #drawer
+      class="drawer"
+      fixedInViewport
+      mode="over"
+      opened="false"
+      position="end"
+    >
+      <div class="w-[25%] absolute h-[100%] right-0 top-0">
+        <app-policy-filter></app-policy-filter>
+      </div>
+    </mat-drawer>
     <div class="h-[10%] flex justify-end">
       <div class="flex items-center gap-12">
         <div
@@ -50,33 +63,26 @@
     <div class="flex flex-row w-[100%] h-[15%]">
       <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5 control-width">
         <app-policy-status [step]="steps[0]"></app-policy-status>
-        <app-policy-sort
-          [(sortingArray)]="this.followUpCards"
-        ></app-policy-sort>
+        <app-policy-sort [(sortingArray)]="followUpCards"></app-policy-sort>
       </div>
       <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5 control-width">
         <app-policy-status [step]="steps[1]"></app-policy-status>
-        <app-policy-sort
-          [(sortingArray)]="this.inProcessCards"
-        ></app-policy-sort>
+        <app-policy-sort [(sortingArray)]="inProcessCards"></app-policy-sort>
       </div>
       <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5 control-width">
         <app-policy-status [step]="steps[2]"></app-policy-status>
-        <app-policy-sort
-          [(sortingArray)]="this.processedCards"
-        ></app-policy-sort>
+        <app-policy-sort [(sortingArray)]="processedCards"></app-policy-sort>
       </div>
       <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5 control-width">
         <app-policy-status [step]="steps[3]"></app-policy-status>
-        <app-policy-sort
-          [(sortingArray)]="this.approvedCards"
-        ></app-policy-sort>
+        <app-policy-sort [(sortingArray)]="approvedCards"></app-policy-sort>
       </div>
       <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5 control-width">
         <app-policy-status [step]="steps[4]"></app-policy-status>
-        <app-policy-sort [(sortingArray)]="this.closedCards"></app-policy-sort>
+        <app-policy-sort [(sortingArray)]="closedCards"></app-policy-sort>
       </div>
     </div>
+
     <div
       class="flex flex-row h-[75%] overflow-y-auto overflow-x-hidden drag-boundary"
       cdkDropListGroup
@@ -86,18 +92,18 @@
       <div
         class="w-1/5 flex flex-col justify-start gap-y-5 p-5"
         cdkDropList
-        [cdkDropListData]="followUpCards"
+        [cdkDropListData]="tickets.inQueueTickets"
         (cdkDropListDropped)="drop($event)"
       >
         <div
           class="flex justify-center relative"
           cdkDragBoundary=".drag-boundary"
           cdkDrag
-          *ngFor="let card of followUpCards"
+          *ngFor="let card of tickets.inQueueTickets"
         >
           <app-policy-card
             [card]="card"
-            (dblclick)="openDialog()"
+            (dblclick)="openDialog(card)"
             class="w-[100%]"
           ></app-policy-card>
         </div>
@@ -106,18 +112,18 @@
       <div
         class="w-1/5 flex flex-col justify-start gap-y-5 p-5"
         cdkDropList
-        [cdkDropListData]="inProcessCards"
+        [cdkDropListData]="tickets.inProgressTickets"
         (cdkDropListDropped)="drop($event)"
       >
         <div
           class="flex justify-center"
           cdkDragBoundary=".drag-boundary"
-          *ngFor="let card of inProcessCards"
+          *ngFor="let card of tickets.inProgressTickets"
           cdkDrag
         >
           <app-policy-card
+            (dblclick)="openDialog(card)"
             [card]="card"
-            (dblclick)="openDialog()"
             class="w-[100%]"
           ></app-policy-card>
         </div>
@@ -126,19 +132,19 @@
       <div
         class="w-1/5 flex flex-col justify-start gap-y-5 p-5"
         cdkDropList
-        [cdkDropListData]="processedCards"
+        [cdkDropListData]="tickets.processedTickets"
         (cdkDropListDropped)="drop($event)"
       >
         <div
           class="flex justify-center"
           cdkDragBoundary=".drag-boundary"
-          *ngFor="let card of processedCards"
+          *ngFor="let card of tickets.processedTickets"
           cdkDrag
         >
           <app-policy-card
             class="w-[100%]"
             [card]="card"
-            (dblclick)="openDialog()"
+            (dblclick)="openDialog(card)"
           ></app-policy-card>
         </div>
       </div>
@@ -146,19 +152,19 @@
       <div
         class="w-1/5 flex flex-col justify-start gap-y-5 p-5"
         cdkDropList
-        [cdkDropListData]="approvedCards"
+        [cdkDropListData]="tickets.resolvedTickets"
         (cdkDropListDropped)="drop($event)"
       >
         <div
           class="flex justify-center"
           cdkDragBoundary=".drag-boundary"
           cdkDrag
-          *ngFor="let card of approvedCards"
+          *ngFor="let card of tickets.resolvedTickets"
         >
           <app-policy-card
             class="w-[100%]"
             [card]="card"
-            (dblclick)="openDialog()"
+            (dblclick)="openDialog(card)"
           ></app-policy-card>
         </div>
       </div>
@@ -166,34 +172,22 @@
       <div
         class="w-1/5 flex flex-col justify-start gap-y-5 p-5"
         cdkDropList
-        [cdkDropListData]="closedCards"
+        [cdkDropListData]="tickets.closedTickets"
         (cdkDropListDropped)="drop($event)"
       >
         <div
           class="flex justify-center"
           cdkDragBoundary=".drag-boundary"
           cdkDrag
-          *ngFor="let card of closedCards"
+          *ngFor="let card of tickets.closedTickets"
         >
           <app-policy-card
             class="w-[100%]"
-            (dblclick)="openDialog()"
+            (dblclick)="openDialog(card)"
             [card]="card"
           ></app-policy-card>
         </div>
       </div>
-      <mat-drawer
-        #drawer
-        class="drawer"
-        fixedInViewport
-        mode="over"
-        opened="false"
-        position="end"
-      >
-        <div class="w-[25%] absolute h-[100%] right-0 top-0">
-          <app-policy-filter></app-policy-filter>
-        </div>
-      </mat-drawer>
     </div>
   </mat-drawer-container>
 </div>

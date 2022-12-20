@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, Input } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -9,6 +9,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class PolicyRenewalsCustomerServiceTicketComponent implements OnInit {
 
+  @Input() data: {};
   pageFlag: string = 'first';
   noteSectionFlag: boolean = false;
   constructor(

@@ -3,12 +3,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
-import { PolicyCard } from '../components/policy-card/models/policy-card.model';
+import { PolicyCard } from '../../policy-renewals/components/policy-card/models/policy-card.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class PolicyCardService {
+export class CustomerCardService {
   constructor(private http: HttpClient) {}
 
   /*========================================
@@ -26,20 +26,12 @@ export class PolicyCardService {
   };
 
   // Define Filter API
-  apiFilterURL = `${environment.customerServiceServerURL}/PolicyRenewalTicket/Filter`;
+  apiFilterURL = `${environment.customerServiceServerURL}/CustomerServiceTicket/Filter`;
 
-  // HttpClient API post() method => Get PolicyRenewalTickets
-  getPolicyRenewalTickets(): Observable<any> {
+  // HttpClient API post() method => Get inQueueTickets
+  getCutomerServiceTickets(): Observable<PolicyCard> {
     return this.http
       .post<PolicyCard>(this.apiFilterURL, {}, this.httpOptions)
-      .pipe(retry(1), catchError(this.handleError));
-  }
-
-  // HttpClient API post() method => Filter PolicyRenewalTickets
-  filterPolicyRenewalTickets(option: {}): Observable<any> {
-    console.log(option);
-    return this.http
-      .post<PolicyCard>(this.apiFilterURL, option, this.httpOptions)
       .pipe(retry(1), catchError(this.handleError));
   }
 

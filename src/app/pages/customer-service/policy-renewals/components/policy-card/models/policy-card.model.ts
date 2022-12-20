@@ -1,24 +1,21 @@
 export interface PolicyCard {
-  left: {
-    leftD: string;
-    leftH: string;
-    leftM: string;
-    backgroundColor: string;
-    svg: string;
-  };
-  customer: {
-    svg: string;
-    photo: string;
-    name: string;
-    ein: string;
-    einNumber: string;
-  };
-  assignedClient: {
-    name: string;
-    textColor: string;
-    borderColor: string;
-    photo: string;
-  };
-  date: string;
-  prf: string;
+  id: number;
+  ticketCode: string;
+  entityId: string;
+  entityName: string;
+  entityProfilePictureUri: string;
+  dateCreated: string;
+  dateModified: string;
+  sourceId: number;
+  sourceName: string;
+  sourceIconUrl: string;
+  primaryCommunicationChannelId: number;
+  status: number;
+  ticketTypeId: number;
+  ticketTypeName: string;
+  ticketTypeIconUri: string;
+  assignedToId: string;
+  assignedToName: string;
+  assignedToProfilePictureUri: string;
+  detailsJson: string;
 }
