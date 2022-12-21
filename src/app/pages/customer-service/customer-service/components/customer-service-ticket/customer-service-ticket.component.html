@@ -14,15 +14,14 @@
               <p
                 class="font-base leading-none flex items-center pt-5 font-bold"
               >
-                ENTITY NAME HERE {{ data.dataKey.entityName }}
+                ENTITY NAME HERE
               </p>
               <div class="flex-1">
                 <div class="flex justify-center pt-5">
                   EIN: &nbsp;
                   <span
                     class="underline text-[15px] text-primary decoration-sky-100 flex items-center"
-                    >{{ data.dataKey.ein }}</span
-                  >
+                  ></span>
                 </div>
               </div>
             </div>
@@ -33,7 +32,7 @@
                 TICKET STATUS:
               </p>
               <div class="inProcessSelect">
-                <app-select-list [optionsList]="status"></app-select-list>
+                <app-select-list></app-select-list>
               </div>
             </div>
           </div>
