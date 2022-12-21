@@ -26,10 +26,11 @@ export class SelectListComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('aaaaaa', this.optionsList);
+  }
 
   changeStatus() {
-    console.log('aaaaaa', this.statusValue);
     this.statusValueChange.emit(this.statusValue);
   }
 }

@@ -7,9 +7,9 @@
         cardInfo.leftSideBackground
       }}"
     >
-      <div>{{ cardInfo.day }}</div>
-      <div>{{ cardInfo.hour }}</div>
-      <div>{{ cardInfo.minute }}</div>
+      <div>{{ cardInfo.day + "D" }}</div>
+      <div>{{ cardInfo.hour + "H" }}</div>
+      <div>{{ cardInfo.minute + "M" }}</div>
       <div class="absolute flex bottom-1 shadow-lg">
         <img src="{{ cardInfo.ticketTypeIconUrl }}" alt="" />
       </div>
@@ -46,13 +46,11 @@
         <div class="h-full w-[60%] flex flex-col items-start justify-center">
           <span class="font-bold text-[11px]">{{ cardInfo.entityName }}</span>
           <span class="text-[8px]">
-            <div *ngIf="cardInfo.entityId">
+            <div *ngIf="cardInfo.ein">
               EIN:
-              <span class="text-[#005f83] underline">{{
-                cardInfo.entityId
-              }}</span>
+              <span class="text-[#005f83] underline">{{ cardInfo.ein }}</span>
             </div>
-            <div *ngIf="cardInfo.entityId == null">
+            <div *ngIf="cardInfo.ein == null">
               <span class="text-[#005f83]">Entity Not Matched or Created</span>
             </div>
           </span>

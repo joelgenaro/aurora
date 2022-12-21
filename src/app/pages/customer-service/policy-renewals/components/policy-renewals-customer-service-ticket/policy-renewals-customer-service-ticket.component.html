@@ -19,7 +19,7 @@
                   EIN: &nbsp;
                   <span
                     class="underline text-[15px] text-primary decoration-sky-100 flex items-center"
-                    >0079827</span
+                    >{{ this.data.dataKey.ein }}</span
                   >
                 </div>
               </div>
@@ -31,7 +31,7 @@
                 TICKET STATUS:
               </p>
               <div class="inProcessSelect">
-                <app-select-list></app-select-list>
+                <app-select-list [optionsList]="status"></app-select-list>
               </div>
             </div>
           </div>
@@ -94,7 +94,9 @@
                 [attr.aria-expanded]="accordionItem2.expanded"
                 [attr.aria-controls]="'accordion-body-2'"
               >
-                <div class="flex justify-center w-full relative h-20 button-responsive">
+                <div
+                  class="flex justify-center w-full relative h-20 button-responsive"
+                >
                   <p
                     class="pt-5 text-primary text-lg text-center text-class"
                     (click)="accordionItem2.toggle()"
@@ -102,7 +104,7 @@
                     Follow-Up History
                   </p>
                   <div
-                  class="button-class"
+                    class="button-class"
                     role="region"
                     [style.display]="accordionItem2.expanded ? '' : 'none'"
                     [attr.id]="'accordion-body-2'"
@@ -124,18 +126,14 @@
                   class="border-none"
                 >
                   <div *ngIf="pageFlag == 'first'">
-                    <app-history-list></app-history-list>
+                    <app-history-list [data]="data.dataKey"></app-history-list>
                     <div class="none"></div>
                   </div>
                   <div *ngIf="pageFlag == 'next'">
-                    <app-edit-history></app-edit-history>
-                    <div class="flex-1 flex items-end justify-end pb-4">
-                      <app-button
-                        (click)="backToFirstPage()"
-                        classes="ml-auto px-8 py-3 text-[15px] bg-primary text-white rounded-md"
-                        text="save"
-                      ></app-button>
-                    </div>
+                    <app-edit-history
+                      [(pageControl)]="pageFlag"
+                      [data]="data.dataKey"
+                    ></app-edit-history>
                   </div>
                 </div>
               </cdk-accordion-item>

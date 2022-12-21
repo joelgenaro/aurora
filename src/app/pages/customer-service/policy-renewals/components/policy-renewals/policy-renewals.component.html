@@ -63,23 +63,33 @@
     <div class="flex flex-row w-[100%] h-[15%]">
       <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5 control-width">
         <app-policy-status [step]="steps[0]"></app-policy-status>
-        <app-policy-sort [(sortingArray)]="followUpCards"></app-policy-sort>
+        <app-policy-sort
+          [(sortingArray)]="tickets.inQueueTickets"
+        ></app-policy-sort>
       </div>
       <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5 control-width">
         <app-policy-status [step]="steps[1]"></app-policy-status>
-        <app-policy-sort [(sortingArray)]="inProcessCards"></app-policy-sort>
+        <app-policy-sort
+          [(sortingArray)]="tickets.inProgressTickets"
+        ></app-policy-sort>
       </div>
       <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5 control-width">
         <app-policy-status [step]="steps[2]"></app-policy-status>
-        <app-policy-sort [(sortingArray)]="processedCards"></app-policy-sort>
+        <app-policy-sort
+          [(sortingArray)]="tickets.processedTickets"
+        ></app-policy-sort>
       </div>
       <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5 control-width">
         <app-policy-status [step]="steps[3]"></app-policy-status>
-        <app-policy-sort [(sortingArray)]="approvedCards"></app-policy-sort>
+        <app-policy-sort
+          [(sortingArray)]="tickets.resolvedTickets"
+        ></app-policy-sort>
       </div>
       <div class="w-1/5 flex flex-col justify-start gap-y-5 p-5 control-width">
         <app-policy-status [step]="steps[4]"></app-policy-status>
-        <app-policy-sort [(sortingArray)]="closedCards"></app-policy-sort>
+        <app-policy-sort
+          [(sortingArray)]="tickets.closedTicket"
+        ></app-policy-sort>
       </div>
     </div>
 
@@ -93,7 +103,7 @@
         class="w-1/5 flex flex-col justify-start gap-y-5 p-5"
         cdkDropList
         [cdkDropListData]="tickets.inQueueTickets"
-        (cdkDropListDropped)="drop($event)"
+        (cdkDropListDropped)="drop($event, 0)"
       >
         <div
           class="flex justify-center relative"
@@ -113,7 +123,7 @@
         class="w-1/5 flex flex-col justify-start gap-y-5 p-5"
         cdkDropList
         [cdkDropListData]="tickets.inProgressTickets"
-        (cdkDropListDropped)="drop($event)"
+        (cdkDropListDropped)="drop($event, 1)"
       >
         <div
           class="flex justify-center"
@@ -133,7 +143,7 @@
         class="w-1/5 flex flex-col justify-start gap-y-5 p-5"
         cdkDropList
         [cdkDropListData]="tickets.processedTickets"
-        (cdkDropListDropped)="drop($event)"
+        (cdkDropListDropped)="drop($event, 2)"
       >
         <div
           class="flex justify-center"
@@ -153,7 +163,7 @@
         class="w-1/5 flex flex-col justify-start gap-y-5 p-5"
         cdkDropList
         [cdkDropListData]="tickets.resolvedTickets"
-        (cdkDropListDropped)="drop($event)"
+        (cdkDropListDropped)="drop($event, 3)"
       >
         <div
           class="flex justify-center"
@@ -173,7 +183,7 @@
         class="w-1/5 flex flex-col justify-start gap-y-5 p-5"
         cdkDropList
         [cdkDropListData]="tickets.closedTickets"
-        (cdkDropListDropped)="drop($event)"
+        (cdkDropListDropped)="drop($event, 4)"
       >
         <div
           class="flex justify-center"

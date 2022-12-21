@@ -21,18 +21,33 @@ export class CustomerCardService {
       'content-type': 'application/json',
       Authorization:
         'Bearer ' +
-        'eyJhbGciOiJSUzI1NiIsImtpZCI6IkYwOEUzNkI0MjRFNEE1RkY0RUJCNTQyMTVFQTYwNTFCIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2NzE1MjAwMjksImV4cCI6MTY3MTUyMzYyOSwiaXNzIjoiaHR0cHM6Ly9kZXYuaWRlbnRpdHkuc3RzLmFwZXJhdHVyZXVrLmNvbSIsImF1ZCI6ImFwZXJ0dXJlaWRlbnRpdHlfYXBpIiwiY2xpZW50X2lkIjoiYXBlcnR1cmUtcG93ZXJob3VzZSIsInN1YiI6ImUzZDk0NjQ0LTcwNjUtNDdlMy04NTUwLTQxMWFjNmJlNDk1NCIsImF1dGhfdGltZSI6MTY3MTQ1NzkyNiwiaWRwIjoibG9jYWwiLCJyb2xlIjpbIk1hbmFnZW1lbnQgQWRtaW4iLCJhZG1pbiIsIkluc3VyYW5jZSBwb3dlcmhvdXNlIGFkbWluIl0sIm5hbWUiOiJhYXR3aSIsInNpZCI6IkFDNDhDRTA2NzZBOTFCQjg5Mzk1OUYwNUQ2QkU1QkVFIiwiaWF0IjoxNjcxNTIwMDI5LCJzY29wZSI6WyJvcGVuaWQiLCJwcm9maWxlIiwicm9sZXMiLCJlbWFpbCIsImFkZHJlc3MiLCJhcGVydHVyZWlkZW50aXR5X2FwaSIsImluc3VyYW5jZV9wb3dlcmhvdXNlIl0sImFtciI6WyJwd2QiXX0.jpljJlq-9i7rFmyxtzVKdqSRHa6DErC5VuJt7Q3tvkmY3_ilg5U2NumypQLm7srJROx1qcfDmLRsOlefPZmEsqqX_N4hmr3Vr9Jh-W8edp6VjNpvihwc3JE19NCfyUnmLCq6UHpO1q0hz_d3VYUTBxA_3gBPlhW5O9zdnp-63SnXxlH4y7DC8orDZVzEMmzBPDj17TSBE8N2bPWx74rCBM8UDV5IqoSI1TV3GN-pPBPTJ6BeuaMjgK2TQpoiNUnNM_A1kn7doKc-uKWQmfyYIdnlj2Hby-EFtMgadId4qBxerRcATX7qopTU61UsBZkEGleSRAJMhMKR4D2Sm3cl4A',
+        'eyJhbGciOiJSUzI1NiIsImtpZCI6IkYwOEUzNkI0MjRFNEE1RkY0RUJCNTQyMTVFQTYwNTFCIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2NzE2NDk2MjAsImV4cCI6MTY3MTY1MzIyMCwiaXNzIjoiaHR0cHM6Ly9kZXYuaWRlbnRpdHkuc3RzLmFwZXJhdHVyZXVrLmNvbSIsImF1ZCI6ImFwZXJ0dXJlaWRlbnRpdHlfYXBpIiwiY2xpZW50X2lkIjoiYXBlcnR1cmUtcG93ZXJob3VzZSIsInN1YiI6ImUzZDk0NjQ0LTcwNjUtNDdlMy04NTUwLTQxMWFjNmJlNDk1NCIsImF1dGhfdGltZSI6MTY3MTY0Njk2OCwiaWRwIjoibG9jYWwiLCJyb2xlIjpbIk1hbmFnZW1lbnQgQWRtaW4iLCJhZG1pbiIsIkluc3VyYW5jZSBwb3dlcmhvdXNlIGFkbWluIl0sIm5hbWUiOiJhYXR3aSIsInNpZCI6IjE5OTQ4MkMyMkQ2MUU2NUVGOTkxRTBDQjIyMDNDM0QzIiwiaWF0IjoxNjcxNjQ5NjIwLCJzY29wZSI6WyJvcGVuaWQiLCJwcm9maWxlIiwicm9sZXMiLCJlbWFpbCIsImFkZHJlc3MiLCJhcGVydHVyZWlkZW50aXR5X2FwaSIsImluc3VyYW5jZV9wb3dlcmhvdXNlIl0sImFtciI6WyJwd2QiXX0.JhuRWPY8Fzb4NOu2fs6NU6fBIauQX8JPJnkqIbG39KLnC8EXB3R2jCENcQSQhbge2nSf3-L3zVf3VBS0rT_5nMfnvkC16sCFyEUU61XCwFvi__yowLlkr0LgSGBBOGCsAZSx9kcrZS6cWYjZpWXYsc57p8CtAe8h8Eq_JLmKRMo1Isf47eXZMPiQNQxbF3gcsrCu89t9pDA87x99FVR7Edjqa2yke0g_1mEv0FJQRGkGwgFa59n0Vqj39E1MmhFO9v93QuPlsa9XhA2gqhJFkstw7yyo5U4eia5I8JLdJlVrl4K0AL2r_awzLaiEHEywTE-_EIRUtQE2tm9sQctT2A',
     }),
   };
 
   // Define Filter API
   apiFilterURL = `${environment.customerServiceServerURL}/CustomerServiceTicket/Filter`;
+  apiPutURL = `${environment.customerServiceServerURL}/CustomerServiceTicket`;
 
-  // HttpClient API post() method => Get inQueueTickets
+  // HttpClient API post() method => Get customer service tickets
   getCutomerServiceTickets(): Observable<PolicyCard> {
     return this.http
       .post<PolicyCard>(this.apiFilterURL, {}, this.httpOptions)
       .pipe(retry(1), catchError(this.handleError));
+  }
+
+  // HttpClient API post() method => Filter customer service tickets
+  filterCustomerServiceickets(option: {}): Observable<any> {
+    return this.http
+      .post<PolicyCard>(this.apiFilterURL, option, this.httpOptions)
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
+  // HttpClient API put() method => Put PolicyRenewalTickets
+  updateCustomServiceTickets(body: {}) {
+    this.http
+      .put<PolicyCard>(this.apiPutURL, body, this.httpOptions)
+      .subscribe(console.log);
   }
 
   // Error handling

@@ -1,8 +1,9 @@
 export interface PolicyCard {
   id: number;
   ticketCode: string;
-  entityId: string;
+  ein: string;
   entityName: string;
+  entityEmail: string;
   entityProfilePictureUri: string;
   dateCreated: string;
   dateModified: string;
@@ -18,4 +19,7 @@ export interface PolicyCard {
   assignedToName: string;
   assignedToProfilePictureUri: string;
   detailsJson: string;
+  title: string;
+  description: string;
+  response: number;
 }
