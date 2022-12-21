@@ -54,7 +54,7 @@ export class PolicyCardComponent implements OnInit {
         : initial_url,
       ticketCode: this.card.ticketCode,
       ticketTypeIconUri: this.card.ticketTypeIconUri,
-      dateCreated: this.card.dateCreated,
+      dateCreated: new Date(this.card.dateCreated).toDateString(),
     };
   }
 }
