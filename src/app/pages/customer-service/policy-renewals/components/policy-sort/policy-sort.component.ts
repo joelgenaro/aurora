@@ -23,15 +23,20 @@ export class PolicySortComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  ascending(): any {
-    // this.sortingArray.sort((a, b) => a.customer.name.toLowerCase() > b.customer.name.toLowerCase() ? 1 : -1);
-    // this.sortingArrayChange.emit(this.sortingArray);
-    // this.arrow = true;
+  ascending() {
+    console.log(this.sortingArray[0]);
+    this.sortingArray.sort((a, b) =>
+      a.entityName.toLowerCase() > b.entityName.toLowerCase() ? 1 : -1
+    );
+    this.sortingArrayChange.emit(this.sortingArray);
+    this.arrow = true;
   }
 
-  descending(): any {
-    // this.sortingArray.sort((a, b) => a.customer.name.toLowerCase() > b.customer.name.toLowerCase() ? -1 : 1);
-    // this.arrow = false;
-    // this.sortingArrayChange.emit(this.sortingArray);
+  descending() {
+    this.sortingArray.sort((a, b) =>
+      a.entityName.toLowerCase() > b.entityName.toLowerCase() ? -1 : 1
+    );
+    this.arrow = false;
+    this.sortingArrayChange.emit(this.sortingArray);
   }
 }

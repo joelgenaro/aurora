@@ -1,5 +1,12 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
+// import { FormControl } from '@angular/forms';
 import { BaseListItem } from '@root/shared/models/base-list-item.model';
 
 @Component({
@@ -10,18 +17,21 @@ import { BaseListItem } from '@root/shared/models/base-list-item.model';
 })
 export class InputFieldComponent implements OnInit {
   @Input() label: string;
-  @Input() value: string;
-  @Input() formControl: FormControl;
+  @Input() inputValue: string;
+  // @Input() formControl: FormControl;
   @Input() baseListItemsList: BaseListItem[];
   @Output() onTrigger = new EventEmitter<void>();
+  @Output() inputValueChange = new EventEmitter<string>();
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onClick() {
     this.onTrigger.emit();
+  }
+
+  getValue(event: any) {
+    this.inputValueChange.emit(event.target.value);
   }
 }

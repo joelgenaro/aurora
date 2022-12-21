@@ -32,11 +32,6 @@ export class PolicyRenewalsComponent implements OnInit {
     { title: 'Closed (No Renewal)', color: 'bg-[#e7e7e7]' },
   ];
 
-  followUpCards: PolicyCard[] = [];
-  inProcessCards: PolicyCard[] = [];
-  processedCards: PolicyCard[] = [];
-  approvedCards: PolicyCard[] = [];
-  closedCards: PolicyCard[] = [];
   flag: number = 0;
   tickets: any = {};
   constructor(
@@ -49,7 +44,9 @@ export class PolicyRenewalsComponent implements OnInit {
     this.dialog.open(PolicyRenewalsCustomerServiceTicketComponent, {
       height: '90%',
       width: '90%',
-      data: card,
+      data: {
+        dataKey: card,
+      },
     });
   }
 
@@ -58,22 +55,15 @@ export class PolicyRenewalsComponent implements OnInit {
       .getPolicyRenewalTickets()
       .subscribe((data: any) => {
         this.tickets = data;
-        this.followUpCards = this.tickets.inQueueTickets;
-        this.inProcessCards = this.tickets.inProgressTickets;
-        this.processedCards = this.tickets.processedTickets;
-        this.approvedCards = this.tickets.resolvedTickets;
-        this.closedCards = this.tickets.closedTickets;
-        console.log(this.tickets, this.followUpCards);
         this.ref.detectChanges();
       });
-    console.log(this.tickets);
   }
 
   ngOnDestroy(): void {
     if (this.subscription) this.subscription.unsubscribe();
   }
 
-  drop(event: CdkDragDrop<PolicyCard[]>) {
+  drop(event: CdkDragDrop<PolicyCard[]>, status: number) {
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
@@ -81,14 +71,17 @@ export class PolicyRenewalsComponent implements OnInit {
         event.currentIndex
       );
     } else {
-      this.openDialog(event.container.data);
-
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
         event.previousIndex,
         event.currentIndex
       );
+      event.container.data[event.currentIndex].status = status;
+      this.policyCardService.updatePolicyRenewalTickets(
+        event.container.data[event.currentIndex]
+      );
+      this.openDialog(event.container.data[event.currentIndex]);
     }
   }
 }

@@ -1,5 +1,11 @@
-import { Component, OnInit, ChangeDetectionStrategy, ViewChild, AfterViewInit } from '@angular/core';
-import { Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  ViewChild,
+  AfterViewInit,
+} from '@angular/core';
+import { Output, EventEmitter, Input } from '@angular/core';
 import { BaseComponent } from '@root/shared/components/base-component/base-component';
 import { WidgetTableComponent } from '@root/shared/components/widget-table/widget-table.component';
 import { BaseListItem } from '@root/shared/models/base-list-item.model';
@@ -15,12 +21,17 @@ import { TicketHistoryListItem } from '../../../models/ticket-history-list-item.
   selector: 'app-history-list',
   templateUrl: './history-list.component.html',
   styleUrls: ['./history-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HistoryListComponent extends BaseComponent implements OnInit, AfterViewInit {
+export class HistoryListComponent
+  extends BaseComponent
+  implements OnInit, AfterViewInit
+{
+  constructor() {
+    super();
+  }
 
-  constructor() { super(); }
-
+  @Input() data: any;
   @Output() NextPageEvent = new EventEmitter<boolean>();
   @ViewChild(WidgetTableComponent)
   table: WidgetTableComponent<TicketHistoryListItem>;
@@ -29,8 +40,17 @@ export class HistoryListComponent extends BaseComponent implements OnInit, After
   filter: Filter[];
   entityTypesList: BaseListItem[] = [
     { id: '1', name: 'type1' },
-    { id: '1', name: 'type2' }
+    { id: '1', name: 'type2' },
   ];
+  iconResponseName: string;
+  historyList = [
+    {
+      Date: '10/11/2023    10:54 A.M.',
+      employeeName: 'Mohamad El Yousaf',
+      Response: 'customer-service-happy-icon',
+    },
+  ];
+
   happyIcon: TableRowAction<TicketHistoryListItem> = {
     action: (data) => this.onTicketEdited(data),
     cssClasses: 'text-primary',
@@ -40,28 +60,7 @@ export class HistoryListComponent extends BaseComponent implements OnInit, After
     showConditionProperty: null,
     isIconButton: true,
   };
-  entitiesList: TicketHistoryListItem[] = [
-    {
-      Date: '10/11/2023    10:54 A.M.',
-      employeeName: 'Mohamad El Yousaf',
-      Response: "customer-service-happy-icon"
-    },
-    {
-      Date: '09/11/2023    11:12 A.M.',
-      employeeName: 'Karim Moussa',
-      Response: "customer-service-sad-nocolor-1-icon"
-    },
-    {
-      Date: '08/11/2023    05:27 P.M.',
-      employeeName: 'Mohamad El Yousaf',
-      Response: "customer-service-full-sad"
-    },
-    {
-      Date: '08/11/2023    05:27 P.M.',
-      employeeName: 'Mohamad El Yousaf',
-      Response: "customer-service-happy-icon"
-    },
-  ]
+
   tableColumns: TableColumn[] = [
     {
       translationKey: 'Date',
@@ -74,12 +73,11 @@ export class HistoryListComponent extends BaseComponent implements OnInit, After
       hasFilter: true,
       visible: true,
       displayInFilterList: false,
-
       hasToolTip: false,
       showText: true,
       filter: {
-        filterType: TableColumnFilterDataType.Text
-      }
+        filterType: TableColumnFilterDataType.Text,
+      },
     },
     {
       translationKey: 'employeeName',
@@ -94,8 +92,8 @@ export class HistoryListComponent extends BaseComponent implements OnInit, After
       hasToolTip: false,
       showText: true,
       filter: {
-        filterType: TableColumnFilterDataType.Text
-      }
+        filterType: TableColumnFilterDataType.Text,
+      },
     },
     {
       translationKey: 'Response',
@@ -111,13 +109,11 @@ export class HistoryListComponent extends BaseComponent implements OnInit, After
       hasToolTip: false,
       showText: false,
       filter: {
-        filterType: TableColumnFilterDataType.Text
+        filterType: TableColumnFilterDataType.Text,
       },
     },
-    
   ];
 
- 
   editAction: TableRowAction<TicketHistoryListItem> = {
     action: (data) => this.onTicketEdited(data),
     cssClasses: 'text-primary',
@@ -158,21 +154,27 @@ export class HistoryListComponent extends BaseComponent implements OnInit, After
     isIconButton: true,
   };
 
-  tableSettings = new TableSettings({ actionsMode: 'inline', pageSize: this.pageSize });
+  tableSettings = new TableSettings({
+    actionsMode: 'inline',
+    pageSize: this.pageSize,
+  });
 
   tableConfiguration: TableConfiguration<TicketHistoryListItem> = {
-    tableRowsActionsList: [this.viewAction, this.editAction, this.deleteAction, this.lockAction],
+    tableRowsActionsList: [
+      this.viewAction,
+      this.editAction,
+      this.deleteAction,
+      this.lockAction,
+    ],
     columns: this.tableColumns,
     data: [],
     dataCount: 0,
     settings: this.tableSettings,
   };
 
-
-
   ngOnInit(): void {
-    this.tableConfiguration.data = this.entitiesList;
-    this.tableConfiguration.dataCount = this.entitiesList.length;
+    this.tableConfiguration.data = this.historyList;
+    this.tableConfiguration.dataCount = 1;
   }
 
   ngAfterViewInit(): void {
@@ -183,16 +185,9 @@ export class HistoryListComponent extends BaseComponent implements OnInit, After
     this.NextPageEvent.emit(true);
   }
 
-  onTicketViewed(_category: TicketHistoryListItem) {
+  onTicketViewed(_category: TicketHistoryListItem) {}
 
-  }
+  onTicketDeleted(_category: TicketHistoryListItem) {}
 
-  onTicketDeleted(_category: TicketHistoryListItem) {
-
-  }
-
-  onTicketLocked(_category: TicketHistoryListItem) {
-  
-  }
-
+  onTicketLocked(_category: TicketHistoryListItem) {}
 }

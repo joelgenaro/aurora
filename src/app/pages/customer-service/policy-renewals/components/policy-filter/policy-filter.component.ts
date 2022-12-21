@@ -65,19 +65,15 @@ export class PolicyFilterComponent implements OnInit {
   ngOnInit(): void {}
 
   filter() {
-    let filterOption = {
+    const filterOption = {
       searchQuery: '',
       fromDateCreated: this.fromDateCreated,
       toDateCreated: this.toDateCreated,
-      fromDateModified: this.fromDateModified,
-      toDateModified: this.toDateModified,
-      ticketTypeId: this.policyStatus,
     };
     this.policyCardService
       .filterPolicyRenewalTickets(filterOption)
       .subscribe((data: any) => {
         this.filteringArray = data;
-        console.log(this.filteringArray);
         this.filteringArrayChange.emit(this.filteringArray);
         this.ref.detectChanges();
       });

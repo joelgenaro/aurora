@@ -23,13 +23,12 @@ export class PolicyCardComponent implements OnInit {
     const mil_seconds = 3600 * 24 * 1000;
     const date = new Date().getTime() - Date.parse(this.card.dateCreated);
     const day = Math.floor(date / mil_seconds);
-    const hour =
-      (Math.floor(Math.floor(date - day * mil_seconds) * (3600 * 1000)) /
-        3600) *
-      24 *
-      1000;
-    const minute =
-      Math.floor(date - day * mil_seconds - hour * (3600 * 1000)) / 1000 / 60;
+    const hour = Math.floor(
+      Math.floor(date - day * mil_seconds) / (3600 * 1000)
+    );
+    const minute = Math.floor(
+      (date - day * (3600 * 1000 * 24) - hour * (3600 * 1000)) / 1000 / 60
+    );
     let bg_color;
     if (day < 1) {
       bg_color = 'bg-[#186aa5]';
@@ -48,7 +47,7 @@ export class PolicyCardComponent implements OnInit {
       sourceIconUrl: this.card.sourceIconUrl,
       assignedToName: this.card.assignedToName,
       assignedToProfilePictureUri: this.card.assignedToProfilePictureUri,
-      entityId: this.card.entityId,
+      ein: this.card.ein,
       entityName: this.card.entityName,
       entityProfilePictureUri: this.card.entityProfilePictureUri
         ? this.card.entityProfilePictureUri

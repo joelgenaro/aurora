@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  ChangeDetectorRef,
+} from '@angular/core';
 import { PolicyStatus } from '@root/pages/customer-service/policy-renewals/components/policy-status/models/policy-status.model';
 import { PolicyCard } from '@root/pages/customer-service/policy-renewals/components/policy-card/models/policy-card.model';
 // import { PolicyCardService } from '@root/pages/customer-service/policy-renewals/services/policy-card.service';
@@ -10,6 +15,7 @@ import {
 import { MatDialog } from '@angular/material/dialog';
 import { CustomerServiceTicketComponent } from '../customer-service-ticket/customer-service-ticket.component';
 import { CustomerCardService } from '../../services/customer-card.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-customer-service',
@@ -18,6 +24,7 @@ import { CustomerCardService } from '../../services/customer-card.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CustomerServiceComponent implements OnInit {
+  subscription: Subscription;
   steps: PolicyStatus[] = [
     { title: 'Policy Renewal Followup', color: 'bg-[#d8d8d8]' },
     { title: 'In Process', color: 'bg-[#3890cf]' },
@@ -26,18 +33,13 @@ export class CustomerServiceComponent implements OnInit {
     { title: 'Closed (No Renewal)', color: 'bg-[#e7e7e7]' },
   ];
 
-  followUpCards: PolicyCard[] = [];
-  inProcessCards: PolicyCard[] = [];
-  processedCards: PolicyCard[] = [];
-  approvedCards: PolicyCard[] = [];
-  closedCards: PolicyCard[] = [];
-
+  flag: number = 0;
+  tickets: any = {};
   constructor(
-    private CustomerCardService: CustomerCardService,
-    public dialog: MatDialog
-  ) {
-    this.getCards();
-  }
+    public customerCardService: CustomerCardService,
+    public dialog: MatDialog,
+    private ref: ChangeDetectorRef
+  ) {}
 
   openDialog(card: {}): void {
     this.dialog.open(CustomerServiceTicketComponent, {
@@ -48,24 +50,19 @@ export class CustomerServiceComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getCards();
+    this.subscription = this.customerCardService
+      .getCutomerServiceTickets()
+      .subscribe((data: any) => {
+        this.tickets = data;
+        this.ref.detectChanges();
+      });
   }
 
-  getCards(): void {
-    this.CustomerCardService.getCutomerServiceTickets().subscribe((data: any) => {
-      const temp = data;
-
-      this.followUpCards = temp.inQueueTickets;
-      this.inProcessCards = temp.inProgressTickets;
-      this.processedCards = temp.processedTickets;
-      this.approvedCards = temp.resolvedTickets;
-      this.closedCards = temp.closedTickets;
-
-      console.log(this.followUpCards);
-    });
+  ngOnDestroy(): void {
+    if (this.subscription) this.subscription.unsubscribe();
   }
 
-  drop(event: CdkDragDrop<PolicyCard[]>) {
+  drop(event: CdkDragDrop<PolicyCard[]>, status: number) {
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
@@ -73,14 +70,17 @@ export class CustomerServiceComponent implements OnInit {
         event.currentIndex
       );
     } else {
-      this.openDialog(event.container.data);
-
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
         event.previousIndex,
         event.currentIndex
       );
+      event.container.data[event.currentIndex].status = status;
+      this.customerCardService.updateCustomServiceTickets(
+        event.container.data[event.currentIndex]
+      );
+      this.openDialog(event.container.data[event.currentIndex]);
     }
   }
 }
