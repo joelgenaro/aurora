@@ -1,12 +1,5 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnInit,
-  Inject,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { BaseListItem } from '@root/shared/models/base-list-item.model';
 
 @Component({
   selector: 'app-customer-service-ticket',
@@ -15,7 +8,6 @@ import { BaseListItem } from '@root/shared/models/base-list-item.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CustomerServiceTicketComponent implements OnInit {
-  status: BaseListItem[];
   noteSectionFlag: boolean = false;
   businessSectionFlag: boolean = false;
   productSectionFlag: boolean = false;
@@ -31,35 +23,9 @@ export class CustomerServiceTicketComponent implements OnInit {
   pendingCardFlag: boolean = false;
   isShowAppField = false;
 
-  constructor(
-    public dialogRef: MatDialogRef<CustomerServiceTicketComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
+  constructor(public dialogRef: MatDialogRef<CustomerServiceTicketComponent>) {}
 
-  ngOnInit(): void {
-    let statusValue: string;
-    switch (this.data.dataKey.status) {
-      case 0:
-        statusValue = 'Follow up';
-        break;
-      case 1:
-        statusValue = 'In Process';
-        break;
-      case 2:
-        statusValue = 'Processed';
-        break;
-      case 3:
-        statusValue = 'Approved';
-        break;
-      case 4:
-        statusValue = 'Closed';
-        break;
-      default:
-        break;
-    }
-
-    this.status = [{ id: '0', name: statusValue }];
-  }
+  ngOnInit(): void {}
 
   openNote() {
     this.noteSectionFlag = !this.noteSectionFlag;
