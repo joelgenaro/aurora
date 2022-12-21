@@ -49,6 +49,21 @@ export class HistoryListComponent
       employeeName: 'Mohamad El Yousaf',
       Response: 'customer-service-happy-icon',
     },
+    {
+      Date: '10/11/2023    10:54 A.M.',
+      employeeName: 'Mohamad El Yousaf',
+      Response: 'customer-service-happy-icon',
+    },
+    {
+      Date: '10/11/2023    10:54 A.M.',
+      employeeName: 'Mohamad El Yousaf',
+      Response: 'customer-service-happy-icon',
+    },
+    {
+      Date: '10/11/2023    10:54 A.M.',
+      employeeName: 'Mohamad El Yousaf',
+      Response: 'customer-service-happy-icon',
+    },
   ];
 
   happyIcon: TableRowAction<TicketHistoryListItem> = {
@@ -174,7 +189,7 @@ export class HistoryListComponent
 
   ngOnInit(): void {
     this.tableConfiguration.data = this.historyList;
-    this.tableConfiguration.dataCount = 1;
+    this.tableConfiguration.dataCount = this.historyList.length;
   }
 
   ngAfterViewInit(): void {
