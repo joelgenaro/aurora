@@ -5,11 +5,9 @@ import { NgControl } from '@angular/forms';
   selector: '[validate-onblur]',
 })
 export class ValidateOnBlurDirective {
-  constructor(public formControl: NgControl) {
-  }
+  constructor(public formControl: NgControl) {}
 
   @HostListener('blur') onBlur() {
     this.formControl.control.markAsTouched();
-    console.log('test');
   }
 }

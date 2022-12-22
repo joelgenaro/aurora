@@ -52,7 +52,6 @@ export class EditHistoryComponent implements OnInit {
   }
 
   createNewCommunications(currentArray: {}[]) {
-    console.log('dddddddddddddddddddd');
     const detail = {
       response: this.response,
       detailContent: this.detailContent,
@@ -62,7 +61,6 @@ export class EditHistoryComponent implements OnInit {
     };
     currentArray.push(detail);
     this.data.detailsJson = Object.assign({}, currentArray);
-    console.log(this.data.detailsJson);
     this.policyCardService.updatePolicyRenewalTickets(this.data);
   }
 
@@ -74,11 +72,7 @@ export class EditHistoryComponent implements OnInit {
     ) {
       this.createNewCommunications(currentCommunications);
     } else {
-      console.log(this.data.detailsJson);
-      console.log(Object.values(this.data.detailsJson));
       this.createNewCommunications(Object.values(this.data.detailsJson));
-
-      console.log(Object.values);
     }
 
     this.pageControlChange.emit('first');

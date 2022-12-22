@@ -24,7 +24,6 @@ export class PolicySortComponent implements OnInit {
   ngOnInit(): void {}
 
   ascending() {
-    console.log(this.sortingArray[0]);
     this.sortingArray.sort((a, b) =>
       a.entityName.toLowerCase() > b.entityName.toLowerCase() ? 1 : -1
     );

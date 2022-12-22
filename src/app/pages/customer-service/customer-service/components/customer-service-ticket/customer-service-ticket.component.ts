@@ -56,7 +56,6 @@ export class CustomerServiceTicketComponent implements OnInit {
       .getCategory()
       .subscribe((data: any) => {
         this.categories = data;
-        console.log(this.categories[0].name);
         this.ref.detectChanges();
       });
   }
@@ -75,7 +74,6 @@ export class CustomerServiceTicketComponent implements OnInit {
           .getBusiness()
           .subscribe((data: any) => {
             this.businesses = data;
-            console.log(this.businesses[0].name);
             this.ref.detectChanges();
           });
         break;
@@ -133,7 +131,6 @@ export class CustomerServiceTicketComponent implements OnInit {
       .getEmergencyInitiateItems(emergencyTypeId)
       .subscribe((data: any) => {
         this.emergencyInitiateItems = data;
-        console.log(this.emergencyInitiateItems);
         this.ref.detectChanges();
       });
     this.locationSectionFlag = true;
@@ -151,7 +148,6 @@ export class CustomerServiceTicketComponent implements OnInit {
         .getRequiredData()
         .subscribe((data: any) => {
           this.requiredData = JSON.parse(data.jsonData);
-          console.log(this.requiredData);
           this.ref.detectChanges();
         });
     }
