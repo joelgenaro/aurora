@@ -43,28 +43,7 @@ export class HistoryListComponent
     { id: '1', name: 'type2' },
   ];
   iconResponseName: string;
-  historyList = [
-    {
-      Date: '10/11/2023    10:54 A.M.',
-      employeeName: 'Mohamad El Yousaf',
-      Response: 'customer-service-happy-icon',
-    },
-    {
-      Date: '10/11/2023    10:54 A.M.',
-      employeeName: 'Mohamad El Yousaf',
-      Response: 'customer-service-happy-icon',
-    },
-    {
-      Date: '10/11/2023    10:54 A.M.',
-      employeeName: 'Mohamad El Yousaf',
-      Response: 'customer-service-happy-icon',
-    },
-    {
-      Date: '10/11/2023    10:54 A.M.',
-      employeeName: 'Mohamad El Yousaf',
-      Response: 'customer-service-happy-icon',
-    },
-  ];
+  historyList: { Date: string; employeeName: string; Response: string }[] = [];
 
   happyIcon: TableRowAction<TicketHistoryListItem> = {
     action: (data) => this.onTicketEdited(data),
@@ -187,7 +166,38 @@ export class HistoryListComponent
     settings: this.tableSettings,
   };
 
+  displayIcon(response: number) {
+    switch (response) {
+      case 0:
+        return 'customer-service-happy-icon';
+      case 1:
+        return 'customer-service-sad-color-2';
+      default:
+        return 'customer-service-sad-color-1';
+    }
+  }
+
   ngOnInit(): void {
+    //define the type of historyData
+    let historyData: {
+      response: number;
+      detailContent: string;
+      policyPrice: string;
+      additionalDetailContent: string;
+      date: string;
+    }[];
+
+    historyData = Object.values(this.data.detailsJson);
+
+    for (let i = 0; i < historyData.length; i++) {
+      let historyItem = {
+        Response: this.displayIcon(historyData[i].response),
+        employeeName: '',
+        Date: new Date(historyData[i].date).toDateString(),
+      };
+      this.historyList.push(historyItem);
+    }
+
     this.tableConfiguration.data = this.historyList;
     this.tableConfiguration.dataCount = this.historyList.length;
   }

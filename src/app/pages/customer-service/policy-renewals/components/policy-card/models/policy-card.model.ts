@@ -18,7 +18,7 @@ export interface PolicyCard {
   assignedToId: string;
   assignedToName: string;
   assignedToProfilePictureUri: string;
-  detailsJson: string;
+  detailsJson: {};
   title: string;
   description: string;
   response: number;

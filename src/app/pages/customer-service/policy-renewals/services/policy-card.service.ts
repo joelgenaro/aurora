@@ -21,7 +21,7 @@ export class PolicyCardService {
       'content-type': 'application/json',
       Authorization:
         'Bearer ' +
-        'eyJhbGciOiJSUzI1NiIsImtpZCI6IkRDNjBDMzg4QzExQjgyMDZCODU5QzNGRDM3QzRFMTFDIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2NzE3MDc4ODgsImV4cCI6MTY3MTcxMTQ4OCwiaXNzIjoiaHR0cHM6Ly9kZXYuaWRlbnRpdHkuc3RzLmFwZXJhdHVyZXVrLmNvbSIsImF1ZCI6ImFwZXJ0dXJlaWRlbnRpdHlfYXBpIiwiY2xpZW50X2lkIjoiYXBlcnR1cmUtcG93ZXJob3VzZSIsInN1YiI6ImUzZDk0NjQ0LTcwNjUtNDdlMy04NTUwLTQxMWFjNmJlNDk1NCIsImF1dGhfdGltZSI6MTY3MTcwNzg4NiwiaWRwIjoibG9jYWwiLCJyb2xlIjpbIk1hbmFnZW1lbnQgQWRtaW4iLCJhZG1pbiIsIkluc3VyYW5jZSBwb3dlcmhvdXNlIGFkbWluIl0sIm5hbWUiOiJhYXR3aSIsInNpZCI6IkEwNDZERjFFRUZENDkxNTExMzFCRTM5MzBFRjUzOUE5IiwiaWF0IjoxNjcxNzA3ODg4LCJzY29wZSI6WyJvcGVuaWQiLCJwcm9maWxlIiwicm9sZXMiLCJlbWFpbCIsImFkZHJlc3MiLCJhcGVydHVyZWlkZW50aXR5X2FwaSIsImluc3VyYW5jZV9wb3dlcmhvdXNlIl0sImFtciI6WyJwd2QiXX0.IUQTR_cLSiNiDG0EP3RqOrVL7c_RbDotXGK_SNkSkb6E4MhZLtbcu0rtlCDDFTDvPK_eyTUpf_NIdSm1AxsI3prMtapVdv-TpJq6WPvMrBdIlCgbEuakRTiSSbk-F7F2cIrINJQ9Dm_h40t2cJ3riWTUKFmyZpulrQUmkAvAga_AiyS9exSAXcCm9Ql6BkEc96Td8_rgHNDLmgq5uXb0MYclHb9i5EiDDVgHhl43DhhBPTvRcZL6Zdh7p6SJPalo46MC7B-ApyVePA1SLygk1v4scBNjM7HY_j7o-1IVw_oGhprU4-8RV3QmCAEDSwyF2ErbA6GBeiHIwRbGMIEqGQ',
+        'eyJhbGciOiJSUzI1NiIsImtpZCI6IkRDNjBDMzg4QzExQjgyMDZCODU5QzNGRDM3QzRFMTFDIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2NzE3MTg1NDgsImV4cCI6MTY3MTcyMjE0OCwiaXNzIjoiaHR0cHM6Ly9kZXYuaWRlbnRpdHkuc3RzLmFwZXJhdHVyZXVrLmNvbSIsImF1ZCI6ImFwZXJ0dXJlaWRlbnRpdHlfYXBpIiwiY2xpZW50X2lkIjoiYXBlcnR1cmUtcG93ZXJob3VzZSIsInN1YiI6ImUzZDk0NjQ0LTcwNjUtNDdlMy04NTUwLTQxMWFjNmJlNDk1NCIsImF1dGhfdGltZSI6MTY3MTcxMzQxOCwiaWRwIjoibG9jYWwiLCJyb2xlIjpbIk1hbmFnZW1lbnQgQWRtaW4iLCJhZG1pbiIsIkluc3VyYW5jZSBwb3dlcmhvdXNlIGFkbWluIl0sIm5hbWUiOiJhYXR3aSIsInNpZCI6Ijg4OUM0NzI0NUFCRDY0RkEyMzIxOTRCOENDMzc0Mjg4IiwiaWF0IjoxNjcxNzE4NTQ4LCJzY29wZSI6WyJvcGVuaWQiLCJwcm9maWxlIiwicm9sZXMiLCJlbWFpbCIsImFkZHJlc3MiLCJhcGVydHVyZWlkZW50aXR5X2FwaSIsImluc3VyYW5jZV9wb3dlcmhvdXNlIl0sImFtciI6WyJwd2QiXX0.D9nkRZBk8CGHK-uHUUytjeMM4jeW8QvYWfh6qxBfkEo-sGs-w5vCgk540jEmWq-KqXqvy6QadnDAWv0C-RsMCgbeQT6Llup_1IloWMmgaTZe3er-5bWamk5kQ2spZgb9Rq5A-tHQPr7ArnngtiS9OjJS1GxNZtYJBHecEZPv0QKEBp7bkBuHkPHpqndxHQG_Kb0tVw5vmnk6e2qbGPHnbZC55oDq1HPr3n1Nwb5zuT7rDTp-LtFG3wBVfh-vP7VS1UH6kRlaXoORK9VdpzKPkg8Hv_czOuBZkK4zuyldnbpAAyqKI5IQXu65PW917rAy7gluZUTdz7Lx837dzExyLw',
     }),
   };
 
@@ -36,14 +36,14 @@ export class PolicyCardService {
       .pipe(retry(1), catchError(this.handleError));
   }
 
-  // HttpClient API post() method => Filter PolicyRenewalTickets
+  // HttpClient API post() method => create PolicyRenewalTickets
   filterPolicyRenewalTickets(option: {}): Observable<any> {
     return this.http
       .post<PolicyCard>(this.apiFilterURL, option, this.httpOptions)
       .pipe(retry(1), catchError(this.handleError));
   }
 
-  // HttpClient API post() method => Filter PolicyRenewalTickets
+  // HttpClient API put() method => update PolicyRenewalTickets
   updatePolicyRenewalTickets(body: {}) {
     this.http
       .put<PolicyCard>(this.apiPutURL, body, this.httpOptions)
