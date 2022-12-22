@@ -37,20 +37,20 @@
           </div>
           <cdk-accordion class="overflow-auto">
             <cdk-accordion-item
-              #accordionItem0="cdkAccordionItem"
+              #contactDetailsAccordion="cdkAccordionItem"
               role="button"
               tabindex="0"
               [attr.id]="'accordion-header-0'"
-              [attr.aria-expanded]="accordionItem0.expanded"
+              [attr.aria-expanded]="contactDetailsAccordion.expanded"
               [attr.aria-controls]="'accordion-body-0'"
             >
               <app-contact-details
-                (click)="accordionItem0.toggle()"
+                (click)="contactDetailsAccordion.toggle()"
               ></app-contact-details>
               <div
                 class="mt-5 shadow-md bg-white"
                 role="region"
-                [style.display]="accordionItem0.expanded ? '' : 'none'"
+                [style.display]="contactDetailsAccordion.expanded ? '' : 'none'"
                 [attr.id]="'accordion-body-0'"
                 [attr.aria-labelledby]="'accordion-header-0'"
               ></div>
@@ -58,15 +58,15 @@
 
             <div class="mt-5 shadow-md bg-white">
               <cdk-accordion-item
-                #accordionItem1="cdkAccordionItem"
+                #policyInformationAccordion="cdkAccordionItem"
                 role="button"
                 tabindex="1"
                 [attr.id]="'accordion-header-1'"
-                [attr.aria-expanded]="accordionItem1.expanded"
+                [attr.aria-expanded]="policyInformationAccordion.expanded"
                 [attr.aria-controls]="'accordion-body-1'"
               >
                 <p
-                  (click)="accordionItem1.toggle()"
+                  (click)="policyInformationAccordion.toggle()"
                   class="flex justify-center items-center text-lg h-20 text-primary w-full"
                 >
                   Policy Information
@@ -74,7 +74,9 @@
                 <div
                   class="mt-5"
                   role="region"
-                  [style.display]="accordionItem1.expanded ? '' : 'none'"
+                  [style.display]="
+                    policyInformationAccordion.expanded ? '' : 'none'
+                  "
                   [attr.id]="'accordion-body-1'"
                   [attr.aria-labelledby]="'accordion-header-1'"
                 >
@@ -87,11 +89,11 @@
               class="flex flex-col justify-center rounded-md shadow-md bg-white px-9 mt-5"
             >
               <cdk-accordion-item
-                #accordionItem2="cdkAccordionItem"
+                #followUpHistorty="cdkAccordionItem"
                 role="button"
                 tabindex="2"
                 [attr.id]="'accordion-header-2'"
-                [attr.aria-expanded]="accordionItem2.expanded"
+                [attr.aria-expanded]="followUpHistorty.expanded"
                 [attr.aria-controls]="'accordion-body-2'"
               >
                 <div
@@ -99,14 +101,14 @@
                 >
                   <p
                     class="pt-5 text-primary text-lg text-center text-class"
-                    (click)="accordionItem2.toggle()"
+                    (click)="followUpHistorty.toggle()"
                   >
                     Follow-Up History
                   </p>
                   <div
                     class="button-class"
                     role="region"
-                    [style.display]="accordionItem2.expanded ? '' : 'none'"
+                    [style.display]="followUpHistorty.expanded ? '' : 'none'"
                     [attr.id]="'accordion-body-2'"
                     [attr.aria-labelledby]="'accordion-header-2'"
                   >
@@ -120,7 +122,7 @@
                 </div>
                 <div
                   role="region"
-                  [style.display]="accordionItem2.expanded ? '' : 'none'"
+                  [style.display]="followUpHistorty.expanded ? '' : 'none'"
                   [attr.id]="'accordion-body-2'"
                   [attr.aria-labelledby]="'accordion-header-2'"
                   class="border-none"
@@ -140,15 +142,15 @@
             </div>
             <div class="mt-5 mb-3">
               <cdk-accordion-item
-                #accordionItem3="cdkAccordionItem"
+                #noteAccordion="cdkAccordionItem"
                 role="button"
                 tabindex="0"
                 [attr.id]="'accordion-header-0'"
-                [attr.aria-expanded]="accordionItem3.expanded"
+                [attr.aria-expanded]="noteAccordion.expanded"
                 [attr.aria-controls]="'accordion-body-0'"
               >
                 <div
-                  (click)="accordionItem3.toggle()"
+                  (click)="noteAccordion.toggle()"
                   class="flex flex-row p-4 rounded-md shadow-md bg-white h-20 items-center"
                 >
                   <div class="flex-1 text-primary text-center text-[18px]">
@@ -161,7 +163,7 @@
                 <div
                   class="mt-5 shadow-md bg-white"
                   role="region"
-                  [style.display]="accordionItem3.expanded ? '' : 'none'"
+                  [style.display]="noteAccordion.expanded ? '' : 'none'"
                   [attr.id]="'accordion-body-0'"
                   [attr.aria-labelledby]="'accordion-header-0'"
                 ></div>

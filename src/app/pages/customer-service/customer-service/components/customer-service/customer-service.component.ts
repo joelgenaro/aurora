@@ -45,7 +45,9 @@ export class CustomerServiceComponent implements OnInit {
     this.dialog.open(CustomerServiceTicketComponent, {
       height: '90%',
       width: '90%',
-      data: card,
+      data: {
+        dataKey: card,
+      },
     });
   }
 
