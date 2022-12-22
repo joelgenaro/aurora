@@ -60,17 +60,20 @@ export class EditHistoryComponent implements OnInit {
       date: new Date(),
     };
     currentArray.push(detail);
-    this.data.detailsJson = JSON.stringify(currentArray);
+    this.data.detailsJson = Object.assign({}, currentArray);
+    this.policyCardService.updatePolicyRenewalTickets(this.data);
   }
 
   saveHistory() {
     let currentCommunications: {}[] = [];
-    if (this.data.detailsJson === null) {
+    if (
+      Object.keys(this.data.detailsJson).length === 0 &&
+      this.data.detailsJson.constructor === Object
+    ) {
       this.createNewCommunications(currentCommunications);
     } else {
-      // this.createNewCommunications(Array.from(this.data.detailsJson));
+      this.createNewCommunications(Object.values(this.data.detailsJson));
     }
-    this.policyCardService.updatePolicyRenewalTickets(this.data);
 
     this.pageControlChange.emit('first');
   }

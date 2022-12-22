@@ -38,20 +38,20 @@
           </div>
           <cdk-accordion class="">
             <cdk-accordion-item
-              #accordionItem0="cdkAccordionItem"
+              #contactDetailsAccordion="cdkAccordionItem"
               role="button"
               tabindex="0"
               [attr.id]="'accordion-header-0'"
-              [attr.aria-expanded]="accordionItem0.expanded"
+              [attr.aria-expanded]="contactDetailsAccordion.expanded"
               [attr.aria-controls]="'accordion-body-0'"
             >
               <app-contact-details
-                (click)="accordionItem0.toggle()"
+                (click)="contactDetailsAccordion.toggle()"
               ></app-contact-details>
               <div
                 class="mt-5 shadow-md bg-white"
                 role="region"
-                [style.display]="accordionItem0.expanded ? '' : 'none'"
+                [style.display]="contactDetailsAccordion.expanded ? '' : 'none'"
                 [attr.id]="'accordion-body-0'"
                 [attr.aria-labelledby]="'accordion-header-0'"
               ></div>
@@ -59,15 +59,15 @@
 
             <cdk-accordion-item
               class="mt-4 w-full bg-white flex flex-col rounded-md shadow-md"
-              #accordionItem1="cdkAccordionItem"
+              #categoryAccordion="cdkAccordionItem"
               role="button"
               tabindex="1"
               [attr.id]="'accordion-header-1'"
-              [attr.aria-expanded]="accordionItem1.expanded"
+              [attr.aria-expanded]="categoryAccordion.expanded"
               [attr.aria-controls]="'accordion-body-1'"
             >
               <p
-                (click)="accordionItem1.toggle()"
+                (click)="categoryAccordion.toggle()"
                 class="w-full text-[18px] py-3 flex justify-center items-center text-primary"
               >
                 Category
@@ -75,61 +75,59 @@
               <div
                 class="mt-5 shadow-md bg-white"
                 role="region"
-                [style.display]="accordionItem1.expanded ? '' : 'none'"
+                [style.display]="categoryAccordion.expanded ? '' : 'none'"
                 [attr.id]="'accordion-body-1'"
                 [attr.aria-labelledby]="'accordion-header-1'"
               >
-                <div class="flex flex-row px-6">
-                  <div class="w-1/2 pr-3.5">
-                    <app-button
-                      (click)="
-                        displayTypeSection();
-                        accordionItem1.toggle();
-                        accordionItem6.toggle()
+                <div class="flex flex-wrap">
+                  <div
+                    class="w-1/2 pr-3.5 mb-3"
+                    *ngFor="let category of categories"
+                  >
+                    <div *ngIf="category.name === 'Emergency'">
+                      <app-button
+                        (click)="
+                          displaySection('type');
+                          categoryAccordion.toggle();
+                          typeAccordion.toggle()
+                        "
+                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                        text="{{ category.name }}"
+                      ></app-button>
+                    </div>
+                    <div *ngIf="category.name === 'Sales Inquiry'">
+                      <app-button
+                        (click)="
+                          displaySection('business');
+                          categoryAccordion.toggle();
+                          lineOfBusinessAccordion.toggle()
+                        "
+                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                        text="{{ category.name }}"
+                      ></app-button>
+                    </div>
+                    <div
+                      *ngIf="
+                        category.name !== 'Emergency' &&
+                        category.name !== 'Sales Inquiry'
                       "
-                      classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
-                      text="Emergency"
-                    ></app-button>
-                  </div>
-                  <div class="w-1/2">
-                    <app-button
-                      (click)="
-                        displayBusinessSection();
-                        accordionItem1.toggle();
-                        accordionItem2.toggle()
-                      "
-                      [ngClass]="{
-                        'bg-primary': businessSectionFlag,
-                        'bg-main-gray': !businessSectionFlag
-                      }"
-                      classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
-                      text="Sales Inquiry"
-                    ></app-button>
-                  </div>
-                </div>
-                <div class="flex flex-row px-6 mt-4 mb-8">
-                  <div class="w-1/2 pr-3.5">
-                    <app-button
-                      classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
-                      text="Complaints"
-                    ></app-button>
-                  </div>
-                  <div class="w-1/2">
-                    <app-button
-                      classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
-                      text="Other"
-                    ></app-button>
+                    >
+                      <app-button
+                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                        text="{{ category.name }}"
+                      ></app-button>
+                    </div>
                   </div>
                 </div>
               </div>
             </cdk-accordion-item>
 
             <cdk-accordion-item
-              #accordionItem2="cdkAccordionItem"
+              #lineOfBusinessAccordion="cdkAccordionItem"
               role="button"
               tabindex="2"
               [attr.id]="'accordion-header-2'"
-              [attr.aria-expanded]="accordionItem2.expanded"
+              [attr.aria-expanded]="lineOfBusinessAccordion.expanded"
               [attr.aria-controls]="'accordion-body-3'"
             >
               <div
@@ -137,7 +135,7 @@
                 class="mt-4 w-full bg-white flex flex-col rounded-md shadow-md"
               >
                 <p
-                  (click)="accordionItem2.toggle()"
+                  (click)="lineOfBusinessAccordion.toggle()"
                   class="w-full text-[18px] py-3 flex justify-center items-center text-primary"
                 >
                   Line of Business
@@ -145,62 +143,25 @@
                 <div
                   class="mt-5 shadow-md bg-white"
                   role="region"
-                  [style.display]="accordionItem2.expanded ? '' : 'none'"
+                  [style.display]="
+                    lineOfBusinessAccordion.expanded ? '' : 'none'
+                  "
                   [attr.id]="'accordion-body-2'"
                   [attr.aria-labelledby]="'accordion-header-2'"
                 >
-                  <div class="flex flex-row px-6">
-                    <div class="w-1/2 pr-3.5">
+                  <div class="flex flex-wrap px-6">
+                    <div
+                      class="w-1/2 pr-3.5 mb-3"
+                      *ngFor="let business of businesses"
+                    >
                       <app-button
                         (click)="
-                          displayProductSection();
-                          accordionItem2.toggle();
-                          accordionItem3.toggle()
+                          displayProductSection(business.id);
+                          lineOfBusinessAccordion.toggle();
+                          productAccordion.toggle()
                         "
                         classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
-                        text="Life Insurance"
-                      ></app-button>
-                    </div>
-                    <div class="w-1/2">
-                      <app-button
-                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
-                        text="Health Insurance"
-                      ></app-button>
-                    </div>
-                  </div>
-                  <div class="flex flex-row px-6 mt-4">
-                    <div class="w-1/2 pr-3.5">
-                      <app-button
-                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
-                        text="Vehicle Insurance"
-                      ></app-button>
-                    </div>
-                    <div class="w-1/2">
-                      <app-button
-                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
-                        text="Liability Insurance"
-                      ></app-button>
-                    </div>
-                  </div>
-                  <div class="flex flex-row px-6 mt-4">
-                    <div class="w-1/2 pr-3.5">
-                      <app-button
-                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
-                        text="Income Protection Insurance"
-                      ></app-button>
-                    </div>
-                    <div class="w-1/2">
-                      <app-button
-                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
-                        text="Property Insurance"
-                      ></app-button>
-                    </div>
-                  </div>
-                  <div class="flex flex-row px-6 mt-4 mb-8">
-                    <div class="w-1/2 pr-3.5">
-                      <app-button
-                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
-                        text="Complaints"
+                        text="{{ business.name }}"
                       ></app-button>
                     </div>
                   </div>
@@ -209,11 +170,11 @@
             </cdk-accordion-item>
 
             <cdk-accordion-item
-              #accordionItem3="cdkAccordionItem"
+              #productAccordion="cdkAccordionItem"
               role="button"
               tabindex="3"
               [attr.id]="'accordion-header-3'"
-              [attr.aria-expanded]="accordionItem3.expanded"
+              [attr.aria-expanded]="productAccordion.expanded"
               [attr.aria-controls]="'accordion-body-3'"
             >
               <div
@@ -221,7 +182,7 @@
                 class="mt-4 w-full bg-white flex flex-col rounded-md shadow-md"
               >
                 <p
-                  (click)="accordionItem3.toggle()"
+                  (click)="productAccordion.toggle()"
                   class="w-full text-[18px] py-3 flex justify-center items-center text-primary"
                 >
                   Product
@@ -229,34 +190,23 @@
                 <div
                   class="mt-2 mb-5 bg-white"
                   role="region"
-                  [style.display]="accordionItem3.expanded ? '' : 'none'"
+                  [style.display]="productAccordion.expanded ? '' : 'none'"
                   [attr.id]="'accordion-body-3'"
                   [attr.aria-labelledby]="'accordion-header-3'"
                 >
-                  <div class="flex flex-row px-6">
-                    <div class="w-1/2 pr-3.5">
+                  <div class="flex flex-wrap px-6">
+                    <div
+                      class="w-1/2 pr-3.5 mb-3"
+                      *ngFor="let product of products"
+                    >
                       <app-button
                         (click)="
-                          diplayInitialSection();
-                          accordionItem3.toggle();
-                          accordionItem4.toggle()
+                          displayInitialSection();
+                          productAccordion.toggle();
+                          salesInitiateAccordion.toggle()
                         "
                         classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
                         text="MVA - Full Risk Cover"
-                      ></app-button>
-                    </div>
-                    <div class="w-1/2">
-                      <app-button
-                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
-                        text="TTM - Third-party Cover"
-                      ></app-button>
-                    </div>
-                  </div>
-                  <div class="flex flex-row px-6 mt-4">
-                    <div class="w-1/2 pr-3.5">
-                      <app-button
-                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
-                        text="IMV - No Medical Cover"
                       ></app-button>
                     </div>
                   </div>
@@ -265,19 +215,19 @@
             </cdk-accordion-item>
 
             <cdk-accordion-item
-              #accordionItem4="cdkAccordionItem"
+              #salesInitiateAccordion="cdkAccordionItem"
               role="button"
               tabindex="4"
               [attr.id]="'accordion-header-4'"
-              [attr.aria-expanded]="accordionItem4.expanded"
+              [attr.aria-expanded]="salesInitiateAccordion.expanded"
               [attr.aria-controls]="'accordion-body-3'"
             >
-              <div *ngIf="productSectionFlag && salesFlowFlag">
+              <div *ngIf="initialSectionFlag && salesFlowFlag">
                 <div
                   class="mt-4 w-full bg-white flex flex-col rounded-md shadow-md"
                 >
                   <p
-                    (click)="accordionItem3.toggle()"
+                    (click)="salesInitiateAccordion.toggle()"
                     class="w-full text-[18px] py-3 flex justify-center items-center text-primary"
                   >
                     Initiate
@@ -285,7 +235,9 @@
                   <div
                     class="mt-4 mb-5 bg-white"
                     role="region"
-                    [style.display]="accordionItem4.expanded ? '' : 'none'"
+                    [style.display]="
+                      salesInitiateAccordion.expanded ? '' : 'none'
+                    "
                     [attr.id]="'accordion-body-4'"
                     [attr.aria-labelledby]="'accordion-header-4'"
                   >
@@ -301,7 +253,7 @@
                           <div class="w-1/2 flex flex-col pl-3 set-opacity">
                             <app-input-field
                               label="Customer Ticket*:"
-                              value="CST-00211-2022"
+                              value="{{ data.dataKey.ticketCode.slice(0, 10) }}"
                             ></app-input-field>
                           </div>
                         </div>
@@ -342,7 +294,9 @@
                       *ngIf="pendingCardFlag"
                       class="w-full mt-10 pl-9 pr-10"
                     >
-                      <app-pending-informaiton-card></app-pending-informaiton-card>
+                      <app-pending-informaiton-card
+                        [requiredData]="requiredData"
+                      ></app-pending-informaiton-card>
                     </div>
                   </div>
                 </div>
@@ -350,11 +304,11 @@
             </cdk-accordion-item>
 
             <cdk-accordion-item
-              #accordionItem6="cdkAccordionItem"
+              #typeAccordion="cdkAccordionItem"
               role="button"
               tabindex="6"
               [attr.id]="'accordion-header-6'"
-              [attr.aria-expanded]="accordionItem6.expanded"
+              [attr.aria-expanded]="typeAccordion.expanded"
               [attr.aria-controls]="'accordion-body-6'"
             >
               <div
@@ -362,7 +316,7 @@
                 class="mt-4 w-full bg-white flex flex-col rounded-md shadow-md"
               >
                 <p
-                  (click)="accordionItem6.toggle()"
+                  (click)="typeAccordion.toggle()"
                   class="w-full text-[18px] py-3 flex justify-center items-center text-primary"
                 >
                   Type
@@ -370,57 +324,23 @@
                 <div
                   class="mt-2 mb-5 bg-white"
                   role="region"
-                  [style.display]="accordionItem6.expanded ? '' : 'none'"
+                  [style.display]="typeAccordion.expanded ? '' : 'none'"
                   [attr.id]="'accordion-body-6'"
                   [attr.aria-labelledby]="'accordion-header-6'"
                 >
-                  <div class="flex flex-row px-6">
+                  <div class="flex flex-wrap px-6">
                     <div
-                      *ngIf="typeSectionFlag && emergencyFlowFlag"
-                      class="w-1/2 pr-3.5"
+                      class="w-1/2 pr-3.5 mb-3"
+                      *ngFor="let emergencyType of emergencyTypes"
                     >
                       <app-button
                         (click)="
-                          accordionItem6.toggle();
-                          displayLocationSection();
-                          accordionItem7.toggle()
+                          typeAccordion.toggle();
+                          displayLocationSection(emergencyType.id);
+                          locationAccordion.toggle()
                         "
                         classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
-                        text="Vehicle Accident"
-                      ></app-button>
-                    </div>
-                    <div class="w-1/2">
-                      <app-button
-                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
-                        text="Medical Emergency"
-                      ></app-button>
-                    </div>
-                  </div>
-                  <div class="flex flex-row px-6 mt-4">
-                    <div class="w-1/2 pr-3.5">
-                      <app-button
-                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
-                        text="Water Flooding Accident"
-                      ></app-button>
-                    </div>
-                    <div class="w-1/2">
-                      <app-button
-                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
-                        text="Fire"
-                      ></app-button>
-                    </div>
-                  </div>
-                  <div class="flex flex-row px-6 mt-4">
-                    <div class="w-1/2 pr-3.5">
-                      <app-button
-                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
-                        text="Water Flooding Accident"
-                      ></app-button>
-                    </div>
-                    <div class="w-1/2">
-                      <app-button
-                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
-                        text="Other"
+                        text="{{ emergencyType.name }}"
                       ></app-button>
                     </div>
                   </div>
@@ -429,11 +349,11 @@
             </cdk-accordion-item>
 
             <cdk-accordion-item
-              #accordionItem7="cdkAccordionItem"
+              #locationAccordion="cdkAccordionItem"
               role="button"
               tabindex="7"
               [attr.id]="'accordion-header-7'"
-              [attr.aria-expanded]="accordionItem7.expanded"
+              [attr.aria-expanded]="locationAccordion.expanded"
               [attr.aria-controls]="'accordion-body-7'"
             >
               <div *ngIf="locationSectionFlag && emergencyFlowFlag">
@@ -441,7 +361,7 @@
                   class="mt-4 w-full bg-white flex flex-col rounded-md shadow-md"
                 >
                   <p
-                    (click)="accordionItem7.toggle()"
+                    (click)="locationAccordion.toggle()"
                     class="w-full text-[18px] py-3 flex justify-center items-center text-primary"
                   >
                     Location
@@ -449,7 +369,7 @@
                   <div
                     class="mt-2 mb-5 bg-white"
                     role="region"
-                    [style.display]="accordionItem7.expanded ? '' : 'none'"
+                    [style.display]="locationAccordion.expanded ? '' : 'none'"
                     [attr.id]="'accordion-body-7'"
                     [attr.aria-labelledby]="'accordion-header-7'"
                   >
@@ -465,11 +385,11 @@
             </cdk-accordion-item>
 
             <cdk-accordion-item
-              #accordionItem8="cdkAccordionItem"
+              #emergencyInitiate="cdkAccordionItem"
               role="button"
               tabindex="8"
               [attr.id]="'accordion-header-8'"
-              [attr.aria-expanded]="accordionItem8.expanded"
+              [attr.aria-expanded]="emergencyInitiate.expanded"
               [attr.aria-controls]="'accordion-body-8'"
             >
               <div
@@ -477,7 +397,7 @@
               >
                 <div *ngIf="locationSectionFlag && emergencyFlowFlag">
                   <p
-                    (click)="accordionItem8.toggle()"
+                    (click)="emergencyInitiate.toggle()"
                     class="w-full text-[18px] py-3 flex justify-center items-center text-primary"
                   >
                     Initiate
@@ -485,11 +405,24 @@
                   <div
                     class="mt-2 mb-5 bg-white"
                     role="region"
-                    [style.display]="accordionItem8.expanded ? '' : 'none'"
+                    [style.display]="emergencyInitiate.expanded ? '' : 'none'"
                     [attr.id]="'accordion-body-8'"
                     [attr.aria-labelledby]="'accordion-header-8'"
                   >
-                    <div class="flex flex-row px-6">
+                    <div class="flex flex-wrap px-6">
+                      <div
+                        class="w-1/2 pr-3.5 mb-3"
+                        *ngFor="
+                          let emergencyInitiateItem of emergencyInitiateItems
+                        "
+                      >
+                        <app-button
+                          classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                          text="{{ emergencyInitiateItem.name }}"
+                        ></app-button>
+                      </div>
+                    </div>
+                    <!-- <div class="flex flex-row px-6">
                       <div class="w-1/2 pr-3.5">
                         <app-button
                           classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray "
@@ -510,7 +443,7 @@
                           text="Send Ambulance"
                         ></app-button>
                       </div>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
