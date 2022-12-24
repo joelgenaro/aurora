@@ -57,6 +57,7 @@
       <div class="h-[33px] colorflag">
         <app-input-field
           [(inputValue)]="detailContent"
+          value="{{ detailContent }}"
           class="flex p-0 text-primary"
         ></app-input-field>
       </div>
@@ -110,6 +111,7 @@
           <div class="border border-t-0 border-x-0 border-b h-[33px]">
             <app-input-field
               [(inputValue)]="additionalDetailContent"
+              value="{{ additionalDetailContent }}"
               class="flex widthFlag"
             ></app-input-field>
           </div>
@@ -123,6 +125,7 @@
           <div class="border border-t-0 border-x-0 border-b h-[33px]">
             <app-input-field
               [(inputValue)]="policyPrice"
+              value="{{ policyPrice }}"
               class="flex widthFlag"
             ></app-input-field>
           </div>
