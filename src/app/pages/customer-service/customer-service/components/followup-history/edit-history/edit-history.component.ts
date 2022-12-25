@@ -35,10 +35,12 @@ export class EditHistoryComponent implements OnInit {
   toEditCommunciation: any;
 
   ngOnInit(): void {
+    // actionFlag = -1 means creating communication.
     if (this.actionFlag !== -1) {
       this.toEditCommunciation = Object.values(this.data.detailsJson)[
         this.actionFlag
       ];
+
       this.response = this.toEditCommunciation.response;
       this.detailContent = this.toEditCommunciation.detailContent;
       this.policyPrice = this.toEditCommunciation.policyPrice;
@@ -48,6 +50,7 @@ export class EditHistoryComponent implements OnInit {
     }
   }
 
+  // displaying flag
   pageEvent(flag: string) {
     if (flag == 'request') {
       this.pageFlag = flag;
@@ -61,10 +64,12 @@ export class EditHistoryComponent implements OnInit {
     }
   }
 
+  // get current response value(0, 1, 2)
   getResponse(res: number) {
     this.response = res;
   }
 
+  // edit existing communication
   editCommunciation(currentArray: {}[]) {
     const detail = {
       id: this.actionFlag,
@@ -74,11 +79,14 @@ export class EditHistoryComponent implements OnInit {
       additionalDetailContent: this.additionalDetailContent,
       date: new Date(),
     };
+
     currentArray.splice(this.actionFlag, 1, detail);
+
     this.data.detailsJson = Object.assign({}, currentArray);
     this.policyCardService.updatePolicyRenewalTickets(this.data);
   }
 
+  // create existing communication
   createNewCommunications(currentArray: {}[]) {
     const detail = {
       id: currentArray.length,
@@ -88,16 +96,19 @@ export class EditHistoryComponent implements OnInit {
       additionalDetailContent: this.additionalDetailContent,
       date: new Date(),
     };
+
     currentArray.push(detail);
 
     this.data.detailsJson = Object.assign({}, currentArray);
     this.policyCardService.updatePolicyRenewalTickets(this.data);
   }
 
+  // save current communication on edit or create action
   saveHistory() {
     let currentCommunications: {}[] = [];
 
     switch (this.actionFlag) {
+      // actionFlag = -1 means creating communication.
       case -1:
         if (
           Object.keys(this.data.detailsJson).length === 0 &&
@@ -108,6 +119,7 @@ export class EditHistoryComponent implements OnInit {
           this.createNewCommunications(Object.values(this.data.detailsJson));
         }
         break;
+      // actionFlag != -1 means edit communication[actionFlag]
       default:
         this.editCommunciation(Object.values(this.data.detailsJson));
         break;

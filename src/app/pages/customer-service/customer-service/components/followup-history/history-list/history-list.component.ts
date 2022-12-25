@@ -188,6 +188,7 @@ export class HistoryListComponent
     settings: this.tableSettings,
   };
 
+  // get icon name according to the response value.
   displayIcon(response: number) {
     switch (response) {
       case 0:
@@ -226,8 +227,9 @@ export class HistoryListComponent
   }
 
   onTicketEdited(_category: TicketHistoryListItem) {
-    console.log(_category.id);
+    // display other pages for editing
     this.pageControlChange.emit('next');
+    // send id to edit.
     this.actionFlagChange.emit(_category.id);
   }
 
@@ -241,6 +243,7 @@ export class HistoryListComponent
       this.historyData[i].id = i;
       this.historyList[i].id = i;
     }
+
     this.data.detailsJson = Object.assign({}, this.historyData);
     this.policyCardService.updatePolicyRenewalTickets(this.data);
     this.table.refresh();

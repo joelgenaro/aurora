@@ -19,7 +19,7 @@ export class PolicyCardComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    const initial_url = '../../../../../../assets/images/personThree.png';
+    const initial_url = '../../../../../../assets/images/profile.svg';
     const mil_seconds = 3600 * 24 * 1000;
     const date = new Date().getTime() - Date.parse(this.card.dateCreated);
     const day = Math.floor(date / mil_seconds);

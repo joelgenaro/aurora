@@ -67,6 +67,7 @@ mat-drawer-content {
 }
 ::ng-deep .mat-dialog-container {
   overflow-y: hidden !important;
+  overflow-x: scroll !important;
 }
 
 .drag-boundary {
