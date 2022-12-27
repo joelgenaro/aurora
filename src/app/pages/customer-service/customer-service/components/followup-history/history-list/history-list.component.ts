@@ -16,6 +16,7 @@ import { TableConfiguration } from '@root/shared/models/table/table-configuratio
 import { TableRowAction } from '@root/shared/models/table/table-row-action.model';
 import { TableSettings } from '@root/shared/models/table/table-settings.model';
 import { TicketHistoryListItem } from '../../../models/ticket-history-list-item.model';
+import { PolicyCardService } from '@root/pages/customer-service/policy-renewals/services/policy-card.service';
 
 @Component({
   selector: 'app-history-list',
@@ -27,12 +28,16 @@ export class HistoryListComponent
   extends BaseComponent
   implements OnInit, AfterViewInit
 {
-  constructor() {
+  constructor(public policyCardService: PolicyCardService) {
     super();
   }
-
+  @Input() pageControl: string;
+  @Input() actionFlag: number;
   @Input() data: any;
   @Output() NextPageEvent = new EventEmitter<boolean>();
+  @Output() pageControlChange = new EventEmitter<any>();
+  @Output() actionFlagChange = new EventEmitter<any>();
+
   @ViewChild(WidgetTableComponent)
   table: WidgetTableComponent<TicketHistoryListItem>;
   pageSize = 3;
@@ -43,7 +48,20 @@ export class HistoryListComponent
     { id: '1', name: 'type2' },
   ];
   iconResponseName: string;
-  historyList: { Date: string; employeeName: string; Response: string }[] = [];
+  historyList: {
+    id: number;
+    Date: string;
+    employeeName: string;
+    Response: string;
+  }[] = [];
+  historyData: {
+    id: number;
+    response: number;
+    detailContent: string;
+    policyPrice: string;
+    additionalDetailContent: string;
+    date: string;
+  }[];
 
   happyIcon: TableRowAction<TicketHistoryListItem> = {
     action: (data) => this.onTicketEdited(data),
@@ -110,6 +128,7 @@ export class HistoryListComponent
 
   editAction: TableRowAction<TicketHistoryListItem> = {
     action: (data) => this.onTicketEdited(data),
+
     cssClasses: 'text-primary',
     iconName: 'edit',
     translationKey: '',
@@ -120,6 +139,7 @@ export class HistoryListComponent
 
   viewAction: TableRowAction<TicketHistoryListItem> = {
     action: (data) => this.onTicketViewed(data),
+
     cssClasses: 'text-primary',
     iconName: 'visibility',
     translationKey: '',
@@ -130,6 +150,7 @@ export class HistoryListComponent
 
   deleteAction: TableRowAction<TicketHistoryListItem> = {
     action: (data) => this.onTicketDeleted(data),
+
     cssClasses: 'text-red-500',
     iconName: 'delete',
     translationKey: '',
@@ -140,6 +161,7 @@ export class HistoryListComponent
 
   lockAction: TableRowAction<TicketHistoryListItem> = {
     action: (data) => this.onTicketLocked(data),
+
     cssClasses: 'text-black',
     iconName: 'lock',
     translationKey: '',
@@ -166,6 +188,7 @@ export class HistoryListComponent
     settings: this.tableSettings,
   };
 
+  // get icon name according to the response value.
   displayIcon(response: number) {
     switch (response) {
       case 0:
@@ -179,21 +202,22 @@ export class HistoryListComponent
 
   ngOnInit(): void {
     //define the type of historyData
-    let historyData: {
-      response: number;
-      detailContent: string;
-      policyPrice: string;
-      additionalDetailContent: string;
-      date: string;
-    }[];
+    this.getHistoryData();
+  }
 
-    historyData = Object.values(this.data.detailsJson);
+  ngAfterViewInit(): void {
+    this.table.refresh();
+  }
 
-    for (let i = 0; i < historyData.length; i++) {
+  getHistoryData() {
+    this.historyData = Object.values(this.data.detailsJson);
+
+    for (let i = 0; i < this.historyData.length; i++) {
       let historyItem = {
-        Response: this.displayIcon(historyData[i].response),
+        id: this.historyData[i].id,
+        Response: this.displayIcon(this.historyData[i].response),
         employeeName: '',
-        Date: new Date(historyData[i].date).toDateString(),
+        Date: new Date(this.historyData[i].date).toDateString(),
       };
       this.historyList.push(historyItem);
     }
@@ -202,17 +226,28 @@ export class HistoryListComponent
     this.tableConfiguration.dataCount = this.historyList.length;
   }
 
-  ngAfterViewInit(): void {
-    this.table.refresh();
-  }
-
   onTicketEdited(_category: TicketHistoryListItem) {
-    this.NextPageEvent.emit(true);
+    // display other pages for editing
+    this.pageControlChange.emit('next');
+    // send id to edit.
+    this.actionFlagChange.emit(_category.id);
   }
 
   onTicketViewed(_category: TicketHistoryListItem) {}
 
-  onTicketDeleted(_category: TicketHistoryListItem) {}
+  onTicketDeleted(_category: TicketHistoryListItem) {
+    this.historyData.splice(_category.id, 1);
+    this.historyList.splice(_category.id, 1);
+
+    for (let i = 0; i < this.historyData.length; i++) {
+      this.historyData[i].id = i;
+      this.historyList[i].id = i;
+    }
+
+    this.data.detailsJson = Object.assign({}, this.historyData);
+    this.policyCardService.updatePolicyRenewalTickets(this.data);
+    this.table.refresh();
+  }
 
   onTicketLocked(_category: TicketHistoryListItem) {}
 }

@@ -16,6 +16,8 @@ import { BaseListItem } from '@root/shared/models/base-list-item.model';
 })
 export class PolicyRenewalsCustomerServiceTicketComponent implements OnInit {
   pageFlag: string = 'first';
+  // flag for edit or create
+  communicationAction: number = -1;
   noteSectionFlag: boolean = false;
   status: BaseListItem[];
 

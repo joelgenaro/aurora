@@ -18,6 +18,7 @@ import { CustomerCardService } from '../../services/customer-card.service';
 export class CustomerServiceTicketComponent implements OnInit {
   subscription: Subscription;
   // state variable
+  buttonAfterClickStyle: string = 'white bg-[#005F83]';
   noteSectionFlag: boolean = false;
   businessSectionFlag: boolean = false;
   productSectionFlag: boolean = false;
@@ -43,6 +44,20 @@ export class CustomerServiceTicketComponent implements OnInit {
     name: string;
     emergencyTypeId: number;
   }[] = [];
+  isBlue: boolean = false;
+  choosedButtons: {
+    category: number;
+    business: number;
+    product: number;
+    emergencyType: number;
+    initiate: number;
+  } = {
+    category: 0,
+    business: 0,
+    product: 0,
+    emergencyType: 0,
+    initiate: 0,
+  };
 
   constructor(
     public dialogRef: MatDialogRef<CustomerServiceTicketComponent>,
@@ -64,7 +79,11 @@ export class CustomerServiceTicketComponent implements OnInit {
     this.noteSectionFlag = !this.noteSectionFlag;
   }
 
-  displaySection(sectionFlag: string) {
+  // move to emergency flow or sales flow section
+  displaySection(sectionFlag: string, categoryId: number) {
+    this.choosedButtons.category = categoryId;
+    console.log(this.choosedButtons.category);
+    this.isBlue = !this.isBlue;
     switch (sectionFlag) {
       case 'business': {
         this.businessSectionFlag = true;
@@ -95,38 +114,39 @@ export class CustomerServiceTicketComponent implements OnInit {
     }
   }
 
-  displayBusinessSection() {
-    this.businessSectionFlag = true;
-    this.salesFlowFlag = true;
-    this.emergencyFlowFlag = false;
-  }
-
+  // move to the product section
   displayProductSection(businessId: number) {
+    this.choosedButtons.business = businessId;
     this.subscription = this.customerCardService
       .getProduct(businessId)
       .subscribe((data: any) => {
         this.products = data;
-
         this.ref.detectChanges();
       });
     this.productSectionFlag = true;
   }
 
-  displayInitialSection() {
+  // move to initialSection
+  displayInitialSection(productId: number) {
+    this.choosedButtons.product = productId;
     this.initialSectionFlag = true;
   }
 
+  //  move to type section
   displayTypeSection() {
     this.typeSectionFlag = true;
     this.salesFlowFlag = false;
     this.emergencyFlowFlag = true;
   }
 
-  diplayPendingCard() {
+  // display pending card
+  displayPendingCard() {
     this.pendingCardFlag = true;
   }
 
+  // display location section
   displayLocationSection(emergencyTypeId: number) {
+    this.choosedButtons.emergencyType = emergencyTypeId;
     this.subscription = this.customerCardService
       .getEmergencyInitiateItems(emergencyTypeId)
       .subscribe((data: any) => {

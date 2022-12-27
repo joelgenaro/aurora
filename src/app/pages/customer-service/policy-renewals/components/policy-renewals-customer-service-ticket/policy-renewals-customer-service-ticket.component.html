@@ -128,12 +128,17 @@
                   class="border-none"
                 >
                   <div *ngIf="pageFlag == 'first'">
-                    <app-history-list [data]="data.dataKey"></app-history-list>
+                    <app-history-list
+                      [(pageControl)]="pageFlag"
+                      [(actionFlag)]="communicationAction"
+                      [data]="data.dataKey"
+                    ></app-history-list>
                     <div class="none"></div>
                   </div>
                   <div *ngIf="pageFlag == 'next'">
                     <app-edit-history
                       [(pageControl)]="pageFlag"
+                      [actionFlag]="communicationAction"
                       [data]="data.dataKey"
                     ></app-edit-history>
                   </div>
