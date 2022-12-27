@@ -85,26 +85,52 @@
                     *ngFor="let category of categories"
                   >
                     <div *ngIf="category.name === 'Emergency'">
-                      <app-button
-                        (click)="
-                          displaySection('type');
-                          categoryAccordion.toggle();
-                          typeAccordion.toggle()
-                        "
-                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
-                        text="{{ category.name }}"
-                      ></app-button>
+                      <div *ngIf="choosedButtons.category === category.id">
+                        <app-button
+                          (click)="
+                            displaySection('type', category.id);
+                            categoryAccordion.toggle();
+                            typeAccordion.toggle()
+                          "
+                          classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-[#005F83] text-white"
+                          text="{{ category.name }}"
+                        ></app-button>
+                      </div>
+                      <div *ngIf="choosedButtons.category !== category.id">
+                        <app-button
+                          (click)="
+                            displaySection('type', category.id);
+                            categoryAccordion.toggle();
+                            typeAccordion.toggle()
+                          "
+                          classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                          text="{{ category.name }}"
+                        ></app-button>
+                      </div>
                     </div>
                     <div *ngIf="category.name === 'Sales Inquiry'">
-                      <app-button
-                        (click)="
-                          displaySection('business');
-                          categoryAccordion.toggle();
-                          lineOfBusinessAccordion.toggle()
-                        "
-                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
-                        text="{{ category.name }}"
-                      ></app-button>
+                      <div *ngIf="choosedButtons.category === category.id">
+                        <app-button
+                          (click)="
+                            displaySection('business', category.id);
+                            categoryAccordion.toggle();
+                            lineOfBusinessAccordion.toggle()
+                          "
+                          classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-[#005F83] text-white"
+                          text="{{ category.name }}"
+                        ></app-button>
+                      </div>
+                      <div *ngIf="choosedButtons.category !== category.id">
+                        <app-button
+                          (click)="
+                            displaySection('business', category.id);
+                            categoryAccordion.toggle();
+                            lineOfBusinessAccordion.toggle()
+                          "
+                          classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                          text="{{ category.name }}"
+                        ></app-button>
+                      </div>
                     </div>
                     <div
                       *ngIf="
@@ -154,15 +180,28 @@
                       class="w-1/2 pr-3.5 mb-3"
                       *ngFor="let business of businesses"
                     >
-                      <app-button
-                        (click)="
-                          displayProductSection(business.id);
-                          lineOfBusinessAccordion.toggle();
-                          productAccordion.toggle()
-                        "
-                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
-                        text="{{ business.name }}"
-                      ></app-button>
+                      <div *ngIf="choosedButtons.business === business.id">
+                        <app-button
+                          (click)="
+                            displayProductSection(business.id);
+                            lineOfBusinessAccordion.toggle();
+                            productAccordion.toggle()
+                          "
+                          classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-[#005F83] text-white"
+                          text="{{ business.name }}"
+                        ></app-button>
+                      </div>
+                      <div *ngIf="choosedButtons.business !== business.id">
+                        <app-button
+                          (click)="
+                            displayProductSection(business.id);
+                            lineOfBusinessAccordion.toggle();
+                            productAccordion.toggle()
+                          "
+                          classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                          text="{{ business.name }}"
+                        ></app-button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -199,15 +238,28 @@
                       class="w-1/2 pr-3.5 mb-3"
                       *ngFor="let product of products"
                     >
-                      <app-button
-                        (click)="
-                          displayInitialSection();
-                          productAccordion.toggle();
-                          salesInitiateAccordion.toggle()
-                        "
-                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
-                        text="MVA - Full Risk Cover"
-                      ></app-button>
+                      <div *ngIf="product.id === choosedButtons.product">
+                        <app-button
+                          (click)="
+                            displayInitialSection(product.id);
+                            productAccordion.toggle();
+                            salesInitiateAccordion.toggle()
+                          "
+                          classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-[#005F83] text-white"
+                          text="MVA - Full Risk Cover"
+                        ></app-button>
+                      </div>
+                      <div *ngIf="product.id !== choosedButtons.product">
+                        <app-button
+                          (click)="
+                            displayInitialSection(product.id);
+                            productAccordion.toggle();
+                            salesInitiateAccordion.toggle()
+                          "
+                          classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                          text="MVA - Full Risk Cover"
+                        ></app-button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -264,7 +316,7 @@
                           </p>
 
                           <span
-                            (click)="diplayPendingCard()"
+                            (click)="displayPendingCard()"
                             class="text-xs text-primary border border-x-0 border-t-0 border-b-1"
                           >
                             Check Pending Information list here
@@ -333,15 +385,36 @@
                       class="w-1/2 pr-3.5 mb-3"
                       *ngFor="let emergencyType of emergencyTypes"
                     >
-                      <app-button
-                        (click)="
-                          typeAccordion.toggle();
-                          displayLocationSection(emergencyType.id);
-                          locationAccordion.toggle()
+                      <div
+                        *ngIf="
+                          emergencyType.id === choosedButtons.emergencyType
                         "
-                        classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
-                        text="{{ emergencyType.name }}"
-                      ></app-button>
+                      >
+                        <app-button
+                          (click)="
+                            typeAccordion.toggle();
+                            displayLocationSection(emergencyType.id);
+                            locationAccordion.toggle()
+                          "
+                          classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-[#005F83] text-white"
+                          text="{{ emergencyType.name }}"
+                        ></app-button>
+                      </div>
+                      <div
+                        *ngIf="
+                          emergencyType.id !== choosedButtons.emergencyType
+                        "
+                      >
+                        <app-button
+                          (click)="
+                            typeAccordion.toggle();
+                            displayLocationSection(emergencyType.id);
+                            locationAccordion.toggle()
+                          "
+                          classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray"
+                          text="{{ emergencyType.name }}"
+                        ></app-button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -422,28 +495,6 @@
                         ></app-button>
                       </div>
                     </div>
-                    <!-- <div class="flex flex-row px-6">
-                      <div class="w-1/2 pr-3.5">
-                        <app-button
-                          classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray "
-                          text="Send Towing"
-                        ></app-button>
-                      </div>
-                      <div class="w-1/2">
-                        <app-button
-                          classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center  bg-main-gray "
-                          text="Send Expert"
-                        ></app-button>
-                      </div>
-                    </div>
-                    <div class="flex flex-row px-6 mt-4 mb-3">
-                      <div class="w-1/2 pr-3.5">
-                        <app-button
-                          classes="w-1/2 py-3 text-[12px] leading-none text-center flex justify-center items-center bg-main-gray "
-                          text="Send Ambulance"
-                        ></app-button>
-                      </div>
-                    </div> -->
                   </div>
                 </div>
               </div>
